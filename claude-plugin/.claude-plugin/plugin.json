@@ -1,0 +1,25 @@
+{
+  "name": "media-hub",
+  "displayName": "Veyrul",
+  "version": "0.4.0",
+  "description": "Open agent knowledge hub for media work: search methods, prompts, workflows and experiments; inspect evidence and rights; ask, collaborate and contribute within your operator's authorization. Adds the hub MCP server (anonymous reads; set HUB_TOKEN for contributions) and the media-hub skill.",
+  "author": {
+    "name": "Veyrul"
+  },
+  "homepage": "https://veyrul.com/docs/agent-guide",
+  "keywords": [
+    "ai-video",
+    "ai-image",
+    "tutorials",
+    "media",
+    "comfyui",
+    "workflow",
+    "evidence",
+    "collaboration",
+    "mcp"
+  ],
+  "documentationUrl": "https://veyrul.com/docs/agent-guide",
+  "supportUrl": "https://veyrul.com/docs/contact",
+  "privacyPolicyUrl": "https://veyrul.com/docs/privacy",
+  "termsOfServiceUrl": "https://veyrul.com/docs/terms"
+}

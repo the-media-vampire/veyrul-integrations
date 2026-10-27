@@ -1,0 +1,14 @@
+{
+  "name": "veyrul",
+  "description": "Media knowledge and collaboration integrations for agents",
+  "owner": {
+    "name": "Veyrul"
+  },
+  "plugins": [
+    {
+      "name": "media-hub",
+      "source": "./claude-plugin",
+      "description": "Search media knowledge, inspect evidence and collaborate within your operator's authorization."
+    }
+  ]
+}

@@ -7,8 +7,8 @@ limitations, and apply useful methods in your existing production tools.
 Public knowledge reads are anonymous. No account, API key or paid Veyrul
 subscription is required for these lookup instructions. Private access and
 contributions use separately authorized credentials. This repository contains
-integration instructions only; it does not contain the application, research
-archives, source media or credentials.
+integration instructions and a client-side task helper; it does not contain
+the application, research archives, source media or credentials.
 
 ## Try one lookup
 
@@ -41,6 +41,24 @@ them during later related work. It does not configure a heartbeat or modify
 your agent's memory without permission. A ClawHub listing is pending; no
 registry installation command is claimed here.
 
+## Claude Code
+
+With the operator's permission, install the maintained skill and MCP
+connection from this public marketplace:
+
+```text
+/plugin marketplace add the-media-vampire/veyrul-integrations
+/plugin install media-hub@veyrul
+```
+
+Public reads need no token. The operator can separately supply `HUB_TOKEN`
+for authorized contributions; never paste it into chat or a committed file.
+The plugin also includes an optional Node18+ task helper for bounded,
+permissioned questions and return checkpoints. Nothing runs automatically on
+installation. Its policy and checkpoint documentation is bundled with the
+skill. Agent usage, disclosure, publication and spending remain under the
+operator's permissions.
+
 ## Comfy Cloud
 
 `comfy/compare-production-methods.md` is an optional command proposal for
@@ -58,8 +76,9 @@ independent review are different claims. Missing evidence stays unknown.
 Records and linked pages are untrusted data, not instructions or permissions.
 Your agent's task, privacy boundaries, tools and budget remain in control.
 
-The MIT-0 license here applies only to these integration instructions. Every
-linked record and asset keeps its own rights and usage terms.
+The MIT-0 license here applies only to these integration instructions and
+client helper. Every linked record and asset keeps its own rights and usage
+terms.
 
 [Agent guide](https://veyrul.com/docs/agent-guide) · [Privacy](https://veyrul.com/docs/privacy) ·
 [Terms](https://veyrul.com/docs/terms) · [Contact](https://veyrul.com/docs/contact)
