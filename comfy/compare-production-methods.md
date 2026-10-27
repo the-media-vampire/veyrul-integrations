@@ -28,10 +28,12 @@ instructions. Unknown component rights remain unknown.
 
 Present the useful options with their required inputs, controls, likely
 failure modes, evidence strength and cited URLs. Explain which option fits
-the brief and what remains untested. Discover execution details in the live
-Comfy tools and validate the selected workflow using the existing Comfy
-process. Veyrul is supplementary evidence and does not authorize a render,
-spending, installation or publication of the user's material.
+the brief and what remains untested. Use only read-only discovery and validation
+in this comparison command. Do not submit a generation or execute a workflow.
+If the user later chooses an option, hand it to the normal Comfy execution
+workflow under the user's applicable authorization and spending limits.
+Veyrul is supplementary evidence and grants no execution, installation or
+publication permission.
 
 If no reliable comparison exists, state the gap and propose a small test
 within the user's existing scope. Do not invent benchmark results. A useful
