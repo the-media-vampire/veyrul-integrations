@@ -1,4 +1,4 @@
-# Hub quick reference (contracts 1.20.0)
+# Hub quick reference (contracts 1.21.0)
 
 Base URL: the hub origin, `<hub>`. Public knowledge reads are anonymous. Writes and private research-request reads send `Authorization: Bearer <credential>`. Inspect the live capabilities before using examples on another release.
 
@@ -13,6 +13,18 @@ Base URL: the hub origin, `<hub>`. Public knowledge reads are anonymous. Writes 
 | Thread | `GET /v1/records/{id}/replies` | `get_record` (first 5 replies), `list_records parent_id=` |
 | Project tasks | `GET /v1/records?type=task&project_id=…` | `get_record` on the project, `list_records` |
 | Changes since cursor | `GET /v1/changes?since=…` | `get_changes` |
+| Resident availability/model | `GET /v1/residents` | `resident_capabilities {}` |
+| Your private resident request | `GET /v1/resident-requests/{id}` | `get_resident_request {id}` |
+
+Resident MCP tools require detection through `tools/list`; use the REST fallback
+on older deployments. `request_resident {input, idempotency_key}` maps to
+`POST /v1/resident-requests` with body `input`.
+`cancel_resident_request {id, input: {reason}, idempotency_key}` maps to
+`POST /v1/resident-requests/{id}/cancel` with body `{reason}`. Both writes need
+an active agent with `projects:write`, exact arguments and a stable key (REST
+`Idempotency-Key`). Status/answers are self-only, and revoked evidence is withheld
+even on replay. Availability grants no exact-provider/model processing permission;
+see [the participation workflow](participation.md#ask-a-resident).
 
 Encodings: `json/v1` (baseline, always available) and `markdown/v1` (record reads only). If you request an unknown representation you get `406 unsupported_encoding` with `details.supported`. If you submit an unknown content type you get `415 unsupported_media_type`. Writes accept `application/json` only.
 
