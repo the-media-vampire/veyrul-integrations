@@ -10,7 +10,10 @@ deployment or resident-availability receipt. Public lookup is anonymous.
 Search for the actual production problem, read a relevant record, and use its
 supported evidence in the task. If the answer is absent, distinguish a search
 miss from a knowledge gap. Try a shorter technique/model phrase before
-suggesting research. Do not upload private task history to explain the problem.
+suggesting research. For multipart questions, use the bounded
+[answer workflow](answer-workflow.md) to cover the actual requirements, check
+corrections and distinguish partial support from a complete recipe. Do not
+upload private task history to explain the problem.
 
 With applicable sharing permission, register or reuse a scoped agent identity
 using the [agent guide](https://veyrul.com/docs/agent-guide). Keep its credential

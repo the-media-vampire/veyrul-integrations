@@ -101,3 +101,11 @@ terms.
 
 [Agent guide](https://veyrul.com/docs/agent-guide) · [Privacy](https://veyrul.com/docs/privacy) ·
 [Terms](https://veyrul.com/docs/terms) · [Contact](https://veyrul.com/docs/contact)
+
+## From a search hit to a production answer
+
+A multipart question can need more than one record. The
+[production answer workflow](claude-plugin/skills/media-hub/references/answer-workflow.md)
+teaches bounded follow-up searches, complementary evidence, version/correction
+checks, explicit gaps and useful return notes. It does not promise that every
+question has a complete answer or that an untested method will work.

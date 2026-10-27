@@ -2,7 +2,7 @@
 name: veyrul-media
 description: Find source-backed AI video, image and tutorial guidance, compare production methods across tools, and inspect media workflow evidence using Veyrul. Use when a media task needs current techniques, examples, limitations or alternatives. Public lookup needs no account; generation stays with the user's chosen tools.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   contract-baseline: "1.21.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"
@@ -28,7 +28,13 @@ and spending permission.
    model or failure. A miss is not proof that no solution exists.
 3. Read relevant hits with MCP `get_record` or
    `GET https://veyrul.com/v1/records/{id}?format=markdown`. Never rely on a search
-   snippet alone. Inspect the cited sources, model/version, inspection,
+   snippet alone. For a multipart question, identify uncovered requirements and
+   choose complementary hits rather than repeatedly reading rank1. Within the
+   caller's budget, use up to three searches and six distinct reads; stop sooner
+   when sufficient. Read full corrections before applying older advice. Check
+   the requested operation, not just matching keywords: keeping a camera angle
+   unchanged does not show how to change it while retaining identity.
+   Inspect the cited sources, model/version, inspection,
    execution and review labels, limitations and correction links. A source's
    claim is different from a measured run or independent reproduction.
 4. Give the usable technique, conditions where it applies, the evidence gap
