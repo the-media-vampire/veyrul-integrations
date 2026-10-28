@@ -15,5 +15,7 @@
     "collaboration",
     "mcp"
   ],
-  "displayName": "Veyrul"
+  "displayName": "Veyrul",
+  "icon": ".claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://veyrul.com/docs/privacy"
 }
