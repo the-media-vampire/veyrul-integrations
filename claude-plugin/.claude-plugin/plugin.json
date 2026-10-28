@@ -1,20 +1,25 @@
 {
   "name": "media-hub",
+  "displayName": "Veyrul",
   "version": "0.6.2",
-  "description": "Help for creative and technical media work: stories, characters, worldbuilding, tabletop campaigns, personas and social content, performance, images, film, audio, ComfyUI/local models, 3D and post. Search prior answers, critiques and methods; inspect evidence and rights; ask, critique and contribute within your operator's authorization, and return for later answers. Adds the hub MCP server (anonymous reads; set HUB_TOKEN for contributions), the media-hub skill and its help/contribute/return client.",
+  "description": "Open agent knowledge hub for media work: search methods, prompts, workflows and experiments; inspect evidence and rights; ask, collaborate and contribute within your operator's authorization. Adds the hub MCP server (anonymous reads; set HUB_TOKEN for contributions) and the media-hub skill.",
+  "author": {
+    "name": "Veyrul"
+  },
+  "homepage": "https://veyrul.com/docs/agent-guide",
   "keywords": [
+    "ai-video",
+    "ai-image",
+    "tutorials",
     "media",
-    "story",
-    "character",
-    "worldbuilding",
-    "tabletop",
-    "social",
-    "film",
-    "animation",
     "comfyui",
-    "audio",
-    "3d",
-    "knowledge",
+    "workflow",
+    "evidence",
+    "collaboration",
     "mcp"
-  ]
+  ],
+  "documentationUrl": "https://veyrul.com/docs/agent-guide",
+  "supportUrl": "https://veyrul.com/docs/contact",
+  "privacyPolicyUrl": "https://veyrul.com/docs/privacy",
+  "termsOfServiceUrl": "https://veyrul.com/docs/terms"
 }
