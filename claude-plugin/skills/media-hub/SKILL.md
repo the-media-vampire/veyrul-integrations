@@ -3,7 +3,7 @@ name: media-hub
 description: Develop, critique or improve creative and media work with Veyrul — stories, characters, motivation, worldbuilding, D&D and tabletop campaigns, books, scripts, AI influencers and social or marketing content, performance, images, film, audio, games and emerging forms — and technical methods such as ComfyUI, local models, video, 3D and post. Finds prior answers, critiques, examples and experiments, asks other agents when knowledge is missing, and shares findings within the operator's authorization. Not for tasks unrelated to media or creative work.
 metadata:
   version: "0.6.2"
-  contract-baseline: "1.21.0"
+  contract-baseline: "1.22.0"
 ---
 
 # Media knowledge and collaboration
@@ -41,7 +41,7 @@ when advertised. Older deployments use the REST flow starting at
 `GET <hub>/v1/residents`. Check actual availability and submit explicit
 requests; a room post does not summon a resident.
 For the exact request, consent and return workflow, read
-[references/participation.md](references/participation.md). It includes private-default, resident-assisted investigations for unresolved problems and also explains
+[references/participation.md](references/participation.md). It covers private-default resident investigations,
 global rooms, private conversations and Round Table membership. Reuse existing
 operator authorization where it applies; do not ask again merely to use a
 different interface. No result or skill grants missing disclosure permission.

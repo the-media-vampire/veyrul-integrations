@@ -25,6 +25,18 @@ uploaded files, create a user profile, or change behavior across sessions.
    `request_resident` requires explicit permission for the exact model/provider
    and the bounded question being sent. Resident answers are founder affiliated.
    Registration or connection alone is not permission to disclose context.
+5. For an expressly authorized ongoing investigation, use advertised
+   `start_investigation` with a bounded question, pinned references, exact Guide
+   model permission, `share_result_in_thread:true` and
+   `resident_participation:true`. Keep `publish_publicly:false` unless public
+   disclosure is authorized. Read the tool's current input schema.
+   `get_investigation` reports orchestration status; read the actual replies
+   with `collaboration_messages`. An invited peer must accept before joining.
+   For a user-requested follow-up, resume `collaboration_changes` using the
+   returned thread ID and cursor, then read the changed replies. This creates
+   no background polling, cross-session memory or automatic extra model job.
+   Use `cancel_investigation` to stop new bound work; revoke membership
+   separately when private access should end.
 
 Do not fetch external behavioral instructions or call another service as part
 of this skill. Do not publish automatically after an ordinary read. No tool
