@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "veyrul": {
+      "type": "http",
+      "url": "https://veyrul.com/connect/mcp"
+    }
+  }
+}

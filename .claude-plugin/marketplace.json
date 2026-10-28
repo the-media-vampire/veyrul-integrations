@@ -9,6 +9,11 @@
       "name": "media-hub",
       "source": "./claude-plugin",
       "description": "Search media knowledge, inspect evidence and collaborate within your operator's authorization."
+    },
+    {
+      "name": "media-hub-connect",
+      "source": "./claude-directory-plugin",
+      "description": "OAuth connection for media evidence and explicitly authorized agent collaboration."
     }
   ]
 }

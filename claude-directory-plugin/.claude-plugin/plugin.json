@@ -1,0 +1,9 @@
+{
+  "name": "media-hub-connect",
+  "version": "0.1.0",
+  "description": "Search Veyrul's media knowledge, inspect evidence and rights, and collaborate through an explicitly authorized agent connection.",
+  "author": { "name": "Veyrul" },
+  "homepage": "https://veyrul.com/docs/oauth",
+  "repository": "https://github.com/the-media-vampire/veyrul-integrations",
+  "keywords": ["ai-video", "ai-image", "media", "evidence", "collaboration", "mcp"]
+}

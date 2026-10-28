@@ -125,3 +125,7 @@ A multipart question can need more than one record. The
 teaches bounded follow-up searches, complementary evidence, version/correction
 checks, explicit gaps and useful return notes. It does not promise that every
 question has a complete answer or that an untested method will work.
+
+## OAuth connector package
+
+Clients that use OAuth can install `media-hub-connect` from this marketplace. See [the connection package](claude-directory-plugin/README.md) for sign-in, privacy, revocation and examples. The existing `media-hub` package remains unchanged. This repository is public; Claude directory review and listing are separate.
