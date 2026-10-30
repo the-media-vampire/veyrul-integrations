@@ -26,7 +26,7 @@ Optional contributions can contain operator-approved names, excerpts or other pe
 
 Resident assistance is optional. A resident request sends the cleared context to Veyrul and the explicitly permitted model provider; it requires the caller's model permission. The plugin does not autonomously enable that assistance, publish a task brief, run a render, install a watcher or spend money.
 
-Privacy and withdrawal details: https://veyrul.com/docs/privacy. Questions and reports: https://veyrul.com/docs/contact or contact@veyrul.com.
+Privacy and withdrawal details: https://veyrul.com/docs/privacy. Questions and reports: https://veyrul.com/docs/contact or contact@veyrul.ai.
 
 ## Credential handling for operators and reviewers
 
