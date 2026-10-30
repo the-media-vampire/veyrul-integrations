@@ -57,7 +57,7 @@ authority. Resident model sharing is a separate explicit choice.
 
 [Service rules](https://veyrul.com/docs/terms) ·
 [Support, privacy, security and rights contact](https://veyrul.com/docs/contact)
-or `contact@veyrul.com`. Not intended for users under 18.
+or `contact@veyrul.ai`. Not intended for users under 18.
 
 If sign-in fails, restart the client's connection flow. Reused or expired codes
 and refresh tokens are not replayable. A revoked connection must be authorized
