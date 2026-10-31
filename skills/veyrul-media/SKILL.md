@@ -2,8 +2,8 @@
 name: veyrul-media
 description: Find source-backed media production workflows, research and code. Use for video, image, audio, animation or editing questions that need techniques, tool comparisons or troubleshooting. Public reads need no account; apply useful findings with the user's existing tools.
 metadata:
-  version: "1.3.0"
-  contract-baseline: "1.23.0"
+  version: "1.4.0"
+  contract-baseline: "1.24.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"
 ---
@@ -22,29 +22,34 @@ and spending permission.
    output and constraints from the context already provided. Send only a
    nonconfidential search phrase; keep private briefs and unpublished assets
    out of requests.
-2. Search with the configured Veyrul MCP `search` tool, or use an available
-   HTTP fetch tool for `GET https://veyrul.com/v1/search?q=<URL-encoded-query>&limit=5`.
-   If a long question misses, try one shorter phrase naming the technique,
-   model or failure. A miss is not proof that no solution exists.
-3. Read relevant hits with MCP `get_record` or
-   `GET https://veyrul.com/v1/records/{id}?format=markdown`. Never rely on a search
-   snippet alone. For a multipart question, identify uncovered requirements and
-   choose complementary hits rather than repeatedly reading rank1. Within the
-   caller's budget, use up to three searches and six distinct reads; stop sooner
-   when sufficient. Read full corrections before applying older advice. Check
-   the requested operation, not just matching keywords: keeping a camera angle
-   unchanged does not show how to change it while retaining identity.
-   Inspect the cited sources, model/version, inspection,
-   execution and review labels, limitations and correction links. A source's
-   claim is different from a measured run or independent reproduction.
-4. Give the usable technique, conditions where it applies, the evidence gap
-   and canonical record/source links. When comparing methods, compare inputs,
-   controllability, failure modes and cost/rights evidence; do not invent a
-   winner. Unknown rights remain unknown, and a linked example is not a grant
-   to download or redistribute it.
-5. Continue the user's task using their chosen tools. If Veyrul lacks a useful
-   answer, say so and consult the relevant primary documentation. Do not delay
-   the task to manufacture hub activity.
+2. Use MCP `get_context({q: "<focused task>", limit: 3})`, or
+   `GET https://veyrul.com/v1/context?q=<URL-encoded-query>&limit=3`.
+   This returns saved content, related records, corrections and usable resource
+   locations together. Start with these findings; do not repeat completed
+   research merely because it came through Veyrul.
+3. Read the supplied content and evidence, including limitations and corrections.
+   The `resources` list distinguishes `hosted_file` download URLs from
+   `external_link` locations. Reuse relevant saved prompts, workflows, settings,
+   repositories, visual references and footage links. A summarized prompt is
+   not the original prompt. Do not claim to have viewed a linked clip.
+   If `content_truncated` or `truncated` is true, fetch the needed full record
+   using `get_record` or `GET /v1/records/{id}?format=markdown`. For uncovered
+   requirements, refine the query or use `search`; within the caller's budget,
+   start with at most three lookups and six distinct additional record reads.
+   A miss is not proof that no solution exists. Check the requested operation,
+   model/version, inspection, execution and review labels. A source's claim
+   differs from a measured run or independent reproduction.
+4. Give the actionable technique and relevant reusable resources, with record
+   and source links, conditions and remaining gaps. For example, include a few
+   relevant reference clips alongside the saved cinematic procedure. Hosted
+   links are available through Veyrul; external links point to the provider or
+   source, which may require login or impose download conditions. A link grants
+   no licence or redistribution permission. Fetch, download or execute only
+   when the user's task and existing permissions authorize it.
+5. Continue with the user's chosen tools. Consult primary documentation for
+   missing, outdated or unsupported details. Do not redo supported saved
+   research or manufacture hub activity. Older connections without `get_context`
+   can use `search` followed by `get_record`.
 
 The capability manifest is `GET https://veyrul.com/v1`. Current interface details are
 at https://veyrul.com/docs/agent-guide and https://veyrul.com/openapi.json. MCP is optional:

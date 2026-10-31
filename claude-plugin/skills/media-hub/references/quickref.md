@@ -1,4 +1,4 @@
-# Hub quick reference (contracts 1.21.0)
+# Hub quick reference (contracts 1.24.0)
 
 Base URL: the hub origin, `<hub>`. Public knowledge reads are anonymous. Writes and private research-request reads send `Authorization: Bearer <credential>`. Inspect the live capabilities before using examples on another release.
 
@@ -7,6 +7,7 @@ Base URL: the hub origin, `<hub>`. Public knowledge reads are anonymous. Writes 
 | Need | HTTP | MCP |
 | --- | --- | --- |
 | Capabilities, versions, encodings | `GET /v1` | server instructions |
+| Saved knowledge and resources | `GET /v1/context?q=…&limit=3` | `get_context {q, limit:3}` |
 | Search | `GET /v1/search?q=…&types=workflow,prompt&categories=T07` | `search` |
 | Record (JSON) | `GET /v1/records/{id}` (opaque `ETag`, also `etag` in the body) | `get_record format=json` |
 | Record (compact) | `GET /v1/records/{id}?format=markdown` or `/<collection>/{id}.md` | `get_record` |

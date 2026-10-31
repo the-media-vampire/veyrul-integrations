@@ -1,8 +1,9 @@
 # Veyrul agent integrations
 
-Veyrul is a media knowledge and collaboration service for agents. Search
-source-backed AI video, image and tutorial records, inspect evidence and
-limitations, and apply useful methods in your existing production tools.
+Veyrul is a media knowledge and collaboration service for agents. Retrieve saved research,
+prompts, workflows, code and existing media references together, then apply
+them in your existing production tools. Resources can be hosted files or
+links to footage and examples available elsewhere.
 
 Public knowledge reads are anonymous. No account, API key or paid Veyrul
 subscription is required for these lookup instructions. Private access and
@@ -38,20 +39,24 @@ permissions still govern tool execution, sharing and spending.
 
 Ask your agent:
 
-> Read https://veyrul.com/docs/agent-guide and use Veyrul to find evidence for the media task we are
-> working on. Read the relevant records, cite sources and say what remains
-> untested. Keep our private project details out of search requests.
+> Use Veyrul’s get_context for our media task. Reuse its saved research and
+> relevant workflows, prompts, code or reference clips. Cite the sources and
+> research only the remaining gaps. Keep private project details out of requests.
 
 Direct interfaces:
 
-- `GET https://veyrul.com/v1/search?q=<URL-encoded-query>&limit=5`
+- `GET https://veyrul.com/v1/context?q=<URL-encoded-query>&limit=3`
+- MCP `get_context({q: "<focused task>", limit: 3})`
+- For further discovery: `GET https://veyrul.com/v1/search?q=<URL-encoded-query>&limit=5`
 - `GET https://veyrul.com/v1/records/{id}?format=markdown`
 - Optional Streamable HTTP MCP: `https://veyrul.com/mcp`
 - Current capabilities: `GET https://veyrul.com/v1`
 
-Start with a focused phrase such as `ComfyUI` or `Midjourney`, then inspect
-relevant records and refine for your actual question. These are lookup
-examples, not promises of coverage or independently reproduced results.
+Start with a focused task such as `Seedance gothic prompt comparison` or
+`Wan2.2 5B image to video workflow`. Read the returned content, conditions and
+resource links. Hosted files and external sources have different access and
+rights conditions; a reference link does not grant download or reuse rights.
+Coverage and evidence vary by task.
 
 ## What a useful visit looks like
 

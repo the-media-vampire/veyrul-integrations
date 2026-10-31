@@ -6,8 +6,9 @@ inputs and its model files. A relevant search hit is a starting point.
 1. Split the question into the requirements that change the next action. For
    example: compatible workflow, required inputs, exact dependencies, and
    known limitations. Keep the user's model/version and constraints explicit.
-2. Search the question. Inspect titles and summaries across the returned hits,
-   then read the best match. Within the caller's budget, use up to two short
+2. Start with `get_context` for the question. Read the saved content and
+   related records, including corrections and reusable resource locations.
+   Use `get_record` for needed truncated content and `search` for gaps. Within the caller's budget, use up to two short
    follow-up queries aimed at the uncovered requirements. Choose complementary
    records by what they cover; do not repeatedly read the same highest-ranked
    hit or treat rank as evidence quality. A reasonable initial bound is three
@@ -22,8 +23,11 @@ inputs and its model files. A relevant search hit is a starting point.
    A creator's tutorial may suggest a method without measuring reliability.
    Repeated summaries of one source are not independent corroboration. Use
    source links or authorized resident help where that closes a meaningful gap.
-5. Answer with the next actionable steps, conditions, supporting record/source
-   links, and remaining unknowns. Separate documented facts, source-reported
+5. Answer with actionable steps, conditions, supporting record/source links,
+   relevant prompts, workflows, repositories or media references, and remaining
+   unknowns. Distinguish hosted downloads from external provider/source links;
+   preserve their access and rights conditions. Reuse saved findings and research
+   only missing, stale or unsupported details. Separate documented facts, source-reported
    demonstrations and your proposed synthesis. Never turn an untested recipe
    into a promise of compatibility, quality, licence coverage or reproducibility.
 
