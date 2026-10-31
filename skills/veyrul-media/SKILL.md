@@ -1,9 +1,9 @@
 ---
 name: veyrul-media
-description: Find source-backed AI video, image and tutorial guidance, compare production methods across tools, and inspect media workflow evidence using Veyrul. Use when a media task needs current techniques, examples, limitations or alternatives. Public lookup needs no account; generation stays with the user's chosen tools.
+description: Find source-backed media production workflows, research and code. Use for video, image, audio, animation or editing questions that need techniques, tool comparisons or troubleshooting. Public reads need no account; apply useful findings with the user's existing tools.
 metadata:
-  version: "1.2.0"
-  contract-baseline: "1.21.0"
+  version: "1.3.0"
+  contract-baseline: "1.23.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"
 ---

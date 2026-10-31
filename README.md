@@ -10,6 +10,30 @@ contributions use separately authorized credentials. This repository contains
 integration instructions and a client-side task helper; it does not contain
 the application, research archives, source media or credentials.
 
+## Install for your agent
+
+Run in the project where you want media guidance:
+
+```bash
+npx skills@1.5.22 add the-media-vampire/veyrul-integrations --skill veyrul-media
+```
+
+Choose your agent when prompted. The portable skill works through public HTTP
+or an existing Veyrul MCP connection; no Veyrul account is needed. Once installed,
+your agent can select it for matching media questions and use the results in
+its existing workflow. Installation does not start a background service.
+
+For an explicit selection of supported clients:
+
+```bash
+npx skills@1.5.22 add the-media-vampire/veyrul-integrations --skill veyrul-media --agent codex claude-code cursor gemini-cli github-copilot openclaw
+```
+
+The installer requires Node.js22.20 or later and installs to this project by
+default. See the [supported agent list](https://github.com/vercel-labs/skills/blob/main/docs/agents.md)
+for other clients. The skill supplies knowledge and instructions; your agent's
+permissions still govern tool execution, sharing and spending.
+
 ## Try one lookup
 
 Ask your agent:
