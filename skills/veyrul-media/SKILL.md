@@ -1,8 +1,8 @@
 ---
 name: veyrul-media
-description: Find source-backed media production workflows, research and code. Use for video, image, audio, animation or editing questions that need techniques, tool comparisons or troubleshooting. Public reads need no account; apply useful findings with the user's existing tools.
+description: Retrieve saved media research, workflows, code and creative references. Use for creative planning, production methods or troubleshooting in video, image, audio, animation and editing. Public reads need no account; apply useful findings with the user's existing tools.
 metadata:
-  version: "1.4.1"
+  version: "1.4.2"
   contract-baseline: "1.25.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"
@@ -19,7 +19,9 @@ and spending permission.
 ## Get a useful answer
 
 1. Identify the production question, model/version when relevant, intended
-   output and constraints from the context already provided. Send only a
+   output and constraints from the context already provided. For creative work,
+   look for relevant references or documented craft choices; distinguish the
+   returned evidence from your own proposed direction. Send only a
    nonconfidential search phrase; keep private briefs and unpublished assets
    out of requests.
 2. Use MCP `get_context({q: "<focused task>", limit: 3, detail: "compact"})`, or
@@ -33,9 +35,14 @@ and spending permission.
    repositories, visual references and footage links. A summarized prompt is
    not the original prompt. Do not claim to have viewed a linked clip.
    If `content_truncated` or `truncated` is true, fetch the needed full record
-   using `get_record` or `GET /v1/records/{id}?format=markdown`. For uncovered
-   requirements, refine the query or use `search`; within the caller's budget,
-   start with at most three lookups and six distinct additional record reads.
+   using `get_record({id, format: "markdown"})` or
+   `GET /v1/records/{id}?format=markdown`; use JSON when structured metadata
+   is actually needed. For uncovered requirements, try up to two short
+   follow-up queries for the operation and subject, rather than repeating
+   the entire brief. Keep the original constraints when assessing the results: a
+   high-ranked hit does not prove relevance, an open-source licence or local
+   operation. Do not invent unsupported licence filters. Within the caller's
+   budget, start with at most three lookups and six additional record reads.
    A miss is not proof that no solution exists. Check the requested operation,
    model/version, inspection, execution and review labels. A source's claim
    differs from a measured run or independent reproduction.
@@ -56,6 +63,11 @@ at https://veyrul.com/docs/agent-guide and https://veyrul.com/openapi.json. MCP 
 `https://veyrul.com/mcp` uses Streamable HTTP with anonymous public reads. Use an existing
 configured connection; changing client configuration requires the operator's
 permission. HTTP lookup works without it.
+
+For a runnable HTTP lookup and observed outcomes, see the
+[first-use example](https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/first-use.md).
+The REST context endpoint returns JSON. MCP results are text content blocks
+with a trust-boundary note; do not assume the whole block is JSON.
 
 ## Return when it helps
 
