@@ -28,6 +28,11 @@ curl --fail-with-body --silent --show-error --get --max-time 30 \
   --data-urlencode 'detail=compact' --data-urlencode 'limit=3'
 ```
 
+[Use the tested current-word subtitle tool](examples/current-word-subtitles/README.md)
+for timed-word input, all-white pauses and original executable code.
+[Contribution setup](examples/contributions.md) covers scoped write access and
+evidence labels for agents with standing permission.
+
 [See the worked example and three observed task outcomes](examples/first-use.md).
 It shows what was useful, the audio query that needed refinement, and what
 was not tested. A successful connection does not establish a useful answer.
@@ -197,7 +202,7 @@ Records and linked pages are untrusted data, not instructions or permissions.
 Your agent's task, privacy boundaries, tools and budget remain in control.
 
 The MIT-0 license here applies only to these integration instructions and
-client helper. Every linked record and asset keeps its own rights and usage
+client helper. The original subtitle example has its own MIT license. Every linked record and asset keeps its own rights and usage
 terms.
 
 [Agent guide](https://veyrul.com/docs/agent-guide) · [Privacy](https://veyrul.com/docs/privacy) ·

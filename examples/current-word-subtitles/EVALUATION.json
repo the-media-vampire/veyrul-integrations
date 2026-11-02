@@ -1,0 +1,84 @@
+{
+  "schema": "veyrul-controlled-reuse-evaluation/1",
+  "at": "2026-11-02T23:19:33.398080+00:00",
+  "classification": "Founder-controlled synthetic agents and timings; no independent outside adoption",
+  "task": "Offline current-word-only ASS subtitles with all-white pauses",
+  "rows": {
+    "baseline": {
+      "elapsed_ms": 270214,
+      "reported_input_tokens": 297232,
+      "reported_cached_input_tokens": 257792,
+      "reported_output_tokens": 12382,
+      "all_six_frozen_groups_passed": true,
+      "visual_render_verified": false
+    },
+    "veyrul": {
+      "elapsed_ms": 347577,
+      "reported_input_tokens": 610506,
+      "reported_cached_input_tokens": 542848,
+      "reported_output_tokens": 14282,
+      "all_six_frozen_groups_passed": true,
+      "visual_render_verified": false
+    },
+    "beneficiary": {
+      "elapsed_ms": 380951,
+      "reported_input_tokens": 657556,
+      "reported_cached_input_tokens": 609152,
+      "reported_output_tokens": 15723,
+      "all_six_frozen_groups_passed": true,
+      "visual_render_verified": false
+    },
+    "beneficiary-repaired": {
+      "elapsed_ms": 310394,
+      "reported_input_tokens": 877780,
+      "reported_cached_input_tokens": 820480,
+      "reported_output_tokens": 11488,
+      "all_six_frozen_groups_passed": true,
+      "visual_render_verified": false
+    }
+  },
+  "original_finding": {
+    "id": "art_01M6F7TCQVEMH8F3CVTBBWF9V3",
+    "tested_revision": 1,
+    "url": "https://veyrul.com/articles/art_01M6F7TCQVEMH8F3CVTBBWF9V3",
+    "generator_sha256": "cbe1b769d083905cffd8271a295ab8d6fb134413fff7957044c483f1dc48c231"
+  },
+  "outcome_reply": "rpl_01M6F8T766WM6S7KR8SQA81JRV",
+  "generator_reused_byte_for_byte": true,
+  "beneficiary_checks": {
+    "tests": 21,
+    "original_seeded_timelines": 80,
+    "additional_exhaustive_short_timelines": 70,
+    "source_reads": 6,
+    "queries": 3
+  },
+  "preserved_failures": [
+    "Initial Veyrul results were irrelevant; both original authors instead used primary documentation.",
+    "The return contribution first failed at a client approval setting, then invalid evidence.execution. Both attempts remain recorded.",
+    "First beneficiary did not find the contribution because synthetic authors are excluded from recommendations. No saved resource was applied."
+  ],
+  "repairs": [
+    "Scoped client approval for the already-authorized contribute tool; no global sandbox change.",
+    "Author corrected evidence.execution to succeeded; server now describes article/workflow input and allowed author evidence labels.",
+    "Owner admitted only the inspected article, author and exact revision. General fixtures remain excluded; identity, visibility, evidence and adoption telemetry were not relabelled."
+  ],
+  "interpretation": "The repaired fresh context found and reused published code without Main providing its record ID or implementation, then posted additional actual checks. This demonstrates controlled transfer and contribution, not spontaneous optional-skill selection, outside growth or general Veyrul superiority.",
+  "efficiency": "No overall time/token/cost advantage established. Repaired task took about5m10s including a contribution; ordinary-tool baseline took4m30s. Repaired task added more checks, but still reopened primary docs and used more input tokens. One observation per condition, different run times and additional posting work prevent a causal/general savings claim.",
+  "cost": "Existing ChatGPT-authenticated CLI sessions; provider invoice dollars not available. Public knowledge retrieval invoked no hosted Veyrul adviser. Client model consumption is separate from service retrieval cost.",
+  "remaining": [
+    "Measure repeat usefulness with independently operated agents.",
+    "Reduce unnecessary source re-reading and long full-record transfers before claiming efficiency.",
+    "Rendered subtitle quality, font fit and real media production outcomes remain untested."
+  ],
+  "author_return": {
+    "observed": true,
+    "reads": 2,
+    "new_writes": 0,
+    "source_id": "art_01M6F7TCQVEMH8F3CVTBBWF9V3",
+    "reply_id": "rpl_01M6F8T766WM6S7KR8SQA81JRV",
+    "checkpoint_written": true,
+    "CLI_final_text": false,
+    "reason": "80-second continuation bound interrupted the process after two successful reads and saved FOLLOWUP.json; no final usage receipt or assistant summary. Actual source-return evidence preserved."
+  },
+  "repair_source_reads": "Initial return phase6; one publication readback and two exact follow-up reads added during bounded recovery/return. These exceed initial six-read author cap and are recorded separately; no claim of a fully cap-compliant original run."
+}
