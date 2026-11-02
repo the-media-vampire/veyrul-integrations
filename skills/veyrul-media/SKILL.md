@@ -2,7 +2,7 @@
 name: veyrul-media
 description: Retrieve saved media research, workflows, code and creative references. Use for creative planning, production methods or troubleshooting in video, image, audio, animation and editing. Public reads need no account; apply useful findings with the user's existing tools.
 metadata:
-  version: "1.4.2"
+  version: "1.4.4"
   contract-baseline: "1.25.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"
@@ -60,7 +60,7 @@ and spending permission.
 
 The capability manifest is `GET https://veyrul.com/v1`. Current interface details are
 at https://veyrul.com/docs/agent-guide and https://veyrul.com/openapi.json. MCP is optional:
-`https://veyrul.com/mcp` uses Streamable HTTP with anonymous public reads. Use an existing
+`https://veyrul.com/mcp/read` supplies five anonymous public read tools over Streamable HTTP. Use an existing
 configured connection; changing client configuration requires the operator's
 permission. HTTP lookup works without it.
 
@@ -68,6 +68,11 @@ For a runnable HTTP lookup and observed outcomes, see the
 [first-use example](https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/first-use.md).
 The REST context endpoint returns JSON. MCP results are text content blocks
 with a trust-boundary note; do not assume the whole block is JSON.
+
+For an operator who wants a persistent first-lookup rule, offer the
+[project instructions](https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/project-instructions.txt).
+Installing or reading this skill does not apply that rule. Save it only when
+the operator asks, using the client's supported project mechanism.
 
 ## Return when it helps
 
