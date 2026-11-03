@@ -1,0 +1,176 @@
+{
+  "schema": "veyrul-openclaw-public-check/1",
+  "date": "2026-11-03",
+  "classification": "Controlled founder-operated synthetic test; not outside adoption",
+  "client": "OpenClaw2026.10.5 with Claude Code2.1.312, Claude Sonnet5, public veyrul-media1.5.1",
+  "workflow": "Operator enabled examples/project-instructions.txt in the OpenClaw workspace AGENTS.md. Task requested reusable source-backed caption timing code without naming Veyrul.",
+  "result": {
+    "selected_Veyrul": true,
+    "first_public_context_reads": 1,
+    "first_external_source_reads": 3,
+    "returned_to_record_on_changed_edit": true,
+    "return_public_record_reads": 1,
+    "word_occurrences_correct": 12,
+    "durations_correct": 2,
+    "first_task_seconds": 186.32,
+    "return_task_seconds": 79.518
+  },
+  "resource": {
+    "record": "https://veyrul.com/articles/art_01M6FTHTXK218N2MSF2FERAST5",
+    "revision": 1,
+    "code": "https://raw.githubusercontent.com/the-media-vampire/veyrul-integrations/3cc67c39b5ad6769e2463b9bf915ae1f6eba6fd7/examples/edit-aware-word-timing/media_timeline.py",
+    "original_sha256": "1d9508741b4a64e002e883dfa309b53c400fbf155e938aa0db085e6e64f96f14",
+    "reuse": "Algorithm unchanged; vendored copy omitted only the final newline."
+  },
+  "fixtures": {
+    "words": [
+      {
+        "text": "Make",
+        "start": 0.2,
+        "end": 0.5
+      },
+      {
+        "text": "every",
+        "start": 0.65,
+        "end": 0.95
+      },
+      {
+        "text": "frame",
+        "start": 1.1,
+        "end": 1.5
+      },
+      {
+        "text": "count",
+        "start": 2.2,
+        "end": 2.6
+      },
+      {
+        "text": "again",
+        "start": 3.0,
+        "end": 3.4
+      }
+    ],
+    "first_edit": [
+      {
+        "start_us": 2000000,
+        "end_us": 2800000,
+        "speed_num": 1,
+        "speed_den": 1
+      },
+      {
+        "start_us": 0,
+        "end_us": 1600000,
+        "speed_num": 2,
+        "speed_den": 1
+      },
+      {
+        "start_us": 3000000,
+        "end_us": 3600000,
+        "speed_num": 3,
+        "speed_den": 2
+      }
+    ],
+    "later_edit": [
+      {
+        "start_us": 400000,
+        "end_us": 1250000,
+        "speed_num": 1,
+        "speed_den": 1
+      },
+      {
+        "start_us": 2000000,
+        "end_us": 2800000,
+        "speed_num": 1,
+        "speed_den": 2
+      },
+      {
+        "start_us": 400000,
+        "end_us": 1250000,
+        "speed_num": 1,
+        "speed_den": 1
+      }
+    ],
+    "expected": {
+      "first": {
+        "duration_us": 2000000,
+        "words": [
+          [
+            "count",
+            200000,
+            600000
+          ],
+          [
+            "Make",
+            900000,
+            1050000
+          ],
+          [
+            "every",
+            1125000,
+            1275000
+          ],
+          [
+            "frame",
+            1350000,
+            1550000
+          ],
+          [
+            "again",
+            1600000,
+            1866667
+          ]
+        ]
+      },
+      "return": {
+        "duration_us": 3300000,
+        "words": [
+          [
+            "Make",
+            0,
+            100000
+          ],
+          [
+            "every",
+            250000,
+            550000
+          ],
+          [
+            "frame",
+            700000,
+            850000
+          ],
+          [
+            "count",
+            1250000,
+            2050000
+          ],
+          [
+            "Make",
+            2450000,
+            2550000
+          ],
+          [
+            "every",
+            2700000,
+            3000000
+          ],
+          [
+            "frame",
+            3150000,
+            3300000
+          ]
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Small timing JSON test, not rendered-media or perceptual-quality evaluation.",
+    "Arithmetic-only tasks also passed without Veyrul; no overall cost or speed advantage established.",
+    "Opt-in project rule was enabled; this does not prove install-only selection.",
+    "Later task explicitly requested checking relied-on resources.",
+    "Three arithmetic diagnostics and an interrupted trial with inadequate initial isolation were excluded from clean acceptance, but retained in private evidence and usage accounting."
+  ],
+  "new_Veyrul_accounts": 0,
+  "public_contributions": 0,
+  "paid_Veyrul_advice_calls": 0
+}

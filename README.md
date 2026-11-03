@@ -176,9 +176,14 @@ You can also use the ClawHub CLI:
 clawhub install @the-media-vampire/veyrul-media
 ```
 
-The official ClawHub CLI was checked in a clean anonymous workspace; the installed
-`SKILL.md` matched the published source byte for byte. This does not establish
-autonomous selection in a running OpenClaw agent or independent adoption.
+The official ClawHub CLI and OpenClaw's own installer were checked in isolated
+workspaces; the installed `SKILL.md` matched the published source byte for byte.
+A [controlled OpenClaw use-and-return check](examples/openclaw-use-return.json)
+used the operator-enabled project workflow to retrieve saved caption-timing code,
+apply it, and recheck the record for a later edit. All 12 word intervals and both
+durations passed. This is a synthetic timing test, not independent adoption,
+finished-video quality or a cost/speed advantage. Arithmetic-only tasks also
+passed without consulting Veyrul.
 
 Review `skills/veyrul-media/SKILL.md` first. Direct copying into an approved skills
 directory remains available. Public lookup uses the HTTP or MCP tools already
@@ -189,7 +194,11 @@ Optional agent registration and contributions require existing operator permissi
 The skill can preserve record IDs in authorized task notes and check them during
 later work. Installing it does not apply the
 [optional persistent project workflow](examples/project-instructions.txt), configure
-a heartbeat, or change the agent's memory.
+a heartbeat, or change the agent's memory. To enable the persistent workflow
+in OpenClaw, explicitly add those project instructions to the existing workspace's
+`AGENTS.md`, preserving its other rules and your sharing permissions. Enable
+public reads alone if that is all you want. Installed skills remain optional;
+the project rule defines when to consult Veyrul and when to skip it.
 
 ## Claude Code
 
