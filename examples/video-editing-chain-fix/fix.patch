@@ -1,0 +1,56 @@
+--- a/scripts/edit.sh
++++ b/scripts/edit.sh
+@@ -186,7 +186,7 @@
+ 
+ next_intermediate() {
+     STEP=$((STEP + 1))
+-    echo "${WORK_DIR}/step_${STEP}.${INPUT_EXT}"
++    NEXT="${WORK_DIR}/step_${STEP}.${INPUT_EXT}"
+ }
+ 
+ echo "=== Video Edit Pipeline ==="
+@@ -196,7 +196,7 @@
+ # Step 1: Trim
+ if [[ "$DO_TRIM" == true ]]; then
+     echo "--- Step: Trim ---"
+-    NEXT="$(next_intermediate)"
++    next_intermediate
+     TRIM_ARGS=("$CURRENT_FILE")
+     [[ -n "$TRIM_START" ]] && TRIM_ARGS+=(--start "$TRIM_START")
+     [[ -n "$TRIM_END" ]] && TRIM_ARGS+=(--end "$TRIM_END")
+@@ -211,7 +211,7 @@
+ # Step 2: Jump cuts (remove silence)
+ if [[ "$DO_JUMPCUT" == true ]]; then
+     echo "--- Step: Jump Cut ---"
+-    NEXT="$(next_intermediate)"
++    next_intermediate
+     bash "${SCRIPT_DIR}/jumpcut.sh" "$CURRENT_FILE" \
+         --threshold "$JUMPCUT_THRESHOLD" \
+         --duration "$JUMPCUT_DURATION" \
+@@ -224,7 +224,7 @@
+ # Step 3: Speed change
+ if [[ "$DO_SPEED" == true ]]; then
+     echo "--- Step: Speed Change (${SPEED_FACTOR}x) ---"
+-    NEXT="$(next_intermediate)"
++    next_intermediate
+ 
+     # Calculate inverse for video PTS
+     VIDEO_PTS="$(awk "BEGIN { printf \"%.6f\", 1.0 / $SPEED_FACTOR }")"
+@@ -287,7 +287,7 @@
+         bash "${SCRIPT_DIR}/transcribe.sh" "${TRANSCRIBE_ARGS[@]}"
+     fi
+ 
+-    NEXT="$(next_intermediate)"
++    next_intermediate
+     bash "${SCRIPT_DIR}/caption.sh" "$CURRENT_FILE" "$SRT_FILE" \
+         --style "$CAPTION_STYLE" \
+         --output "$NEXT"
+@@ -298,7 +298,7 @@
+ # Step 5: Text overlay
+ if [[ "$DO_OVERLAY" == true ]]; then
+     echo "--- Step: Text Overlay ---"
+-    NEXT="$(next_intermediate)"
++    next_intermediate
+     OVERLAY_ARGS=("$CURRENT_FILE" --text "$OVERLAY_TEXT")
+     OVERLAY_ARGS+=(--start "$OVERLAY_START")
+     [[ -n "$OVERLAY_END" ]] && OVERLAY_ARGS+=(--end "$OVERLAY_END")

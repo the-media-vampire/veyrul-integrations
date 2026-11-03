@@ -1,0 +1,57 @@
+{
+  "schema": "video-editing-chain-evaluation/1",
+  "upstream": {
+    "repository": "https://github.com/6missedcalls/video-editing-skill",
+    "commit": "7dc6e1da66f43eff44c3692d4b84e06aef6590b6",
+    "files": {
+      "edit.sh": "84fe0fc98ee1fcf08436d4695a9c73f25dca460d27877be017c9597576dc734b",
+      "trim.sh": "50a8cf6cc1031f9c513ac43f6248aa6bf78d30b1de97bed4e15005b2364f4943"
+    }
+  },
+  "fixture": "original 4-second 128x72 test pattern and 440 Hz tone",
+  "operations": [
+    "trim to 2 seconds",
+    "speed 2x"
+  ],
+  "results": [
+    {
+      "variant": "upstream",
+      "exit_code": 234,
+      "output_exists": false,
+      "source_unchanged": true
+    },
+    {
+      "variant": "patched",
+      "exit_code": 0,
+      "output_exists": true,
+      "source_unchanged": true,
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "duration": "1.083333",
+            "nb_frames": "26"
+          },
+          {
+            "codec_type": "audio",
+            "duration": "1.003000",
+            "nb_frames": "49"
+          }
+        ],
+        "format": {
+          "duration": "1.083333"
+        }
+      },
+      "full_decode_passed": true
+    }
+  ],
+  "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "limits": [
+    "Fixes temporary-name collision only",
+    "No Whisper/generation/API call",
+    "Existing trim and speed rounding is unchanged; output was 1.083333 seconds",
+    "No general caption alignment, overwrite policy or media-quality claim"
+  ]
+}

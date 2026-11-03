@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/6missedcalls/video-editing-skill",
+  "commit": "7dc6e1da66f43eff44c3692d4b84e06aef6590b6",
+  "files": {
+    "edit.sh": "84fe0fc98ee1fcf08436d4695a9c73f25dca460d27877be017c9597576dc734b",
+    "trim.sh": "50a8cf6cc1031f9c513ac43f6248aa6bf78d30b1de97bed4e15005b2364f4943"
+  }
+}

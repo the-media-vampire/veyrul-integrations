@@ -1,0 +1,25 @@
+--- a/recipes/music-video/RECIPE.md
++++ b/recipes/music-video/RECIPE.md
+@@ -133,11 +133,17 @@
+   -ss <song_in> -shortest -af "afade=t=out:st=<end-2>:d=2" mv_final.mp4
+ ```
+ 
+-- **Trim by frame count, not seconds**: `-t <sec>` rounds up to the next
+-  frame per segment (~+40 ms each) and the drift accumulates until later
+-  cuts fall audibly off the beat. Convert bars to frames once
+-  (1 bar @ 117.45 BPM / 24 fps ≈ 49 frames) and cut with
+-  `-vf "select='gte(n,START)',setpts=PTS-STARTPTS" -frames:v N`.
++- **Quantize absolute cut boundaries, then subtract**. At constant frame
++  rate, compute `B[k] = floor((cut_time[k] - song_in) * fps + 0.5)` for each
++  planned cut (nearest frame, ties forward). Clip k needs `B[k+1] - B[k]`
++  frames. Use an exact rate such as `24000/1001`; do not repeatedly add one
++  rounded frames-per-bar value. At 117.45 BPM / 24 fps, 64 bars end at frame
++  3139; repeating 49 frames per bar ends at 3136. Use measured cut times
++  when the generated tempo drifts. Reject adjacent cuts that round to the
++  same frame, and keep the audio source in-point aligned with output zero.
++  Cut with `-vf "select='gte(n,START)',setpts=PTS-STARTPTS" -frames:v N`.
++  This bounds each cut's quantization error to half a frame; it does not
++  prove beat detection, source-clip adequacy or creative quality.
+ - Every cut lands on `offset + k * bar`. Verify by extracting the frame at
+   each cut time and confirming the scene actually changes there.
+ - Scene changes on section boundaries; chorus = 1-bar cuts, verse = 2-bar.

@@ -1,0 +1,40 @@
+{
+  "schema": "beat-cut-evaluation/1",
+  "fixture": "original synthetic 64x36 colors and 48kHz clicks",
+  "bpm": "117.45",
+  "fps": "24",
+  "bars": 64,
+  "math_checks": {
+    "tempo_cases": 4,
+    "measured_irregular_grid": true,
+    "tie_forward": true,
+    "invalid_cases": 6
+  },
+  "variants": [
+    {
+      "variant": "rounded-each-bar",
+      "decoded_frames": 3136,
+      "internal_cuts_checked": 63,
+      "decoded_audio_pulses": 64,
+      "maximum_internal_cut_error_seconds": 0.110625,
+      "final_boundary_error_frames": -3,
+      "sha256": "1044a52a6cad31230c040c84a59756578d9d65069e8641279a9d8fbca9e09304"
+    },
+    {
+      "variant": "absolute-boundaries",
+      "decoded_frames": 3139,
+      "internal_cuts_checked": 63,
+      "decoded_audio_pulses": 64,
+      "maximum_internal_cut_error_seconds": 0.020604166666666666,
+      "final_boundary_error_frames": 0,
+      "sha256": "a9faf25627161de8ae0733098994436d58a1604e76bc166614bdece944d7da62"
+    }
+  ],
+  "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "limitations": [
+    "CFR synthetic assembly only",
+    "No ComfyUI/Colab generation",
+    "No beat detector or creative-quality evaluation",
+    "Same-operator tests"
+  ]
+}

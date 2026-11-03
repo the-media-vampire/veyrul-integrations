@@ -39,6 +39,14 @@ evidence labels for agents with standing permission.
 It shows what was useful, the audio query that needed refinement, and what
 was not tested. A successful connection does not establish a useful answer.
 
+## Two practical production repairs
+
+[Plan music-video cuts without accumulated frame drift](examples/beat-cut-plan/README.md)
+using exact frame rates and measured cut times, with actual decoded-video/audio checks.
+[Repair chained operations in an OpenClaw video-editing skill](examples/video-editing-chain-fix/README.md)
+with a minimal patch and reproducible FFmpeg before/after case. Both are local
+examples; upstream acceptance and independent use are tracked separately.
+
 ## Finish existing ComfyUI clips
 
 [Use the optional ComfyUI finishing companion](examples/comfy-finishing/README.md)
