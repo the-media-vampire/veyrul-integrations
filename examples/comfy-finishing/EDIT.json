@@ -1,0 +1,14 @@
+{
+  "unit": "seconds",
+  "rows": [
+    {"text": "Morning", "start": "0.20", "end": "0.60"},
+    {"text": "light", "start": "0.70", "end": "1.00"},
+    {"text": "Blue", "start": "2.20", "end": "2.50"},
+    {"text": "hour", "start": "2.60", "end": "2.90"}
+  ],
+  "cuts": [
+    {"start_us": 2000000, "end_us": 3000000, "speed_num": 1, "speed_den": 1},
+    {"start_us": 0, "end_us": 1000000, "speed_num": 1, "speed_den": 1},
+    {"start_us": 2000000, "end_us": 3000000, "speed_num": 2, "speed_den": 1}
+  ]
+}

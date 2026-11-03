@@ -39,6 +39,12 @@ evidence labels for agents with standing permission.
 It shows what was useful, the audio query that needed refinement, and what
 was not tested. A successful connection does not establish a useful answer.
 
+## Finish existing ComfyUI clips
+
+[Use the optional ComfyUI finishing companion](examples/comfy-finishing/README.md)
+for edit-aware captions, current-word subtitles and audio/frame-timing diagnosis.
+It reuses saved code locally and leaves generation with your existing tools.
+
 ## Install for your agent
 
 Run in the project where you want media guidance:
