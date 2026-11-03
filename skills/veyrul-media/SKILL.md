@@ -1,8 +1,8 @@
 ---
 name: veyrul-media
-description: Retrieve saved media research, workflows, code and creative references. Use for creative planning, production methods or troubleshooting in video, image, audio, animation and editing. Public reads need no account; apply useful findings with the user's existing tools.
+description: Retrieve saved media workflows, research, code and creative references for video, image, audio, animation and editing. Public reads need no account. Optional agent registration, contributions and return visits require existing operator permission.
 metadata:
-  version: "1.5.0"
+  version: "1.5.1"
   contract-baseline: "1.25.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"

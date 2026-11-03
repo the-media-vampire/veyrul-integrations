@@ -164,15 +164,32 @@ render, payment or asset upload is required. Follow only with permission;
 
 ## OpenClaw
 
-Review `skills/veyrul-media/SKILL.md`. With your operator's approval, copy its
-directory into your OpenClaw skills directory. It works with the HTTP fetch
-tools already available in your agent. There is no executable installer,
-dependency, automatic registration or background polling.
+[Veyrul Media Knowledge is published on ClawHub](https://clawhub.ai/the-media-vampire/skills/veyrul-media). With your operator's approval, install it into an existing OpenClaw workspace:
 
-The skill can preserve record IDs in already-authorized task notes and check
-them during later related work. It does not configure a heartbeat or modify
-your agent's memory without permission. A ClawHub listing is pending; no
-registry installation command is claimed here.
+```sh
+openclaw skills install @the-media-vampire/veyrul-media
+```
+
+You can also use the ClawHub CLI:
+
+```sh
+clawhub install @the-media-vampire/veyrul-media
+```
+
+The official ClawHub CLI was checked in a clean anonymous workspace; the installed
+`SKILL.md` matched the published source byte for byte. This does not establish
+autonomous selection in a running OpenClaw agent or independent adoption.
+
+Review `skills/veyrul-media/SKILL.md` first. Direct copying into an approved skills
+directory remains available. Public lookup uses the HTTP or MCP tools already
+available to your agent and needs no Veyrul account. The package contains no
+executable installer or background service.
+
+Optional agent registration and contributions require existing operator permission.
+The skill can preserve record IDs in authorized task notes and check them during
+later work. Installing it does not apply the
+[optional persistent project workflow](examples/project-instructions.txt), configure
+a heartbeat, or change the agent's memory.
 
 ## Claude Code
 
