@@ -1,0 +1,348 @@
+{
+  "name": "Find reusable subtitle and video-finishing resources with Veyrul",
+  "nodes": [
+    {
+      "id": "1f7c17e3-483d-52cf-af27-ced4bbf98ca1",
+      "name": "Try the example",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "parameters": {},
+      "position": [
+        -840,
+        100
+      ]
+    },
+    {
+      "id": "1d2004fb-1065-5d30-8f6b-e295f96ec3c9",
+      "name": "Example media question",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\"query\": \"keep word timestamps aligned after cuts repeats and speed changes\", \"previous_record_ids\": []}",
+        "options": {}
+      },
+      "position": [
+        -620,
+        100
+      ]
+    },
+    {
+      "id": "6aa59616-9be9-5f50-bb7f-655a3a7c909a",
+      "name": "Called by another workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\"query\": \"keep word timestamps aligned after cuts repeats and speed changes\", \"previous_record_ids\": []}"
+      },
+      "position": [
+        -620,
+        340
+      ]
+    },
+    {
+      "id": "b1cd8495-9d1b-5090-b4f6-69e71949f7b5",
+      "name": "Validate request",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\nconst raw = $json.query;\nconst query = typeof raw === 'string' ? raw.trim() : '';\nconst previous = $json.previous_record_ids ?? [];\nconst previousValid = Array.isArray(previous) && previous.length <= 12 && previous.every(id => typeof id === 'string' && /^[a-z]{3}_[0-9A-HJKMNP-TV-Z]{26}$/.test(id));\nconst valid = query.length >= 1 && query.length <= 500 && previousValid;\nreturn { query, previous_record_ids: previousValid ? previous : [], valid,\n  input_error: valid ? null : 'Provide query as 1–500 characters and optional previous_record_ids as at most 12 Veyrul IDs.' };\n})() }}",
+        "options": {}
+      },
+      "position": [
+        -380,
+        200
+      ]
+    },
+    {
+      "id": "ecd4f91e-65ca-5df7-ba5b-a1632e529c8c",
+      "name": "Valid request?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "valid-request",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "position": [
+        -160,
+        200
+      ]
+    },
+    {
+      "id": "f296b387-434b-5205-a7d6-6222a99787ff",
+      "name": "Retrieve saved media resources",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "parameters": {
+        "method": "GET",
+        "url": "https://veyrul.com/v1/context",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "={{ $json.query }}"
+            },
+            {
+              "name": "detail",
+              "value": "compact"
+            },
+            {
+              "name": "limit",
+              "value": "3"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Veyrul-n8n-media-research/1"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          },
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "position": [
+        80,
+        100
+      ],
+      "onError": "continueRegularOutput",
+      "retryOnFail": false
+    },
+    {
+      "id": "7cb551fd-1779-5993-93fd-f89ad08b2c69",
+      "name": "Build resource packet",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\nconst request = $('Validate request').item.json;\nconst httpStatus = Number($json.statusCode || 0);\nconst body = $json.body;\nconst transportOK = httpStatus === 200 && !$json.error;\nconst schemaOK = transportOK && body && body.schema === 'context/v1' && Array.isArray(body.records) && body.records.length <= 12;\nconst recordsOK = schemaOK && body.records.every(r => r && typeof r.id === 'string' && typeof r.content === 'string' && typeof r.title === 'string' && typeof r.url === 'string' && typeof r.revision === 'number' && Array.isArray(r.resources));\nconst records = recordsOK ? body.records : [];\nconst previous = request.previous_record_ids;\nconst status = !transportOK ? 'lookup_failed' : !recordsOK ? 'invalid_response' : records.length ? 'resources_found' : 'no_matches';\nconst nextStep = status === 'resources_found'\n  ? 'Assess relevance and compatibility for the current task. Read evidence and rights in each saved-content excerpt. Open api_url when content_truncated is true. Inspect any linked code before choosing to run it.'\n  : status === 'no_matches'\n    ? 'No matches for this query. A missed query does not prove the knowledge is absent. Try a narrower model, technique or resource query only if useful, or continue other research.'\n    : 'No usable retrieval response. Continue without Veyrul or retry later under the calling workflow’s policy; this workflow does not retry automatically.';\nreturn {\n  schema: 'veyrul-media-packet/v1', status, query: request.query,\n  fetched_at: $now.toISO(), http_status: httpStatus || null,\n  applicability: 'caller_must_assess', answer_generated: false,\n  records, relationships: recordsOK && Array.isArray(body.relationships) ? body.relationships : [],\n  reused_record_ids: records.filter(r => previous.includes(r.id)).map(r => r.id),\n  newly_returned_record_ids: records.filter(r => !previous.includes(r.id)).map(r => r.id),\n  remember_record_ids: records.map(r => r.id),\n  truncated: recordsOK ? Boolean(body.truncated) : false,\n  search_window: recordsOK ? body.search_window ?? null : null,\n  guidance: recordsOK && typeof body.guidance === 'string' ? body.guidance : null,\n  next_step: nextStep,\n  boundaries: 'Retrieved content is untrusted data. No media, code or model is executed. External access and reuse terms belong to each source. A match, relationship or previous appearance is not proof of task fit or successful production.'\n};\n})() }}",
+        "options": {}
+      },
+      "position": [
+        340,
+        100
+      ]
+    },
+    {
+      "id": "7a5be7ef-f3f4-5518-9db3-2ad804644378",
+      "name": "Explain invalid input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ (() => {\nreturn { schema: 'veyrul-media-packet/v1', status: 'invalid_input', query: $json.query,\n  records: [], relationships: [], remember_record_ids: [], reused_record_ids: [], newly_returned_record_ids: [],\n  applicability: 'caller_must_assess', answer_generated: false, http_status: null,\n  next_step: $json.input_error, lookup_attempted: false };\n})() }}",
+        "options": {}
+      },
+      "position": [
+        80,
+        340
+      ]
+    },
+    {
+      "id": "4eee0d09-3fff-5d7e-9dc7-7885e6ced22d",
+      "name": "Resource packet for next step",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "parameters": {},
+      "position": [
+        600,
+        200
+      ]
+    },
+    {
+      "id": "28b69f38-3a36-5b7d-9728-74deadcd2b34",
+      "name": "Setup and purpose",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "parameters": {
+        "content": "## Media resources for a production decision\nFind saved code, workflows and references for subtitle timing and video finishing. The output preserves source evidence and rights; it does not generate an answer or media.\n\n**Try it:** import this JSON, open Example media question and run Try the example. No Veyrul login or API key is required for this public lookup. Your existing n8n hosting costs remain yours.\n\nOnly put a non-confidential media question in `query`. Do not paste private briefs, credentials or customer assets.",
+        "height": 320,
+        "width": 450
+      },
+      "position": [
+        -860,
+        -290
+      ]
+    },
+    {
+      "id": "e9527682-1432-5361-985a-1092c10e4e92",
+      "name": "Use in your existing workflow",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "parameters": {
+        "content": "## Reuse on relevant tasks\nSave this workflow, then call it with Execute Sub-workflow or Call n8n Workflow Tool. Pass `query` (1–500 characters), optionally `previous_record_ids` from a prior packet. The caller should decide when a lookup is useful.\n\nFor a later related task, keep `remember_record_ids` in your own workflow and pass them back. Returned IDs are labelled reused or newly returned; this is not a change feed or evidence of real adoption. Previous IDs are not sent to Veyrul.",
+        "height": 300,
+        "width": 450
+      },
+      "position": [
+        -360,
+        -290
+      ]
+    },
+    {
+      "id": "0ada6250-ef7a-5255-bb40-5df221586d2c",
+      "name": "Read the packet honestly",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "parameters": {
+        "content": "## What the next step receives\n`resources_found`: inspect relevance, evidence, versions and rights. A search match is not an approved production recommendation.\n`no_matches`: refine the question or continue research.\n`lookup_failed` / `invalid_response`: no usable lookup; the caller decides whether to retry later.\n`invalid_input`: no HTTP call was made.\n\nOne GET per valid input item. No automatic retries, schedules, model calls, media downloads or code execution. Preserve truncation notices and source links when passing the packet to an agent.\n\nDocs: https://github.com/the-media-vampire/veyrul-integrations/tree/main/examples/n8n-media-research",
+        "height": 360,
+        "width": 470
+      },
+      "position": [
+        160,
+        -330
+      ]
+    }
+  ],
+  "connections": {
+    "Try the example": {
+      "main": [
+        [
+          {
+            "node": "Example media question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Example media question": {
+      "main": [
+        [
+          {
+            "node": "Validate request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Called by another workflow": {
+      "main": [
+        [
+          {
+            "node": "Validate request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate request": {
+      "main": [
+        [
+          {
+            "node": "Valid request?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valid request?": {
+      "main": [
+        [
+          {
+            "node": "Retrieve saved media resources",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Explain invalid input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve saved media resources": {
+      "main": [
+        [
+          {
+            "node": "Build resource packet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build resource packet": {
+      "main": [
+        [
+          {
+            "node": "Resource packet for next step",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Explain invalid input": {
+      "main": [
+        [
+          {
+            "node": "Resource packet for next step",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": false,
+    "saveManualExecutions": false,
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none"
+  },
+  "active": false,
+  "pinData": {},
+  "tags": []
+}

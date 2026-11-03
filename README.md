@@ -231,3 +231,7 @@ Clients that use OAuth can install `media-hub-connect` from this marketplace. Se
 ## Timestamp-faithful video/audio edit example
 
 [Reproducible FFmpeg renderer and checks](examples/av-edit-renderer) for variable-frame-rate sources, audio offsets, repeated cuts and silence. Controlled POSIX reference, not a general media-production service. Both study recipients passed the decoded-media checks; peer-code reuse reduced recorded recipient elapsed in this single pair but used more input tokens. Full preparation overhead and limitations are included.
+
+## n8n media research workflow
+
+Add saved Veyrul resources to an existing media workflow with the [importable n8n example](examples/n8n-media-research/README.md). It returns source evidence, code links and coverage limits for subtitle timing and video finishing, using anonymous retrieval without a model call. Includes a runnable manual example and a reusable sub-workflow entry.

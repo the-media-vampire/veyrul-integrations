@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "checked_at": "2026-11-03T16:52:19.592Z",
+  "workflow_sha256": "9c5d2e5a8d60b2cbd1a27fd131688fd3f4934946ea4e92225f8a29bf681af4d3",
+  "n8n_release_components": "2.44.4",
+  "execution": "Official n8n execution engine and unchanged selected built-in nodes; fresh JSON import per case.",
+  "checks_passed": 21,
+  "checked_paths": [
+    "manual example",
+    "sub-workflow trigger",
+    "repeat and changed queries",
+    "multiple input items",
+    "missing/invalid input",
+    "no matches",
+    "HTTP 429 and 503",
+    "redirect refusal",
+    "malformed JSON",
+    "wrong schema and record",
+    "timeout",
+    "weak-match label and evidence preservation"
+  ],
+  "full_server_UI_or_Cloud_tested": false,
+  "live_queries": 5,
+  "resource_consumer": {
+    "status": "passed",
+    "record_id": "art_01M6FTHTXK218N2MSF2FERAST5",
+    "revision": 1,
+    "source_url": "https://raw.githubusercontent.com/the-media-vampire/veyrul-integrations/3cc67c39b5ad6769e2463b9bf915ae1f6eba6fd7/examples/edit-aware-word-timing/media_timeline.py",
+    "source_sha256": "1d9508741b4a64e002e883dfa309b53c400fbf155e938aa0db085e6e64f96f14",
+    "checks": "Six manually derived word intervals, cuts, reordered and repeated ranges, 2x speed, total 2.5 seconds.",
+    "executed_by_workflow": false
+  },
+  "hosted_adviser_calls": 0,
+  "paid_model_calls": 0,
+  "external_adoption": false
+}
