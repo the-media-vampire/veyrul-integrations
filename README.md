@@ -50,6 +50,9 @@ examples; upstream acceptance and independent use are tracked separately.
 [Preserve originals, select audio streams and check Apple APAC compatibility](examples/ffmpeg-safe-media/README.md)
 with focused guides and local tests. The checks distinguish a successful exit
 from a usable output and codec recognition from actual decoding or preservation.
+[Generate genuine Apple APAC mixed-track fixtures](examples/apple-apac-fixture/README.md)
+with native decoding checks and both audio-track orders; physical-device and
+spatial-playback qualification remain separate.
 
 ## Finish existing ComfyUI clips
 

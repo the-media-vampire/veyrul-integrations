@@ -1,0 +1,696 @@
+{
+  "status": "passed_in_stated_scope",
+  "platform": "macOS-26.3-arm64-arm-64bit",
+  "saved_probe_sha256": "90d2d067a7e0bdb54386b2b84dc457fa95ec8d9e1652b89aacb874f14da3bde4",
+  "source_caf_sha256": "8f09aba94bbadf29f2230b7f9afd929d6aa36af65bb754091b23141edcd29064",
+  "source_native_pcm_sha256": "45bfb71e72cdc9ee87210ebeb62578d61c7da0f03fe3b85d7d66add64c730f6a",
+  "cases": [
+    {
+      "order": "aac-first",
+      "fixture_sha256": "b02374c8cf8f5f3ee3e9827c11bafd469d4d996945b00fb7ac7b14e80a520e65",
+      "fixture_bytes": 111811,
+      "streams": [
+        {
+          "index": 0,
+          "codec": "h264",
+          "tag": "avc1",
+          "track_id": "0x1",
+          "duration": "2.000000"
+        },
+        {
+          "index": 1,
+          "codec": "aac",
+          "tag": "mp4a",
+          "track_id": "0x2",
+          "duration": "2.000000"
+        },
+        {
+          "index": 2,
+          "codec": null,
+          "tag": "apac",
+          "track_id": "0x3",
+          "duration": "2.000000"
+        }
+      ],
+      "genuine_apac_packets_preserved": 96,
+      "native_apac_pcm_equals_caf": true,
+      "native_pcm_frames": 96000,
+      "ffmpeg_copy_all_exit": 0,
+      "copied_stream_count": 3,
+      "copied_apac_packet_payloads_equal": true,
+      "copied_native_decode_exit": 2,
+      "copied_native_pcm_equals_source": false,
+      "copied_apac_duration": "2.005000",
+      "aac_selected_from_absolute_index": 1,
+      "aac_only_video_packets_equal": 48,
+      "aac_only_audio_packets_equal": 95,
+      "aac_only_fully_decoded": true,
+      "mixed_original_unchanged": true
+    },
+    {
+      "order": "apac-first",
+      "fixture_sha256": "4d50bc95eab692e460d85e399c39ffda38469be2b3869fc69fdcdfb444c66923",
+      "fixture_bytes": 111811,
+      "streams": [
+        {
+          "index": 0,
+          "codec": "h264",
+          "tag": "avc1",
+          "track_id": "0x1",
+          "duration": "2.000000"
+        },
+        {
+          "index": 1,
+          "codec": null,
+          "tag": "apac",
+          "track_id": "0x2",
+          "duration": "2.000000"
+        },
+        {
+          "index": 2,
+          "codec": "aac",
+          "tag": "mp4a",
+          "track_id": "0x3",
+          "duration": "2.000000"
+        }
+      ],
+      "genuine_apac_packets_preserved": 96,
+      "native_apac_pcm_equals_caf": true,
+      "native_pcm_frames": 96000,
+      "ffmpeg_copy_all_exit": 0,
+      "copied_stream_count": 3,
+      "copied_apac_packet_payloads_equal": true,
+      "copied_native_decode_exit": 2,
+      "copied_native_pcm_equals_source": false,
+      "copied_apac_duration": "2.005000",
+      "aac_selected_from_absolute_index": 2,
+      "aac_only_video_packets_equal": 48,
+      "aac_only_audio_packets_equal": 95,
+      "aac_only_fully_decoded": true,
+      "mixed_original_unchanged": true
+    }
+  ],
+  "originals_unchanged": true,
+  "existing_output_guard_passed": true,
+  "model_calls": 0,
+  "network_calls": 0,
+  "scope": "Purpose-generated 128x72/24fps SDR video and two stereo audio tracks with real Apple APAC payloads. Not an iPhone recording, FOA/spatial metadata, head-tracked playback, browser pipeline or fidelity-policy approval.",
+  "calls": [
+    {
+      "label": "saved-probe",
+      "command": [
+        "python3",
+        "$EXAMPLES/ffmpeg-safe-media/probe_apple_apac.py",
+        "$OUTPUT_DIR/native-source"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "compile-native_mux",
+      "command": [
+        "clang",
+        "-fobjc-arc",
+        "-fblocks",
+        "-fno-modules",
+        "-framework",
+        "Foundation",
+        "-framework",
+        "AVFoundation",
+        "-framework",
+        "CoreMedia",
+        "-framework",
+        "AudioToolbox",
+        "$EXAMPLES/apple-apac-fixture/native_mux.m",
+        "-o",
+        "$OUTPUT_DIR/native_mux"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "compile-native_decode",
+      "command": [
+        "clang",
+        "-fobjc-arc",
+        "-fblocks",
+        "-fno-modules",
+        "-framework",
+        "Foundation",
+        "-framework",
+        "AVFoundation",
+        "-framework",
+        "CoreMedia",
+        "-framework",
+        "AudioToolbox",
+        "$EXAMPLES/apple-apac-fixture/native_decode.m",
+        "-o",
+        "$OUTPUT_DIR/native_decode"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "video-aac",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-n",
+        "-f",
+        "lavfi",
+        "-i",
+        "testsrc2=size=128x72:rate=24:duration=2",
+        "-i",
+        "$OUTPUT_DIR/native-source/stereo-tone.wav",
+        "-map",
+        "0:v:0",
+        "-map",
+        "1:a:0",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "ultrafast",
+        "-threads",
+        "1",
+        "-pix_fmt",
+        "yuv420p",
+        "-color_primaries",
+        "bt709",
+        "-color_trc",
+        "iec61966-2-1",
+        "-colorspace",
+        "bt709",
+        "-color_range",
+        "tv",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "128k",
+        "$OUTPUT_DIR/video-aac.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "caf-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "a:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/native-source/apple-apac.caf"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "video-source-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "v:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/video-aac.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-source-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "a:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/video-aac.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-mux",
+      "command": [
+        "$OUTPUT_DIR/native_mux",
+        "$OUTPUT_DIR/video-aac.mov",
+        "$OUTPUT_DIR/native-source/apple-apac.caf",
+        "$OUTPUT_DIR/aac-first.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-probe",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-apac-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "2",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-native-decode",
+      "command": [
+        "$OUTPUT_DIR/native_decode",
+        "$OUTPUT_DIR/aac-first.mov",
+        "$OUTPUT_DIR/aac-first-native.pcm"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-copy-all",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-n",
+        "-i",
+        "$OUTPUT_DIR/aac-first.mov",
+        "-map",
+        "0",
+        "-c",
+        "copy",
+        "$OUTPUT_DIR/aac-first-copy-all.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-copy-probe",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first-copy-all.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-copy-apac-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "2",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first-copy-all.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-copy-native-decode",
+      "command": [
+        "$OUTPUT_DIR/native_decode",
+        "$OUTPUT_DIR/aac-first-copy-all.mov",
+        "$OUTPUT_DIR/aac-first-copy-native.pcm"
+      ],
+      "exit": 2
+    },
+    {
+      "label": "aac-first-aac-only",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-n",
+        "-i",
+        "$OUTPUT_DIR/aac-first.mov",
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:1",
+        "-c",
+        "copy",
+        "$OUTPUT_DIR/aac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-aac-only-probe",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-selected-video-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "v:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-selected-aac-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "a:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/aac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "aac-first-selected-decode",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-i",
+        "$OUTPUT_DIR/aac-first-aac-only.mov",
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:a:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-mux",
+      "command": [
+        "$OUTPUT_DIR/native_mux",
+        "$OUTPUT_DIR/video-aac.mov",
+        "$OUTPUT_DIR/native-source/apple-apac.caf",
+        "$OUTPUT_DIR/apac-first.mov",
+        "apac-first"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-probe",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-apac-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "1",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-native-decode",
+      "command": [
+        "$OUTPUT_DIR/native_decode",
+        "$OUTPUT_DIR/apac-first.mov",
+        "$OUTPUT_DIR/apac-first-native.pcm"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-copy-all",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-n",
+        "-i",
+        "$OUTPUT_DIR/apac-first.mov",
+        "-map",
+        "0",
+        "-c",
+        "copy",
+        "$OUTPUT_DIR/apac-first-copy-all.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-copy-probe",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first-copy-all.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-copy-apac-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "1",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first-copy-all.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-copy-native-decode",
+      "command": [
+        "$OUTPUT_DIR/native_decode",
+        "$OUTPUT_DIR/apac-first-copy-all.mov",
+        "$OUTPUT_DIR/apac-first-copy-native.pcm"
+      ],
+      "exit": 2
+    },
+    {
+      "label": "apac-first-aac-only",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-n",
+        "-i",
+        "$OUTPUT_DIR/apac-first.mov",
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:2",
+        "-c",
+        "copy",
+        "$OUTPUT_DIR/apac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-aac-only-probe",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-selected-video-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "v:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-selected-aac-packets",
+      "command": [
+        "ffprobe",
+        "-v",
+        "warning",
+        "-select_streams",
+        "a:0",
+        "-show_packets",
+        "-show_data_hash",
+        "sha256",
+        "-show_entries",
+        "packet=data_hash",
+        "-of",
+        "json",
+        "$OUTPUT_DIR/apac-first-aac-only.mov"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "apac-first-selected-decode",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-nostdin",
+        "-i",
+        "$OUTPUT_DIR/apac-first-aac-only.mov",
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:a:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      "exit": 0
+    },
+    {
+      "label": "existing-output-refused",
+      "command": [
+        "$OUTPUT_DIR/native_mux",
+        "$OUTPUT_DIR/video-aac.mov",
+        "$OUTPUT_DIR/native-source/apple-apac.caf",
+        "$OUTPUT_DIR/aac-first.mov"
+      ],
+      "exit": 2
+    }
+  ],
+  "observed_at": "2026-11-03T23:10:35.308951+00:00",
+  "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "macos": "ProductName:\t\tmacOS\nProductVersion:\t\t26.3\nBuildVersion:\t\t25D125\n",
+  "operator": "AI-assisted, founder-controlled Veyrul engineering check",
+  "upstream_inventory_check": {
+    "at": "2026-11-03T23:09:09.174Z",
+    "status": "passed",
+    "upstream_commit": "19bda08ee197aabf097c23c9070547605241c1fa",
+    "results": [
+      {
+        "order": "aac-first",
+        "track_ids": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "order": "apac-first",
+        "track_ids": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "scope": "Executed the exact pure ISO-BMFF track inventory function from draft PR189740. No browser, Mediabunny decoding, consent UI or full worker execution."
+  },
+  "independent_adoption": false
+}

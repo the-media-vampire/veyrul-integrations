@@ -1,0 +1,19 @@
+{
+  "existing_generator": {
+    "url": "https://github.com/the-media-vampire/veyrul-integrations/blob/ab4ce0addb1601d361823d9c2ca972e6790f112a/examples/ffmpeg-safe-media/probe_apple_apac.py",
+    "sha256": "90d2d067a7e0bdb54386b2b84dc457fa95ec8d9e1652b89aacb874f14da3bde4",
+    "reuse": "unchanged"
+  },
+  "upstream_inventory": {
+    "url": "https://github.com/openclaw/openclaw/blob/19bda08ee197aabf097c23c9070547605241c1fa/ui/src/pages/chat/components/chat-attachment-video-inventory.ts",
+    "sha256": "f20d007c7380c5a9043ffe9dfca8da696b979edbd75fc6e52fb7a26e66feefad",
+    "scope": "exact pure inventory function executed; not full worker/browser"
+  },
+  "Apple_API_references": [
+    "https://developer.apple.com/documentation/avfoundation/avassetreadertrackoutput",
+    "https://developer.apple.com/documentation/avfoundation/avassetwriterinput"
+  ],
+  "upstream_qualification_request": "https://github.com/openclaw/openclaw/pull/189740",
+  "physical_iPhone_fixture": false,
+  "code_and_docs_license": "MIT"
+}
