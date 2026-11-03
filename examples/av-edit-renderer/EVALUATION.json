@@ -1,0 +1,109 @@
+{
+  "schema": "veyrul-decoded-media-example/1",
+  "evidence": "Founder-controlled synthetic study; not independent outside adoption",
+  "primary": {
+    "isolated-apply": {
+      "passed_groups": 18,
+      "total_groups": 18,
+      "frames_correct": 169,
+      "audio_windows_passed": 143,
+      "elapsed_seconds": 475.598,
+      "usage": {
+        "input_tokens": 317937,
+        "cached_input_tokens": 304384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 15821,
+        "reasoning_output_tokens": 5149
+      },
+      "artifact_sha256": "8ffe1c790586257886b14c8128558b9f7fdc22255f916895d3ee7b72beaf7a9e"
+    },
+    "shared-apply": {
+      "passed_groups": 18,
+      "total_groups": 18,
+      "frames_correct": 169,
+      "audio_windows_passed": 143,
+      "elapsed_seconds": 368.035,
+      "usage": {
+        "input_tokens": 400585,
+        "cached_input_tokens": 355712,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14378,
+        "reasoning_output_tokens": 4005
+      },
+      "artifact_sha256": "16c356beb15b130c1288055e36b509bc195f0bd4b381dc188a2ec0511d6f8587"
+    }
+  },
+  "shared_preparation": {
+    "participants": 2,
+    "elapsed_seconds": 890.114,
+    "input_tokens": 891262,
+    "output_tokens": 30036
+  },
+  "conclusion": "Both correct. Shared recipient recorded107.563s lower task elapsed but higher input tokens; full chain includes preparation. No total-cost, quality or platform-superiority claim. Whole renderer reuse, not isolated effect of a diagnostic hint.",
+  "model": "gpt-6-astra",
+  "reasoning": "max",
+  "per_context_seconds": 480,
+  "cases": [
+    "FINAL",
+    "HOLDOUT1",
+    "HOLDOUT2"
+  ],
+  "source_fixtures": 3,
+  "renderer_logic_unchanged_after_trial": true,
+  "post_trial_packaging": {
+    "at": "2026-11-03T09:19:02.891246+00:00",
+    "status": "passed",
+    "jobs": {
+      "FINAL": {
+        "accepted": true,
+        "passed": 6,
+        "total": 6
+      },
+      "HOLDOUT1": {
+        "accepted": true,
+        "passed": 6,
+        "total": 6
+      },
+      "HOLDOUT2": {
+        "accepted": true,
+        "passed": 6,
+        "total": 6
+      }
+    },
+    "rendering_logic_AST_equals_frozen_shared_submission": true,
+    "existing_output_preserved": true,
+    "hardlink_source_alias_preserved": true,
+    "post_study_wrapper": "Guarded new-output link and process-group timeout; independently packaged after primary evaluation.",
+    "native_Windows_tested": false,
+    "arbitrary_footage_tested": false
+  },
+  "pitfalls": {
+    "at": "2026-11-03T09:12:33.362539+00:00",
+    "ffmpeg_version": "8.1",
+    "controlled_fixture_results": {
+      "A": {
+        "default_frames": 89,
+        "passthrough_frames": 60,
+        "probed_frames": 60
+      },
+      "B": {
+        "default_frames": 77,
+        "passthrough_frames": 72,
+        "probed_frames": 72
+      },
+      "default_mono_upmix": {
+        "gain_vs_exact_duplication": 0.7071034908294678,
+        "rmse": 0.02554340288043022
+      }
+    },
+    "generalization": "Observed exact build/settings/fixtures only; not every FFmpeg invocation or arbitrary media."
+  },
+  "limitations": [
+    "POSIX only; native Windows not tested",
+    "128x72 calibration clips; no arbitrary-resolution or creative-quality claim",
+    "decoded source frames held in memory",
+    "paired single task, not population estimate",
+    "existing ChatGPT native usage; no provider dollar invoice",
+    "Main/reviewer usage not included in participant totals"
+  ]
+}

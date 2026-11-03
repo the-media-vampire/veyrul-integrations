@@ -1,0 +1,50 @@
+Build a reusable offline edit renderer for short media clips. This is a controlled
+engineering study using generated calibration clips, not customer footage or a
+claim about creative quality. Deliver render.py and actual checks/findings.
+
+CLI: python3 render.py --manifest JOB.json --output OUTPUT.mkv
+The JSON contains sources (name -> filename relative to JOB.json), clips (ordered
+objects with source, in_s and out_s decimal numbers), fps=24, width=128, height=72.
+All inputs are trusted local files for this task, not shell commands. Handle spaces
+in paths. Do not download tools. FFmpeg, ffprobe, Python, numpy and Pillow are
+already installed; use the provided paths if the normal environment differs.
+
+Editorial semantics:
+- Each source's time zero is its first decoded VIDEO presentation timestamp.
+- in_s is inclusive and out_s exclusive in this video-relative clock; 0 <= in_s
+  < out_s <= 2.9. No speed change, transition, mixing or crossfade in this version.
+- An edit can reorder, repeat or overlap source ranges. Some sources have no audio,
+  delayed audio, audio before video, variable frame intervals, or mono audio.
+- Each clip contributes N=ceil((out_s-in_s)*24) frames, using decimal-rational
+  arithmetic to avoid adding a frame from binary floating-point error.
+- Frame k of that clip (k=0..N-1) uses the latest source video frame whose
+  video-relative PTS is <= in_s+k/24. Do not blend or interpolate frames.
+- Concatenate clip frame blocks without gaps. Output is constant24 fps,128x72,
+  FFV1 lossless video with timestamps starting at zero in Matroska.
+- Output audio is stereo PCM16 at48000Hz, starting at zero, total samples equal
+  to output frames*2000. Preserve original left/right channels. Duplicate mono
+  into both channels. At each output time within a clip, source sound is taken
+  from in_s plus elapsed clip time on the same video-relative clock. Respect the
+  actual source audio start offset. Before/after source audio, and any fractional
+  final-frame padding at/after out_s, use silence. Video-only clips are silent.
+- Normal resampling from44100Hz to48000Hz is allowed. Do not normalize loudness,
+  alter pitch, shift audio to 'fix' its intentional source offset, or drop silence.
+- Short clips and repeated ranges must work. Output paths may contain spaces.
+
+Evaluation is based on decoded output: frame count/dimensions/24fps/frame identity,
+audio count/channels/offset/silence and selected non-boundary audio windows. The
+validator allows video timestamps within1.1ms of k/24 and RGB decoded pixel
+values within1 integer level per channel. Audio frame PTS must agree with
+cumulative decoded sample count within1.1ms (no internal gaps/overlaps). Use an RGB/BGR lossless pixel format.
+Audio windows permit at most one sample alignment difference and RMSE<=0.003
+on normalized[-1,1] PCM values. Required silence peak must be<=0.001;48samples
+at silence boundaries are excluded. Audio signal windows exclude5ms at edit
+boundaries. These tolerances allow resampling, not missing or shifted passages. It runs your saved renderer on the supplied final job and two
+additional edit lists obeying the same contract, with the same three sources.
+No hidden source type or unspecified feature is required. Runtime ceiling120s
+per render; small fixtures should take much less. Store code as render.py.
+
+Save FINDINGS.json: what actually ran, observed failures/corrections, limitations,
+and peer message IDs/code hashes used if any. Include a compact README explaining
+how to use it. Do not fabricate successful checks. Preserve your attempts.
+All original task code is eligible for a later reviewed MIT-licensed release.

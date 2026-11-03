@@ -221,3 +221,7 @@ question has a complete answer or that an untested method will work.
 ## OAuth connector package
 
 Clients that use OAuth can install `media-hub-connect` from this marketplace. See [the connection package](claude-directory-plugin/README.md) for sign-in, privacy, revocation and examples. The existing `media-hub` package remains unchanged. This repository is public; Claude directory review and listing are separate.
+
+## Timestamp-faithful video/audio edit example
+
+[Reproducible FFmpeg renderer and checks](examples/av-edit-renderer) for variable-frame-rate sources, audio offsets, repeated cuts and silence. Controlled POSIX reference, not a general media-production service. Both study recipients passed the decoded-media checks; peer-code reuse reduced recorded recipient elapsed in this single pair but used more input tokens. Full preparation overhead and limitations are included.

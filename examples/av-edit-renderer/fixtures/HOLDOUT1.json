@@ -1,0 +1,37 @@
+{
+  "sources": {
+    "A": "A source.mkv",
+    "B": "B source.mkv",
+    "C": "C source.mkv"
+  },
+  "fps": 24,
+  "width": 128,
+  "height": 72,
+  "clips": [
+    {
+      "source": "A",
+      "in_s": 0.4,
+      "out_s": 0.5
+    },
+    {
+      "source": "C",
+      "in_s": 0.2,
+      "out_s": 0.3
+    },
+    {
+      "source": "B",
+      "in_s": 0.03,
+      "out_s": 0.53
+    },
+    {
+      "source": "A",
+      "in_s": 0.92,
+      "out_s": 1.67
+    },
+    {
+      "source": "A",
+      "in_s": 0.412,
+      "out_s": 0.413
+    }
+  ]
+}
