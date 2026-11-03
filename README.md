@@ -47,6 +47,10 @@ using exact frame rates and measured cut times, with actual decoded-video/audio 
 with a minimal patch and reproducible FFmpeg before/after case. Both are local
 examples; upstream acceptance and independent use are tracked separately.
 
+[Preserve originals, select audio streams and check Apple APAC compatibility](examples/ffmpeg-safe-media/README.md)
+with focused guides and local tests. The checks distinguish a successful exit
+from a usable output and codec recognition from actual decoding or preservation.
+
 ## Finish existing ComfyUI clips
 
 [Use the optional ComfyUI finishing companion](examples/comfy-finishing/README.md)

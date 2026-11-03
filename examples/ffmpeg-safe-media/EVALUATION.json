@@ -1,0 +1,730 @@
+{
+  "observed_at": "2026-11-03T22:45:51.596331+00:00",
+  "operator": "Veyrul Main; founder-operated engineering verification",
+  "independent_adoption": false,
+  "paid_model_calls": 0,
+  "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "macos": "26.3 build 25D125",
+  "stream_selection": {
+    "status": "passed_in_stated_scope",
+    "source_sha256": "70f24f30c32288b2b8b2f066d06ba468a5a4b32a01bf79330a5be917d9e14d39",
+    "source_unchanged": true,
+    "selected_sha256": "66c0f7985de50dd33915432a222277ca5165465cfddcaf901a281c6811fb7990",
+    "video_packets_equal": 72,
+    "audio_packets_equal": 142,
+    "selected_audio_880_to_440_power_ratio": 1701162673.2583842,
+    "decoded_all_selected_streams": true,
+    "existing_output_refused_and_unchanged": true,
+    "same_path_refused_and_source_unchanged": true,
+    "existing_output_refusal_exit": 0,
+    "same_path_refusal_exit": 234,
+    "scope": "Original 3-second 128x72 H.264 and two mono AAC tones; no spatial metadata, hardlink race or arbitrary production-media test.",
+    "calls": [
+      {
+        "label": "version",
+        "command": [
+          "ffmpeg",
+          "-version"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "fixture",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-f",
+          "lavfi",
+          "-i",
+          "testsrc2=size=128x72:rate=24:duration=3",
+          "-f",
+          "lavfi",
+          "-i",
+          "sine=frequency=440:sample_rate=48000:duration=3",
+          "-f",
+          "lavfi",
+          "-i",
+          "sine=frequency=880:sample_rate=48000:duration=3",
+          "-map",
+          "0:v:0",
+          "-map",
+          "1:a:0",
+          "-map",
+          "2:a:0",
+          "-c:v",
+          "libx264",
+          "-preset",
+          "ultrafast",
+          "-threads",
+          "1",
+          "-pix_fmt",
+          "yuv420p",
+          "-c:a",
+          "aac",
+          "-b:a",
+          "96k",
+          "$OUTPUT_DIR/input.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "input-probe",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-show_streams",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/input.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "select-second-audio",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-i",
+          "$OUTPUT_DIR/input.mp4",
+          "-map",
+          "0:v:0",
+          "-map",
+          "0:a:1",
+          "-c",
+          "copy",
+          "$OUTPUT_DIR/second-audio.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "output-probe",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-show_streams",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/second-audio.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "input-video-packets",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_packets",
+          "-show_data_hash",
+          "sha256",
+          "-show_entries",
+          "packet=data_hash",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/input.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "output-video-packets",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_packets",
+          "-show_data_hash",
+          "sha256",
+          "-show_entries",
+          "packet=data_hash",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/second-audio.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "input-second-audio-packets",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "a:1",
+          "-show_packets",
+          "-show_data_hash",
+          "sha256",
+          "-show_entries",
+          "packet=data_hash",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/input.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "output-audio-packets",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-select_streams",
+          "a:0",
+          "-show_packets",
+          "-show_data_hash",
+          "sha256",
+          "-show_entries",
+          "packet=data_hash",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/second-audio.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "decode-selected",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-i",
+          "$OUTPUT_DIR/second-audio.mp4",
+          "-map",
+          "0:v:0",
+          "-map",
+          "0:a:0",
+          "-f",
+          "null",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "selected-pcm",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-i",
+          "$OUTPUT_DIR/second-audio.mp4",
+          "-map",
+          "0:a:0",
+          "-c:a",
+          "pcm_s16le",
+          "-ar",
+          "48000",
+          "-ac",
+          "1",
+          "-f",
+          "s16le",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "existing-output-refused",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-i",
+          "$OUTPUT_DIR/input.mp4",
+          "-map",
+          "0:v:0",
+          "-map",
+          "0:a:1",
+          "-c",
+          "copy",
+          "$OUTPUT_DIR/second-audio.mp4"
+        ],
+        "exit": 0
+      },
+      {
+        "label": "same-input-output-refused",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-y",
+          "-i",
+          "$OUTPUT_DIR/input.mp4",
+          "-map",
+          "0:v:0",
+          "-map",
+          "0:a:1",
+          "-c",
+          "copy",
+          "$OUTPUT_DIR/input.mp4"
+        ],
+        "exit": 234
+      }
+    ]
+  },
+  "apple_apac": {
+    "status": "observations_recorded",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "input_sha256": "f118b01a9100cff4b8d8866ba6b1c2868bdf3cab476892a0447a4ec5f5a1b745",
+    "apac_sha256": "8f09aba94bbadf29f2230b7f9afd929d6aa36af65bb754091b23141edcd29064",
+    "apac_bytes": 21747,
+    "caf_format_id": "apac",
+    "native_decoded_shape": {
+      "channels": 2,
+      "sample_rate": 48000,
+      "frames": 96000
+    },
+    "source_and_encoded_originals_unchanged": true,
+    "ffprobe_exit": 0,
+    "packet_probe_exit": 0,
+    "ffprobe_streams": [
+      {
+        "index": 0,
+        "codec_type": "audio",
+        "codec_tag_string": "apac",
+        "codec_tag": "0x63617061",
+        "sample_rate": "48000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 2048,
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/48000",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 96000,
+        "duration": "2.000000",
+        "nb_frames": "98304",
+        "extradata_size": 124,
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        }
+      }
+    ],
+    "packets_observed": 96,
+    "copied_mov_streams": [],
+    "copied_mov_packets": 0,
+    "copied_mov_packet_payloads_equal": false,
+    "copied_mov_native_decode_exit": 1,
+    "copied_mov_bytes": 185,
+    "ffmpeg_decode_exit": 234,
+    "ffmpeg_copy_caf_exit": 183,
+    "ffmpeg_copy_mov_exit": 0,
+    "ffmpeg_transcode_aac_exit": 234,
+    "native_pcm_then_aac_decode_passed": true,
+    "native_pcm_then_aac_duration": "2.000000",
+    "scope": "Apple afconvert stereo CAF fixture, not an iPhone MOV or spatial playback/metadata validation.",
+    "calls": [
+      {
+        "label": "macos",
+        "command": [
+          "sw_vers"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "ffmpeg-version",
+        "command": [
+          "ffmpeg",
+          "-version"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "codec-list",
+        "command": [
+          "ffmpeg",
+          "-hide_banner",
+          "-codecs"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "native-encode-caf",
+        "command": [
+          "afconvert",
+          "-f",
+          "caff",
+          "-d",
+          "apac",
+          "-b",
+          "128000",
+          "-l",
+          "Stereo",
+          "$OUTPUT_DIR/stereo-tone.wav",
+          "$OUTPUT_DIR/apple-apac.caf"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "native-decode",
+        "command": [
+          "afconvert",
+          "-f",
+          "WAVE",
+          "-d",
+          "LEI16",
+          "$OUTPUT_DIR/apple-apac.caf",
+          "$OUTPUT_DIR/native-decoded.wav"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "native-decoded-probe",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-show_streams",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/native-decoded.wav"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "native-decoded-pcm",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-i",
+          "$OUTPUT_DIR/native-decoded.wav",
+          "-map",
+          "0:a:0",
+          "-c:a",
+          "pcm_s16le",
+          "-f",
+          "s16le",
+          "-"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "ffprobe-streams",
+        "command": [
+          "ffprobe",
+          "-v",
+          "warning",
+          "-show_streams",
+          "-show_format",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/apple-apac.caf"
+        ],
+        "exit": 0,
+        "stderr": "[caf @ 0x9f7048000] Could not find codec parameters for stream 0 (Audio: none (apac / 0x63617061), 48000 Hz, stereo): unknown codec\nConsider increasing the value for the 'analyzeduration' (0) and 'probesize' (5000000) options\nUnsupported codec with id 0 for input stream 0\n"
+      },
+      {
+        "label": "ffprobe-packets",
+        "command": [
+          "ffprobe",
+          "-v",
+          "warning",
+          "-select_streams",
+          "a:0",
+          "-show_packets",
+          "-show_data_hash",
+          "sha256",
+          "-show_entries",
+          "packet=data_hash",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/apple-apac.caf"
+        ],
+        "exit": 0,
+        "stderr": "[caf @ 0xaf4818000] Could not find codec parameters for stream 0 (Audio: none (apac / 0x63617061), 48000 Hz, stereo): unknown codec\nConsider increasing the value for the 'analyzeduration' (0) and 'probesize' (5000000) options\nUnsupported codec with id 0 for input stream 0\n"
+      },
+      {
+        "label": "ffmpeg-decode",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-i",
+          "$OUTPUT_DIR/apple-apac.caf",
+          "-map",
+          "0:a:0",
+          "-f",
+          "null",
+          "-"
+        ],
+        "exit": 234,
+        "stderr": "[aist#0:0/none @ 0xa5d00c300] Decoding requested, but no decoder found for: none\nError opening output file -.\nError opening output files: Invalid argument\n"
+      },
+      {
+        "label": "ffmpeg-copy-caf",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-i",
+          "$OUTPUT_DIR/apple-apac.caf",
+          "-map",
+          "0:a:0",
+          "-c",
+          "copy",
+          "$OUTPUT_DIR/copied.caf"
+        ],
+        "exit": 183,
+        "stderr": "[caf @ 0x959014280] unsupported codec\n[out#0/caf @ 0x9590603c0] Could not write header (incorrect codec parameters ?): Invalid data found when processing input\n"
+      },
+      {
+        "label": "ffmpeg-copy-mov",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-i",
+          "$OUTPUT_DIR/apple-apac.caf",
+          "-map",
+          "0:a:0",
+          "-c",
+          "copy",
+          "$OUTPUT_DIR/copied.mov"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "copied-mov-probe",
+        "command": [
+          "ffprobe",
+          "-v",
+          "warning",
+          "-show_streams",
+          "-show_format",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/copied.mov"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "copied-mov-packets",
+        "command": [
+          "ffprobe",
+          "-v",
+          "warning",
+          "-select_streams",
+          "a:0",
+          "-show_packets",
+          "-show_data_hash",
+          "sha256",
+          "-show_entries",
+          "packet=data_hash",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/copied.mov"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "copied-mov-native-decode",
+        "command": [
+          "afconvert",
+          "-f",
+          "WAVE",
+          "-d",
+          "LEI16",
+          "$OUTPUT_DIR/copied.mov",
+          "$OUTPUT_DIR/mov-native-decoded.wav"
+        ],
+        "exit": 1,
+        "stderr": "Error: Couldn't open input file ('dta?')\n"
+      },
+      {
+        "label": "ffmpeg-transcode-aac",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-i",
+          "$OUTPUT_DIR/apple-apac.caf",
+          "-map",
+          "0:a:0",
+          "-c:a",
+          "aac",
+          "$OUTPUT_DIR/converted.m4a"
+        ],
+        "exit": 234,
+        "stderr": "[aist#0:0/none @ 0xa1b00c300] Decoding requested, but no decoder found for: none\nError opening output file $OUTPUT_DIR/converted.m4a.\nError opening output files: Invalid argument\n"
+      },
+      {
+        "label": "native-pcm-to-aac",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-n",
+          "-i",
+          "$OUTPUT_DIR/native-decoded.wav",
+          "-map",
+          "0:a:0",
+          "-c:a",
+          "aac",
+          "-b:a",
+          "128k",
+          "$OUTPUT_DIR/native-pcm-to-aac.m4a"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "native-pcm-to-aac-probe",
+        "command": [
+          "ffprobe",
+          "-v",
+          "error",
+          "-show_streams",
+          "-of",
+          "json",
+          "$OUTPUT_DIR/native-pcm-to-aac.m4a"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "label": "native-pcm-to-aac-decode",
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-i",
+          "$OUTPUT_DIR/native-pcm-to-aac.m4a",
+          "-map",
+          "0:a:0",
+          "-f",
+          "null",
+          "-"
+        ],
+        "exit": 0,
+        "stderr": ""
+      }
+    ]
+  },
+  "chain_repair": {
+    "schema": "video-editing-chain-evaluation/1",
+    "upstream": {
+      "repository": "https://github.com/6missedcalls/video-editing-skill",
+      "commit": "7dc6e1da66f43eff44c3692d4b84e06aef6590b6",
+      "files": {
+        "edit.sh": "84fe0fc98ee1fcf08436d4695a9c73f25dca460d27877be017c9597576dc734b",
+        "trim.sh": "50a8cf6cc1031f9c513ac43f6248aa6bf78d30b1de97bed4e15005b2364f4943"
+      }
+    },
+    "fixture": "original 4-second 128x72 test pattern and 440 Hz tone",
+    "operations": [
+      "trim to 2 seconds",
+      "speed 2x"
+    ],
+    "results": [
+      {
+        "variant": "upstream",
+        "exit_code": 234,
+        "output_exists": false,
+        "source_unchanged": true
+      },
+      {
+        "variant": "patched",
+        "exit_code": 0,
+        "output_exists": true,
+        "source_unchanged": true,
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_type": "video",
+              "duration": "1.083333",
+              "nb_frames": "26"
+            },
+            {
+              "codec_type": "audio",
+              "duration": "1.003000",
+              "nb_frames": "49"
+            }
+          ],
+          "format": {
+            "duration": "1.083333"
+          }
+        },
+        "full_decode_passed": true
+      }
+    ],
+    "ffmpeg": "ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "limits": [
+      "Fixes temporary-name collision only",
+      "No Whisper/generation/API call",
+      "Existing trim and speed rounding is unchanged; output was 1.083333 seconds",
+      "No general caption alignment, overwrite policy or media-quality claim"
+    ]
+  },
+  "source_pins": {
+    "ffmpeg_n8_1": "9047fa1b084f76b1b4d065af2d743df1b40dfb56",
+    "ffmpeg_development_inspected_only": "200a98d5ba4a6c792517d3ea464a5392737b4e33"
+  },
+  "development_notes": [
+    "Earlier assertion expected a nonzero exit for an existing -n output; actual exit was 0 with file unchanged. Test corrected to verify refusal and retained bytes/mtime.",
+    "A warning-level in-place string was not emitted at error log level; the actual same-input error and unchanged bytes were verified.",
+    "Python 3.9 wave could not parse extensible native WAV. ffprobe shape and actual PCM decode were used instead."
+  ],
+  "limitations": [
+    "No iPhone MOV source was available; APAC test uses genuine Apple-encoded stereo CAF.",
+    "No spatial playback, head tracking or alternate-track metadata validation.",
+    "Development FFmpeg source was inspected, not built or executed.",
+    "No existing-original deletion, Windows changes or cloud adviser calls."
+  ]
+}
