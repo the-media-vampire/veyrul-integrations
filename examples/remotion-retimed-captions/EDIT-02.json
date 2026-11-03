@@ -1,0 +1,62 @@
+{
+  "label": "Reorder \u00b7 speed up \u00b7 reuse",
+  "fps": 30,
+  "unit": "seconds",
+  "rows": [
+    {
+      "text": "Keep",
+      "start": "0",
+      "end": "0.6"
+    },
+    {
+      "text": "useful",
+      "start": "0.6",
+      "end": "1.4"
+    },
+    {
+      "text": "knowledge.",
+      "start": "1.4",
+      "end": "2.3"
+    },
+    {
+      "text": "Make",
+      "start": "3",
+      "end": "3.6"
+    },
+    {
+      "text": "every",
+      "start": "3.6",
+      "end": "4.2"
+    },
+    {
+      "text": "edit",
+      "start": "4.2",
+      "end": "4.9"
+    },
+    {
+      "text": "count.",
+      "start": "4.9",
+      "end": "5.8"
+    }
+  ],
+  "cuts": [
+    {
+      "start_us": 3000000,
+      "end_us": 6000000,
+      "speed_num": 1,
+      "speed_den": 1
+    },
+    {
+      "start_us": 0,
+      "end_us": 2400000,
+      "speed_num": 3,
+      "speed_den": 2
+    },
+    {
+      "start_us": 3600000,
+      "end_us": 4900000,
+      "speed_num": 1,
+      "speed_den": 1
+    }
+  ]
+}

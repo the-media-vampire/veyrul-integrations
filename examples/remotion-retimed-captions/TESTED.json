@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-11-03T18:20:12.697633+00:00",
+  "status": "passed_in_stated_scope",
+  "operator": "Veyrul founder operated; internal integration verification",
+  "environment": {
+    "os": "macOS arm64",
+    "python": "3.9.6",
+    "node": "v26.0.0",
+    "chrome": "156.0.8078.80",
+    "remotion": "4.0.537",
+    "browser_downloaded": false
+  },
+  "inputs": [
+    {
+      "file": "EDIT-01.json",
+      "sha256": "b38542d4a2c607be2657434d83298e1bd34ce72f213b9c2e3b4c7232fbe08aa9"
+    },
+    {
+      "file": "EDIT-02.json",
+      "sha256": "a44e420e3f8c8e474c44672cd234c9bd8d4a61c223e005ab2775444a5c43f93f"
+    }
+  ],
+  "saved_resource": {
+    "record_id": "art_01M6FTHTXK218N2MSF2FERAST5",
+    "revision": 1,
+    "toolkit_sha256": "1d9508741b4a64e002e883dfa309b53c400fbf155e938aa0db085e6e64f96f14",
+    "toolkit_changed": false,
+    "initial_query_rank": 3,
+    "focused_query_rank": 1,
+    "return_query_rank": 1
+  },
+  "verification": {
+    "preparation_tests": 10,
+    "helper_boundary_tests": 6,
+    "skill_format_valid": true,
+    "rendered_edits": 2,
+    "decoded_frames_checked": 351,
+    "source_and_caption_visibility_errors": 0,
+    "OCR_samples": 18,
+    "OCR_samples_passed": 18,
+    "visual_inspection": "Actual frame110 inspected; caption and source word count. match at the rational-speed boundary. Readable supplied layout; no general taste claim.",
+    "render_settings": {
+      "codec": "h264",
+      "width": 720,
+      "height": 1280,
+      "fps": 30,
+      "crf": 16,
+      "concurrency": 2,
+      "disableSharedMemoryCapture": true
+    },
+    "actual_engine": "Official bundler and renderer; existing Chrome; no emulator. Final capture checks reused the unchanged official bundle, avoiding another build.",
+    "durations_seconds": [
+      5.8,
+      5.9
+    ]
+  },
+  "repaired_findings": [
+    "Rounded microsecond timestamps put a caption one frame late at an exact rational frame boundary. Adapter now computes frames from original source/cut identities and ratios.",
+    "A pathological tiny decimal exponent stalled an early input test; explicit exponent bounds now reject it before the saved module runs.",
+    "Initial default capture produced one visibly corrupted frame in the second edit. Documented standard capture passed the subsequent351-frame check; root cause and broad reliability remain unproved."
+  ],
+  "not_established": [
+    "External users or spontaneous skill selection",
+    "Speech/transcription or audio alignment",
+    "Arbitrary editor exports, variable-frame-rate sources or noninteger fps",
+    "Cross-platform rendering or general readability",
+    "Universal quality, cost or speed advantage"
+  ],
+  "cost": {
+    "paid_model_API_calls": 0,
+    "hosted_adviser_calls": 0,
+    "generation_provider_calls": 0,
+    "Veyrul_context_lookups": 3,
+    "Veyrul_full_record_reads": 1,
+    "Veyrul_requests_during_render": 0,
+    "note": "Local compute, ordinary retrieval infrastructure and optional storage still have costs. Remotion licensing is separate."
+  }
+}

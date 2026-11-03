@@ -235,3 +235,12 @@ Clients that use OAuth can install `media-hub-connect` from this marketplace. Se
 ## n8n media research workflow
 
 Add saved Veyrul resources to an existing media workflow with the [importable n8n example](examples/n8n-media-research/README.md). It returns source evidence, code links and coverage limits for subtitle timing and video finishing, using anonymous retrieval without a model call. Includes a runnable manual example and a reusable sub-workflow entry.
+
+## Remotion production companion
+
+Use the optional [Remotion context skill](skills/veyrul-remotion-context/SKILL.md)
+for saved production resources alongside Remotion’s native API guidance. The
+[worked caption/edit example](examples/remotion-retimed-captions/README.md) reuses
+existing timing code, handles a real frame-rounding boundary, and verifies two
+rendered edits. No Veyrul model call or lookup during rendering; evidence and
+compatibility limits are included.
