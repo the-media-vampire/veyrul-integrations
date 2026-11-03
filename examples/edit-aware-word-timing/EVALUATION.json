@@ -1,0 +1,151 @@
+{
+  "date": "2026-11-03",
+  "provenance": "Founder-controlled synthetic participants; one paired workflow with six contexts per arm. Not independent outside adoption.",
+  "selected_artifact": {
+    "participant": "shared-apply",
+    "sha256": "1d9508741b4a64e002e883dfa309b53c400fbf155e938aa0db085e6e64f96f14",
+    "same_bytes_as_assessed": true,
+    "Main_implementation_changes": 0
+  },
+  "environment": {
+    "at": "2026-11-03T04:10:53.847415+00:00",
+    "python_version": "3.9.6",
+    "system": "Darwin",
+    "machine": "arm64",
+    "scope": "Local numerical evaluation environment; no Windows or rendered-media execution claim."
+  },
+  "primary": {
+    "isolated": {
+      "passed_groups": 9,
+      "total_groups": 9,
+      "passed_cases": 204,
+      "total_cases": 204,
+      "saved_changed_edit_output_correct": true
+    },
+    "shared": {
+      "passed_groups": 9,
+      "total_groups": 9,
+      "passed_cases": 204,
+      "total_cases": 204,
+      "saved_changed_edit_output_correct": true
+    },
+    "output_bytes_identical": true,
+    "correctness_advantage_demonstrated": false
+  },
+  "secondary": [
+    {
+      "name": "isolated-normalize",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "isolated-retime",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "isolated-highlight",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "isolated-integrate",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "isolated-challenge",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "isolated-apply",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "shared-normalize",
+      "passed_groups": 2,
+      "passed_cases": 72,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "partial specialist"
+    },
+    {
+      "name": "shared-retime",
+      "passed_groups": 4,
+      "passed_cases": 148,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "partial specialist"
+    },
+    {
+      "name": "shared-highlight",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "shared-integrate",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "shared-challenge",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    },
+    {
+      "name": "shared-apply",
+      "passed_groups": 9,
+      "passed_cases": 204,
+      "eligible_captured_artifact": true,
+      "delivered_interface": "complete toolkit observed"
+    }
+  ],
+  "cumulative_reuse": "Normalization code and tests passed to retiming, then highlighting; integration, challenge and application reused the complete algorithm while adding checks, diagnostics and application. No peer algorithm defect found in later stages.",
+  "agent_elapsed_seconds_sum": {
+    "isolated": 2240.36,
+    "shared": 2726.129
+  },
+  "recorded_tokens": {
+    "isolated": {
+      "input": 1072310,
+      "cached_within_input": 979712,
+      "output": 103521
+    },
+    "shared_lower_bound": {
+      "input": 3110229,
+      "cached_within_input": 2823680,
+      "output": 108523
+    },
+    "note": "Shared challenger timed out; last recorded native usage may omit unfinished generation. Existing ChatGPT-authenticated client usage; no provider invoice amount available."
+  },
+  "platform_model_calls_requested": 0,
+  "interpretation": "Actual cumulative reuse and useful tested artifacts are established. This fully specified task shows no final-correctness advantage; the shared arm consumed more recorded time and tokens. Larger networks and complementary real-world tasks were not evaluated.",
+  "limits": [
+    "One paired study, not six independent randomized outcomes.",
+    "No rendered video, audio, subtitle styling or production quality assessment.",
+    "Same operator and model; inspected command traces are not an OS security isolation proof.",
+    "Fresh clients had explicit task instructions to cooperate; spontaneous discovery was not tested.",
+    "Timing harness lacks atomic exit snapshots; inspected module mtimes and server posts were all before their boundaries, and pre/post evaluation hashes matched.",
+    "Shared challenger reached its deadline after saving and posting useful work; the timeout remains in the results.",
+    "No standalone economic or adoption advantage established."
+  ],
+  "assigned_role_scope": "Normalize, retime and highlight each required its own function and optionally others in both arms. Integrate, challenge and apply required all three. All isolated specialists independently chose to implement the full toolkit."
+}

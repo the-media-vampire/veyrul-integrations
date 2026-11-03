@@ -1,0 +1,218 @@
+{
+  "role": "apply",
+  "scope": "Controlled synthetic offline timing study; unchanged SPEC.txt; Python standard library only.",
+  "interface": [
+    "normalize_words(rows, unit=\"seconds\")",
+    "retime_words(words, cuts)",
+    "build_events(words, duration_us)"
+  ],
+  "output": {
+    "path": "OUTPUT.json",
+    "exact_top_level_keys": [
+      "normalized",
+      "retimed",
+      "highlights"
+    ],
+    "normalized_count": 7,
+    "retimed_count": 13,
+    "duration_us": 143333,
+    "events": 9,
+    "ticks": 15,
+    "unrepresented_indices": [
+      3,
+      4,
+      8,
+      10
+    ],
+    "represented_occurrences": 9,
+    "grid_overhang_us": 6667,
+    "nonempty_source_intersections": 13,
+    "rounded_collapsed_occurrences": 0,
+    "input_text_preserved": true,
+    "pauses_selected": 0
+  },
+  "tests": {
+    "command": "python3 -B -m unittest -v test_media_timeline",
+    "python_version": "3.9.6",
+    "tests_run": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 0.6818645,
+    "test_names": [
+      "test_media_timeline.ApplyTests.test_changed_edit_against_separate_oracles",
+      "test_media_timeline.ApplyTests.test_changed_edit_clipping_creates_tie_and_resume",
+      "test_media_timeline.ApplyTests.test_changed_edit_occurrence_trace",
+      "test_media_timeline.ApplyTests.test_changed_edit_same_tail_different_sampling_phase",
+      "test_media_timeline.ApplyTests.test_example_fixture",
+      "test_media_timeline.ApplyTests.test_nonmutation_success_failure_and_fresh_results",
+      "test_media_timeline.ApplyTests.test_saved_audit_loss_classification",
+      "test_media_timeline.ApplyTests.test_saved_output_roundtrip_schema_and_coverage",
+      "test_media_timeline.ApplyTests.test_stage_rounding_cannot_be_fused",
+      "test_media_timeline.ApplyTests.test_study_bound_occurrences_and_duration",
+      "test_media_timeline.HighlightTests.test_empty_zero_and_pauses",
+      "test_media_timeline.HighlightTests.test_event_validation",
+      "test_media_timeline.HighlightTests.test_exact_half_open_sample",
+      "test_media_timeline.HighlightTests.test_exhaustive_sample_boundaries",
+      "test_media_timeline.HighlightTests.test_final_clamp_duration_sensitive",
+      "test_media_timeline.HighlightTests.test_original_position_ties_and_resume",
+      "test_media_timeline.HighlightTests.test_seeded_event_oracle",
+      "test_media_timeline.HighlightTests.test_short_and_long_unrepresented",
+      "test_media_timeline.NormalizationTests.test_converted_sort_and_collapsed_intervals",
+      "test_media_timeline.NormalizationTests.test_decimal_context_independence",
+      "test_media_timeline.NormalizationTests.test_float_rounding_regression",
+      "test_media_timeline.NormalizationTests.test_invalid_numbers_at_each_boundary",
+      "test_media_timeline.NormalizationTests.test_invalid_text_all_controls",
+      "test_media_timeline.NormalizationTests.test_seeded_decimal_and_float_oracle",
+      "test_media_timeline.NormalizationTests.test_structure_and_units",
+      "test_media_timeline.NormalizationTests.test_unicode_duplicates_sort_identity",
+      "test_media_timeline.NormalizationTests.test_units_and_half_up",
+      "test_media_timeline.NormalizationTests.test_valid_grammar",
+      "test_media_timeline.RetimeTests.test_absolute_rounding_carry",
+      "test_media_timeline.RetimeTests.test_all_speed_pairs",
+      "test_media_timeline.RetimeTests.test_collapsed_occurrence_phase",
+      "test_media_timeline.RetimeTests.test_cut_validation_even_without_words",
+      "test_media_timeline.RetimeTests.test_empty_inputs_and_full_duration",
+      "test_media_timeline.RetimeTests.test_exact_offset_with_local_boundary",
+      "test_media_timeline.RetimeTests.test_half_open_clipping_and_repeated_source",
+      "test_media_timeline.RetimeTests.test_seeded_retime_and_shuffled_highlights",
+      "test_media_timeline.RetimeTests.test_stable_equal_keys_and_any_order",
+      "test_media_timeline.RetimeTests.test_word_validation_even_without_cuts"
+    ],
+    "failure_details": [],
+    "error_details": []
+  },
+  "test_coverage": {
+    "decimal_reference_cases": 600,
+    "float_reference_cases": 600,
+    "retime_lcm_reference_and_shuffled_highlight_cases": 500,
+    "additional_seeded_highlight_reference_cases": 700,
+    "exhaustive_two_word_boundary_pairs": 4356,
+    "speed_ratios": 144,
+    "maximum_fixture_occurrences": 960,
+    "maximum_fixture_duration_us": 59999988,
+    "other_checks": [
+      "ASCII decimal grammar, finite values, all C0 controls and DEL",
+      "exact key and integer validation including booleans",
+      "Unicode identity, duplicate and overlap retention",
+      "empty-input validation, stable ordering, original-index provenance",
+      "half-open boundaries, final sample clamp, repeated-cut phase",
+      "no mutation on success or failure",
+      "saved JSON roundtrip, exact output keys, continuous maximal event coverage",
+      "saved audit classifications and exact rational cut boundaries"
+    ]
+  },
+  "findings": [
+    {
+      "kind": "evidence",
+      "claim": "All 13 nonempty source-cut intersections survive microsecond rounding; four retained occurrences are unrepresented only at scheduling.",
+      "details": "Rows 3 and 10 are duplicate source row 5 and lose equal-start ties to rows 2 and 9. Row 4 is the 2 us tiny occurrence; row 8 is the repeated tail. Both contain no sample.",
+      "test": "test_saved_audit_loss_classification"
+    },
+    {
+      "kind": "evidence",
+      "claim": "The same clipped source tail is highlighted in cut 0 but not in repeated cut 2 because of sample phase.",
+      "details": "Row 1 [20000,26667) contains sample 25000. Row 8 [76667,83333) falls between 75000 and 85000. Both source intersections are [90000,100000); rounded durations are 6667 and 6666 us.",
+      "test": "test_changed_edit_same_tail_different_sampling_phase"
+    },
+    {
+      "kind": "evidence",
+      "claim": "Clipping creates an equal destination start for distinct original source starts in the last cut.",
+      "details": "Source rows 1 and 5 begin at 0, source row 2 at 20000; all clip to 25000 and map to 83333. Retime rows 9 and 10 end at 93333, row 11 at 133333. Original retimed-list position selects row 9 at sample 85000; row 11 resumes at 95000 through 125000. Source timestamps cannot replace that tie rule.",
+      "test": "test_changed_edit_clipping_creates_tie_and_resume"
+    },
+    {
+      "kind": "evidence",
+      "claim": "Cumulative exact boundaries differ from summing individually rounded cut durations.",
+      "exact_boundaries_us": [
+        "0",
+        "80000/3",
+        "170000/3",
+        "250000/3",
+        "430000/3"
+      ],
+      "rounded_boundaries_us": [
+        0,
+        26667,
+        56667,
+        83333,
+        143333
+      ],
+      "individually_rounded_sum_us": 143334,
+      "correct_total_us": 143333,
+      "test": "test_saved_audit_loss_classification"
+    },
+    {
+      "kind": "evidence",
+      "claim": "Half-open cuts exclude boundary-only source intersections and preserve the final clamped sample.",
+      "details": "Source boundary [50000,60000) is absent from cuts 0 and 2, whose starts are 60000. Its cut-3 occurrence [133333,143333) wins samples 135000 and 143332. Last event [13,15) cs ends at 150000 us, 6667 us after the exact integer output duration.",
+      "test": "test_changed_edit_occurrence_trace"
+    },
+    {
+      "kind": "decision",
+      "claim": "Retain all valid duplicates and original Unicode text; report scheduling loss by occurrence index without changing the fixed policy.",
+      "details": "Unrepresented source indices are [5,3,4,5] in diagnostic order. Source row 4 has another represented occurrence. The diagnostic is not a list of unique missing transcript words."
+    }
+  ],
+  "unrepresented_details": [
+    {
+      "input_index": 3,
+      "text": " hello ",
+      "source_index": 5,
+      "cut_index": 1,
+      "start_us": 26667,
+      "end_us": 41667,
+      "active_ticks": [
+        3
+      ],
+      "selected_ticks": [],
+      "status": "overlap_arbitration"
+    },
+    {
+      "input_index": 4,
+      "text": "{tiny}\\x",
+      "source_index": 3,
+      "cut_index": 1,
+      "start_us": 27167,
+      "end_us": 27169,
+      "active_ticks": [],
+      "selected_ticks": [],
+      "status": "no_sample_in_interval"
+    },
+    {
+      "input_index": 8,
+      "text": "tail",
+      "source_index": 4,
+      "cut_index": 2,
+      "start_us": 76667,
+      "end_us": 83333,
+      "active_ticks": [],
+      "selected_ticks": [],
+      "status": "no_sample_in_interval"
+    },
+    {
+      "input_index": 10,
+      "text": " hello ",
+      "source_index": 5,
+      "cut_index": 3,
+      "start_us": 83333,
+      "end_us": 93333,
+      "active_ticks": [
+        8
+      ],
+      "selected_ticks": [],
+      "status": "overlap_arbitration"
+    }
+  ],
+  "limitations": [
+    "Synthetic bounded fixtures only; no actual audio/video or rendered subtitle assessment.",
+    "One midpoint sample per centisecond can miss short words and short pauses, and overlap arbitration can hide long words.",
+    "Diagnostics refer to retimed input occurrences, not unique source words. Upstream intersections collapsed by rounding are outside build_events diagnostics; this edit has none.",
+    "Grid events may extend by less than 10000 us past media duration; this edit extends 6667 us.",
+    "Direct event scan is O(words * ticks); no extreme-size or hostile-subclass guarantee is claimed.",
+    "Text is preserved literally; subtitle escaping and format serialization are outside the interface.",
+    "No outside adoption, independent review, production acceptance, or rendered-media quality claim."
+  ],
+  "rights": "New code is authorized for later reviewed MIT-licensed publication; study sharing only to the private group.",
+  "source_note": "Selected inspected findings from the founder-controlled final apply participant. Full private trial evidence is archived separately; private conversation identifiers and unbundled trial paths are omitted."
+}

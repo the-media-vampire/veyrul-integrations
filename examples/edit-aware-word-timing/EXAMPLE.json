@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "text": "Hello",
+      "start": "0.0035",
+      "end": "0.12125"
+    },
+    {
+      "text": "世界",
+      "start": "0.117",
+      "end": "0.287"
+    },
+    {
+      "text": "again",
+      "start": "0.491",
+      "end": "0.62"
+    },
+    {
+      "text": "{literal}\\text",
+      "start": "0.615",
+      "end": "0.779"
+    }
+  ],
+  "unit": "seconds",
+  "cuts": [
+    {
+      "start_us": 0,
+      "end_us": 310000,
+      "speed_num": 3,
+      "speed_den": 2
+    },
+    {
+      "start_us": 460000,
+      "end_us": 800000,
+      "speed_num": 1,
+      "speed_den": 1
+    },
+    {
+      "start_us": 110000,
+      "end_us": 295000,
+      "speed_num": 2,
+      "speed_den": 1
+    }
+  ]
+}

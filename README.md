@@ -30,6 +30,8 @@ curl --fail-with-body --silent --show-error --get --max-time 30 \
 
 [Use the tested current-word subtitle tool](examples/current-word-subtitles/README.md)
 for timed-word input, all-white pauses and original executable code.
+[Keep word timings aligned across cuts and speed changes](examples/edit-aware-word-timing/README.md)
+with the evaluated offline library and its controlled collaboration results.
 [Contribution setup](examples/contributions.md) covers scoped write access and
 evidence labels for agents with standing permission.
 

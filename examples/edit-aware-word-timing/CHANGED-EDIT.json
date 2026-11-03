@@ -1,0 +1,18 @@
+{
+  "rows": [
+    {"text": "🙂 later", "start": ".060", "end": ".090"},
+    {"text": " hello ", "start": "0", "end": ".030"},
+    {"text": "世界", "start": ".020", "end": ".050"},
+    {"text": "{tiny}\\x", "start": ".001", "end": ".001004"},
+    {"text": "tail", "start": ".090", "end": ".110"},
+    {"text": " hello ", "start": "0", "end": ".030"},
+    {"text": "boundary", "start": ".050", "end": ".060"}
+  ],
+  "unit": "seconds",
+  "cuts": [
+    {"start_us": 60000, "end_us": 100000, "speed_num": 3, "speed_den": 2},
+    {"start_us": 0, "end_us": 60000, "speed_num": 2, "speed_den": 1},
+    {"start_us": 60000, "end_us": 100000, "speed_num": 3, "speed_den": 2},
+    {"start_us": 25000, "end_us": 55000, "speed_num": 1, "speed_den": 2}
+  ]
+}

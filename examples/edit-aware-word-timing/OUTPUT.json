@@ -1,0 +1,197 @@
+{
+  "normalized": [
+    {
+      "text": " hello ",
+      "source_index": 1,
+      "start_us": 0,
+      "end_us": 30000
+    },
+    {
+      "text": " hello ",
+      "source_index": 5,
+      "start_us": 0,
+      "end_us": 30000
+    },
+    {
+      "text": "{tiny}\\x",
+      "source_index": 3,
+      "start_us": 1000,
+      "end_us": 1004
+    },
+    {
+      "text": "世界",
+      "source_index": 2,
+      "start_us": 20000,
+      "end_us": 50000
+    },
+    {
+      "text": "boundary",
+      "source_index": 6,
+      "start_us": 50000,
+      "end_us": 60000
+    },
+    {
+      "text": "🙂 later",
+      "source_index": 0,
+      "start_us": 60000,
+      "end_us": 90000
+    },
+    {
+      "text": "tail",
+      "source_index": 4,
+      "start_us": 90000,
+      "end_us": 110000
+    }
+  ],
+  "retimed": {
+    "words": [
+      {
+        "text": "🙂 later",
+        "source_index": 0,
+        "cut_index": 0,
+        "start_us": 0,
+        "end_us": 20000
+      },
+      {
+        "text": "tail",
+        "source_index": 4,
+        "cut_index": 0,
+        "start_us": 20000,
+        "end_us": 26667
+      },
+      {
+        "text": " hello ",
+        "source_index": 1,
+        "cut_index": 1,
+        "start_us": 26667,
+        "end_us": 41667
+      },
+      {
+        "text": " hello ",
+        "source_index": 5,
+        "cut_index": 1,
+        "start_us": 26667,
+        "end_us": 41667
+      },
+      {
+        "text": "{tiny}\\x",
+        "source_index": 3,
+        "cut_index": 1,
+        "start_us": 27167,
+        "end_us": 27169
+      },
+      {
+        "text": "世界",
+        "source_index": 2,
+        "cut_index": 1,
+        "start_us": 36667,
+        "end_us": 51667
+      },
+      {
+        "text": "boundary",
+        "source_index": 6,
+        "cut_index": 1,
+        "start_us": 51667,
+        "end_us": 56667
+      },
+      {
+        "text": "🙂 later",
+        "source_index": 0,
+        "cut_index": 2,
+        "start_us": 56667,
+        "end_us": 76667
+      },
+      {
+        "text": "tail",
+        "source_index": 4,
+        "cut_index": 2,
+        "start_us": 76667,
+        "end_us": 83333
+      },
+      {
+        "text": " hello ",
+        "source_index": 1,
+        "cut_index": 3,
+        "start_us": 83333,
+        "end_us": 93333
+      },
+      {
+        "text": " hello ",
+        "source_index": 5,
+        "cut_index": 3,
+        "start_us": 83333,
+        "end_us": 93333
+      },
+      {
+        "text": "世界",
+        "source_index": 2,
+        "cut_index": 3,
+        "start_us": 83333,
+        "end_us": 133333
+      },
+      {
+        "text": "boundary",
+        "source_index": 6,
+        "cut_index": 3,
+        "start_us": 133333,
+        "end_us": 143333
+      }
+    ],
+    "duration_us": 143333
+  },
+  "highlights": {
+    "events": [
+      {
+        "start_cs": 0,
+        "end_cs": 2,
+        "active_index": 0
+      },
+      {
+        "start_cs": 2,
+        "end_cs": 3,
+        "active_index": 1
+      },
+      {
+        "start_cs": 3,
+        "end_cs": 4,
+        "active_index": 2
+      },
+      {
+        "start_cs": 4,
+        "end_cs": 5,
+        "active_index": 5
+      },
+      {
+        "start_cs": 5,
+        "end_cs": 6,
+        "active_index": 6
+      },
+      {
+        "start_cs": 6,
+        "end_cs": 8,
+        "active_index": 7
+      },
+      {
+        "start_cs": 8,
+        "end_cs": 9,
+        "active_index": 9
+      },
+      {
+        "start_cs": 9,
+        "end_cs": 13,
+        "active_index": 11
+      },
+      {
+        "start_cs": 13,
+        "end_cs": 15,
+        "active_index": 12
+      }
+    ],
+    "unrepresented_indices": [
+      3,
+      4,
+      8,
+      10
+    ]
+  }
+}

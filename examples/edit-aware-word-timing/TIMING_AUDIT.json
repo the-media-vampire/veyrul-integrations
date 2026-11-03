@@ -1,0 +1,356 @@
+{
+  "input_path": "CHANGED-EDIT.json",
+  "duration_us": 143333,
+  "normalized_count": 7,
+  "retimed_count": 13,
+  "event_count": 9,
+  "tick_count": 15,
+  "grid_overhang_us": 6667,
+  "cut_boundaries": [
+    {
+      "cut_index": 0,
+      "start_exact_us": "0",
+      "end_exact_us": "80000/3"
+    },
+    {
+      "cut_index": 1,
+      "start_exact_us": "80000/3",
+      "end_exact_us": "170000/3"
+    },
+    {
+      "cut_index": 2,
+      "start_exact_us": "170000/3",
+      "end_exact_us": "250000/3"
+    },
+    {
+      "cut_index": 3,
+      "start_exact_us": "250000/3",
+      "end_exact_us": "430000/3"
+    }
+  ],
+  "ticks": [
+    {
+      "tick": 0,
+      "sample_us": 5000,
+      "active_indices": [
+        0
+      ],
+      "selected_index": 0
+    },
+    {
+      "tick": 1,
+      "sample_us": 15000,
+      "active_indices": [
+        0
+      ],
+      "selected_index": 0
+    },
+    {
+      "tick": 2,
+      "sample_us": 25000,
+      "active_indices": [
+        1
+      ],
+      "selected_index": 1
+    },
+    {
+      "tick": 3,
+      "sample_us": 35000,
+      "active_indices": [
+        2,
+        3
+      ],
+      "selected_index": 2
+    },
+    {
+      "tick": 4,
+      "sample_us": 45000,
+      "active_indices": [
+        5
+      ],
+      "selected_index": 5
+    },
+    {
+      "tick": 5,
+      "sample_us": 55000,
+      "active_indices": [
+        6
+      ],
+      "selected_index": 6
+    },
+    {
+      "tick": 6,
+      "sample_us": 65000,
+      "active_indices": [
+        7
+      ],
+      "selected_index": 7
+    },
+    {
+      "tick": 7,
+      "sample_us": 75000,
+      "active_indices": [
+        7
+      ],
+      "selected_index": 7
+    },
+    {
+      "tick": 8,
+      "sample_us": 85000,
+      "active_indices": [
+        9,
+        10,
+        11
+      ],
+      "selected_index": 9
+    },
+    {
+      "tick": 9,
+      "sample_us": 95000,
+      "active_indices": [
+        11
+      ],
+      "selected_index": 11
+    },
+    {
+      "tick": 10,
+      "sample_us": 105000,
+      "active_indices": [
+        11
+      ],
+      "selected_index": 11
+    },
+    {
+      "tick": 11,
+      "sample_us": 115000,
+      "active_indices": [
+        11
+      ],
+      "selected_index": 11
+    },
+    {
+      "tick": 12,
+      "sample_us": 125000,
+      "active_indices": [
+        11
+      ],
+      "selected_index": 11
+    },
+    {
+      "tick": 13,
+      "sample_us": 135000,
+      "active_indices": [
+        12
+      ],
+      "selected_index": 12
+    },
+    {
+      "tick": 14,
+      "sample_us": 143332,
+      "active_indices": [
+        12
+      ],
+      "selected_index": 12
+    }
+  ],
+  "occurrences": [
+    {
+      "input_index": 0,
+      "text": "🙂 later",
+      "source_index": 0,
+      "cut_index": 0,
+      "start_us": 0,
+      "end_us": 20000,
+      "active_ticks": [
+        0,
+        1
+      ],
+      "selected_ticks": [
+        0,
+        1
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 1,
+      "text": "tail",
+      "source_index": 4,
+      "cut_index": 0,
+      "start_us": 20000,
+      "end_us": 26667,
+      "active_ticks": [
+        2
+      ],
+      "selected_ticks": [
+        2
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 2,
+      "text": " hello ",
+      "source_index": 1,
+      "cut_index": 1,
+      "start_us": 26667,
+      "end_us": 41667,
+      "active_ticks": [
+        3
+      ],
+      "selected_ticks": [
+        3
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 3,
+      "text": " hello ",
+      "source_index": 5,
+      "cut_index": 1,
+      "start_us": 26667,
+      "end_us": 41667,
+      "active_ticks": [
+        3
+      ],
+      "selected_ticks": [],
+      "status": "overlap_arbitration"
+    },
+    {
+      "input_index": 4,
+      "text": "{tiny}\\x",
+      "source_index": 3,
+      "cut_index": 1,
+      "start_us": 27167,
+      "end_us": 27169,
+      "active_ticks": [],
+      "selected_ticks": [],
+      "status": "no_sample_in_interval"
+    },
+    {
+      "input_index": 5,
+      "text": "世界",
+      "source_index": 2,
+      "cut_index": 1,
+      "start_us": 36667,
+      "end_us": 51667,
+      "active_ticks": [
+        4
+      ],
+      "selected_ticks": [
+        4
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 6,
+      "text": "boundary",
+      "source_index": 6,
+      "cut_index": 1,
+      "start_us": 51667,
+      "end_us": 56667,
+      "active_ticks": [
+        5
+      ],
+      "selected_ticks": [
+        5
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 7,
+      "text": "🙂 later",
+      "source_index": 0,
+      "cut_index": 2,
+      "start_us": 56667,
+      "end_us": 76667,
+      "active_ticks": [
+        6,
+        7
+      ],
+      "selected_ticks": [
+        6,
+        7
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 8,
+      "text": "tail",
+      "source_index": 4,
+      "cut_index": 2,
+      "start_us": 76667,
+      "end_us": 83333,
+      "active_ticks": [],
+      "selected_ticks": [],
+      "status": "no_sample_in_interval"
+    },
+    {
+      "input_index": 9,
+      "text": " hello ",
+      "source_index": 1,
+      "cut_index": 3,
+      "start_us": 83333,
+      "end_us": 93333,
+      "active_ticks": [
+        8
+      ],
+      "selected_ticks": [
+        8
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 10,
+      "text": " hello ",
+      "source_index": 5,
+      "cut_index": 3,
+      "start_us": 83333,
+      "end_us": 93333,
+      "active_ticks": [
+        8
+      ],
+      "selected_ticks": [],
+      "status": "overlap_arbitration"
+    },
+    {
+      "input_index": 11,
+      "text": "世界",
+      "source_index": 2,
+      "cut_index": 3,
+      "start_us": 83333,
+      "end_us": 133333,
+      "active_ticks": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "selected_ticks": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "status": "represented"
+    },
+    {
+      "input_index": 12,
+      "text": "boundary",
+      "source_index": 6,
+      "cut_index": 3,
+      "start_us": 133333,
+      "end_us": 143333,
+      "active_ticks": [
+        13,
+        14
+      ],
+      "selected_ticks": [
+        13,
+        14
+      ],
+      "status": "represented"
+    }
+  ],
+  "nonempty_source_intersections": 13,
+  "rounded_collapsed_occurrences": []
+}
