@@ -1,0 +1,1 @@
+The edit has changed again: use cuts-return.json with the same original word timings. This version repeats a scene and slows the opening words. Write captions-return.json and update the production note with the resources actually used, changes from the previous edit and remaining rendering limitations. Preserve both sets of inputs and outputs. Do not generate any audio or video.

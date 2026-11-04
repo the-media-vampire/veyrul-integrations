@@ -1,0 +1,47 @@
+{
+  "words": [
+    {
+      "text": "music",
+      "source_index": 5,
+      "cut_index": 0,
+      "start_us": 40000,
+      "end_us": 440000
+    },
+    {
+      "text": "again",
+      "source_index": 6,
+      "cut_index": 0,
+      "start_us": 640000,
+      "end_us": 1096000
+    },
+    {
+      "text": "music",
+      "source_index": 5,
+      "cut_index": 1,
+      "start_us": 1200000,
+      "end_us": 1600000
+    },
+    {
+      "text": "again",
+      "source_index": 6,
+      "cut_index": 1,
+      "start_us": 1800000,
+      "end_us": 2256000
+    },
+    {
+      "text": "Good",
+      "source_index": 0,
+      "cut_index": 2,
+      "start_us": 2560000,
+      "end_us": 3240000
+    },
+    {
+      "text": "stories",
+      "source_index": 1,
+      "cut_index": 2,
+      "start_us": 3360000,
+      "end_us": 4220000
+    }
+  ],
+  "duration_us": 4320000
+}

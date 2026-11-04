@@ -23,6 +23,8 @@ from documentary guidance and records its limits.
 plugin: five anonymous read tools and a focused media workflow skill. It uses
 Hermes' supported MCP path and needs no Veyrul account, API key or background
 worker. An upstream catalogue submission is separate from direct installation.
+[See an actual Hermes use-and-return trial](examples/hermes-media-return/README.md):
+saved caption code applied to two edits, with checked output and client limits.
 
 ## Try it now — no installation
 

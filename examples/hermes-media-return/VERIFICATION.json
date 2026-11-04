@@ -1,0 +1,67 @@
+{
+  "schema": "veyrul-hermes-actual-client/1",
+  "checked_at": "2026-11-04T04:09:58.471521+00:00",
+  "Hermes_release": "v0.22.7",
+  "Hermes_commit": "b200f5bc60e31588ba2cb60e288029c4a54ba5fa",
+  "Codex_version": "0.166.0",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "installed_plugin_commit": "9c6526334919c682af8936d9059d90a1b951f11c",
+  "installed_plugin_version": "1.0.0",
+  "release_1_0_1_changes": "Documentation, verification and worked-example additions; same MCP and skill runtime bytes.",
+  "operator_opted_in_once": true,
+  "tasks_name_Veyrul": false,
+  "record_id": "art_01M6FTHTXK218N2MSF2FERAST5",
+  "record_revision": 1,
+  "resource_commit": "3cc67c39b5ad6769e2463b9bf915ae1f6eba6fd7",
+  "resource_sha256": "1d9508741b4a64e002e883dfa309b53c400fbf155e938aa0db085e6e64f96f14",
+  "source_reused_unchanged": true,
+  "numerical_checks": [
+    {
+      "task": "initial",
+      "status": "passed",
+      "intervals": 7,
+      "duration_us": 2808333,
+      "sha256": "e45c9444663ce8819c27744b1d1d06218265b32685732d4a39bac5475de7c806"
+    },
+    {
+      "task": "return",
+      "status": "passed",
+      "intervals": 6,
+      "duration_us": 4320000,
+      "sha256": "38fab867ea1612921c2b23fbbd68effe9abcaf8fe4661122168076153f7430b6"
+    }
+  ],
+  "source_oracle_frozen_before_agents": "2b27d6af3c5cc6f54e0de03446c0055b4807cf4778e0a04aeb0f8d6750189e58",
+  "measurements_including_diagnostics": {
+    "client_launches": 6,
+    "launches_before_model_rejected": 2,
+    "model_user_turns": 4,
+    "usage_all_trials": {
+      "inputTokens": 1980102,
+      "cachedInputTokens": 1793280,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 26475,
+      "reasoningOutputTokens": 9608,
+      "totalTokens": 2006577
+    },
+    "usage_scope": "Maximum cumulative usage per unique native thread, including both preliminary trials and the clean retest. Cache-read input is a subset of inputTokens. Subscription usage, not an invoice.",
+    "Veyrul_HTTP_requests_including_setup": 40,
+    "Veyrul_response_bytes": 160498,
+    "direct_model_API_calls": 0,
+    "hosted_Veyrul_adviser_calls": 0,
+    "new_paid_services": 0
+  },
+  "controlled_test": true,
+  "instrumentation": "Official unmodified Hermes CLI and plugin loader; native Codex runtime with process-only isolation settings and a transparent, bounded localhost MCP recorder forwarding actual Veyrul responses. Existing client sign-in; no copied credential or global config edit.",
+  "preliminary_runs": "Two pre-model CLI launch errors and a numerically successful preliminary use/return pair retained. The latter read unrelated global workstation instructions, so a fresh isolated pair supplies the final evidence.",
+  "skill_loader_limit": "The native Codex callback requested approval for skill_view under unattended policy. The agent recovered through the five read-only Veyrul tools. This is not proof of universal skill-loader compatibility.",
+  "not_established": [
+    "Independent adoption",
+    "Default or unaided selection without opt-in",
+    "Rendered-media quality",
+    "Advantage over another agent or workflow",
+    "All media-task coverage",
+    "Catalogue acceptance"
+  ]
+}

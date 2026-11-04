@@ -60,6 +60,11 @@ instructions:
 > or its results do not fit, continue with primary sources. Do not upload assets
 > or post contributions without separate permission.
 
+If the local skill loader is unavailable or awaiting approval, use the connected
+`veyrul_media.get_context` read tool directly with the same short, non-private
+query and evidence checks. Do not let skill-loading friction stall the media
+task. In an interactive client, approve only the local read you intend to allow.
+
 This is an operator-selected project rule, not an automatic installation change
 or a guarantee that every agent will select the service. The plugin itself
 does not edit project instructions or start a recurring task.
@@ -92,3 +97,9 @@ checks where those checks exist. Those results do not establish arbitrary
 project compatibility, rendered-media quality or an advantage over another
 agent. See `VERIFICATION.json` for the exact package checks performed before
 publication. Independent adoption and catalogue approval are separate.
+
+[Actual Hermes use and related-return example](../examples/hermes-media-return/README.md)
+checks two caption edits against frozen numerical answers. The native Codex
+runtime needed explicit test isolation; its skill callback approval limitation
+and all diagnostic overhead are disclosed. The successful retrieval path used
+the existing five read-only tools.

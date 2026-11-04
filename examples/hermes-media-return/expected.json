@@ -1,0 +1,77 @@
+{
+  "initial": {
+    "duration_us": 2808333,
+    "words": [
+      {
+        "text": "move",
+        "start_us": 66667,
+        "end_us": 300000
+      },
+      {
+        "text": "with",
+        "start_us": 346667,
+        "end_us": 486667
+      },
+      {
+        "text": "the",
+        "start_us": 540000,
+        "end_us": 646667
+      },
+      {
+        "text": "music",
+        "start_us": 733333,
+        "end_us": 1066667
+      },
+      {
+        "text": "Good",
+        "start_us": 1253333,
+        "end_us": 1593333
+      },
+      {
+        "text": "stories",
+        "start_us": 1653333,
+        "end_us": 2083333
+      },
+      {
+        "text": "again",
+        "start_us": 2245833,
+        "end_us": 2673333
+      }
+    ]
+  },
+  "return": {
+    "duration_us": 4320000,
+    "words": [
+      {
+        "text": "music",
+        "start_us": 40000,
+        "end_us": 440000
+      },
+      {
+        "text": "again",
+        "start_us": 640000,
+        "end_us": 1096000
+      },
+      {
+        "text": "music",
+        "start_us": 1200000,
+        "end_us": 1600000
+      },
+      {
+        "text": "again",
+        "start_us": 1800000,
+        "end_us": 2256000
+      },
+      {
+        "text": "Good",
+        "start_us": 2560000,
+        "end_us": 3240000
+      },
+      {
+        "text": "stories",
+        "start_us": 3360000,
+        "end_us": 4220000
+      }
+    ]
+  }
+}
