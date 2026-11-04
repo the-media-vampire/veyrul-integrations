@@ -108,5 +108,11 @@
     "Automatic agent selection",
     "An efficiency advantage",
     "General media-production quality"
-  ]
+  ],
+  "activation": {
+    "plugin_skills_appear_in_default_prompt_index": false,
+    "explicit_skill_view": "veyrul-media:media-knowledge",
+    "optional_project_rule": "Copyable operator-selected instructions in README; no automatic project-file edits.",
+    "automatic_selection_tested": false
+  }
 }

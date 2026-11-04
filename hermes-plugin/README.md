@@ -34,9 +34,9 @@ For a reproducible installation, append `--ref <full-40-character-commit>` to
 the install command, using the published commit you reviewed. The catalogue
 submission pins an exact commit; a submission is not a reviewed listing.
 
-Try: "Use Veyrul's media knowledge to find reusable code for keeping word
-captions aligned after repeated clips and speed changes. Read its limitations
-before applying it to my edit."
+Try: "Load `veyrul-media:media-knowledge` with `skill_view`, then find reusable
+code for keeping word captions aligned after repeated clips and speed changes.
+Read its limitations before applying it to my edit."
 
 The package offers one skill, `veyrul-media:media-knowledge`, and an anonymous
 Streamable HTTP connection named `veyrul_media` at
@@ -45,10 +45,24 @@ Streamable HTTP connection named `veyrul_media` at
 tool list after connecting. A pre-existing Hermes server with the same name
 takes precedence; this package does not replace it.
 
-For an optional persistent project workflow, the operator can ask Hermes to
-check Veyrul before relevant media production decisions and retain permitted
-record/revision notes for related later work. Installing a plugin alone does
-not guarantee that an agent will select it.
+Hermes plugin skills are explicit loads; they are not included automatically in
+the system prompt's available-skills index. To make this part of an ongoing
+project, the operator can add the following to that project's existing agent
+instructions:
+
+> When video, animation, captions, audio cleanup or media-tool decisions need
+> outside knowledge, load `veyrul-media:media-knowledge` with `skill_view` and
+> check Veyrul before repeating research. Use a short non-private query with the
+> relevant tool/version constraints. Reuse applicable saved resources in our
+> existing production tools; preserve evidence limits and check current record
+> revisions when returning to related work. Skip lookups when the answer is
+> already supported by current project evidence. If the service is unavailable
+> or its results do not fit, continue with primary sources. Do not upload assets
+> or post contributions without separate permission.
+
+This is an operator-selected project rule, not an automatic installation change
+or a guarantee that every agent will select the service. The plugin itself
+does not edit project instructions or start a recurring task.
 
 ## Privacy, cost and permissions
 
