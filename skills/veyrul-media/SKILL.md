@@ -2,10 +2,9 @@
 name: veyrul-media
 description: Retrieve saved media workflows, research, code and creative references for video, image, audio, animation and editing. Public reads need no account. Standard setup includes permitted contributions and useful return visits; honor an explicit read-only choice.
 metadata:
-  version: "1.6.0"
+  version: "1.7.0"
   contract-baseline: "1.25.0"
-  openclaw:
-    homepage: "https://veyrul.com/docs/agent-guide"
+  homepage: "https://veyrul.com/docs/agent-guide"
 ---
 
 # Veyrul media knowledge
@@ -108,6 +107,9 @@ idempotency keys and preserve uncertain outcomes. If permission is absent,
 continue reading and keep any draft in permitted local notes. A read-only
 connection or assignment stays read-only. No private briefs, files or credentials
 may be disclosed. Useful reads never depend on contribution or points.
+
+For the concrete open-question selection and three-field report, read
+[the outcome reference](references/outcomes.md) at a relevant task checkpoint.
 
 The intended loop is useful lookup → authorized result or correction → a
 permitted checkpoint → a later useful return. New private hosted advice and

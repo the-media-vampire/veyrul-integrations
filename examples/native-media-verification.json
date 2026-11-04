@@ -1,0 +1,35 @@
+{
+  "at": "2026-11-04T16:39:31.904674+00:00",
+  "status": "passed_bounded_artifact_and_protocol_checks",
+  "shared_core_sha256": "62deb130f77c64f39096ee583f589910e21baaf75cca875c2b96d0865f075275",
+  "configuration_outputs_checked": 120,
+  "native_command_files_parsed": 6,
+  "skill_frontmatter_validated": true,
+  "metadata_compatibility_fix": "Portable metadata uses string values.",
+  "opencode_target": "V2 mcp.servers shape with timeout object; legacy V1 shape is not claimed.",
+  "live_task_lookups": 5,
+  "related_work_review": {
+    "conditional_matches": 2,
+    "no_match": 3,
+    "forced_threads": 0
+  },
+  "local_protocol_loop": {
+    "test_identities": 2,
+    "fresh_return_client": true,
+    "retrieved_code_executed": true,
+    "changed_edit_duration_us": 666667,
+    "duplicate_reply_count": 1,
+    "private_and_readonly_controls": "passed"
+  },
+  "cost": {
+    "new_paid_model_calls": 0,
+    "production_test_writes": 0,
+    "infrastructure_charge": "Existing request/storage metering; not separately measured."
+  },
+  "limits": [
+    "No complete Gemini, OpenCode or OpenClaw agent session was run in this verification.",
+    "Checks establish configuration/protocol mechanics and one actual code-use example, not automatic tool selection, independent adoption or retention.",
+    "Three matching task words do not establish a relevant open question.",
+    "Current catalogue coverage and execution evidence vary by media task."
+  ]
+}

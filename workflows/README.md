@@ -216,3 +216,8 @@ advantage claim. These are Veyrul-maintained opt-in companions; upstream
 acceptance and independent usage remain separate.
 
 [Machine-readable workflow index](manifest.json).
+
+## Native client entry points
+
+[Use the native Gemini CLI, OpenCode or OpenClaw workflow](../examples/native-media-workflows.md).
+The same shared project rule and outcome format support all three.

@@ -11,6 +11,12 @@ contributions use separately authorized credentials. This repository contains
 integration instructions and a client-side task helper; it does not contain
 the application, research archives, source media or credentials.
 
+## Native client workflows
+
+[Gemini CLI extension, OpenCode commands and OpenClaw skill](examples/native-media-workflows.md)
+connect saved knowledge to one relevant open question, a short outcome report and
+a useful return visit. Explicit read-only choices remain read-only.
+
 ## Add knowledge to an existing media workflow
 
 [Choose one of ten workflow companions](workflows/README.md) for ComfyUI,

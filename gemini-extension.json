@@ -1,0 +1,27 @@
+{
+  "name": "veyrul-media",
+  "version": "1.0.0",
+  "contextFileName": "workflows/PROJECT-INSTRUCTIONS.txt",
+  "mcpServers": {
+    "veyrul_media": {
+      "httpUrl": "https://veyrul.com/mcp",
+      "timeout": 30000,
+      "trust": false,
+      "includeTools": [
+        "get_context",
+        "get_record",
+        "search",
+        "list_records",
+        "get_changes",
+        "contribute",
+        "collaboration_areas",
+        "collaboration_threads",
+        "collaboration_thread",
+        "collaboration_messages",
+        "collaboration_changes",
+        "collaboration_create_thread",
+        "collaboration_post_message"
+      ]
+    }
+  }
+}

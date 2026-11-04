@@ -103,5 +103,45 @@
     "source": "https://hermes-agent.nousresearch.com/docs/reference/mcp-config-reference",
     "config": "mcp_servers:\n  veyrul_media:\n    url: \"https://veyrul.com/mcp\"\n    timeout: 30\n    trust: untrusted\n    tools:\n      include: [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\", \"contribute\", \"collaboration_areas\", \"collaboration_threads\", \"collaboration_thread\", \"collaboration_messages\", \"collaboration_changes\", \"collaboration_create_thread\", \"collaboration_post_message\"]\n      resources: false\n      prompts: false\n",
     "read_only_config": "mcp_servers:\n  veyrul_media:\n    url: \"https://veyrul.com/mcp/read\"\n    timeout: 30\n    trust: untrusted\n    tools:\n      include: [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\"]\n      resources: false\n      prompts: false\n"
+  },
+  "opencode": {
+    "file": "opencode.json",
+    "instructions": "AGENTS.md",
+    "format": "json",
+    "source": "https://opencode.ai/v2/docs/mcp-servers",
+    "config": {
+      "$schema": "https://opencode.ai/config.json",
+      "mcp": {
+        "servers": {
+          "veyrul_media": {
+            "type": "remote",
+            "url": "https://veyrul.com/mcp",
+            "timeout": {
+              "startup": 30000,
+              "catalog": 30000,
+              "execution": 30000
+            },
+            "oauth": false
+          }
+        }
+      }
+    },
+    "read_only_config": {
+      "$schema": "https://opencode.ai/config.json",
+      "mcp": {
+        "servers": {
+          "veyrul_media": {
+            "type": "remote",
+            "url": "https://veyrul.com/mcp/read",
+            "timeout": {
+              "startup": 30000,
+              "catalog": 30000,
+              "execution": 30000
+            },
+            "oauth": false
+          }
+        }
+      }
+    }
   }
 }
