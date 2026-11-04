@@ -1,0 +1,112 @@
+{
+  "schema": "veyrul-plugin-verification/1",
+  "checked_at": "2026-11-04T01:10:58.051873+00:00",
+  "plugin_version": "1.0.0",
+  "hermes": {
+    "source_commit": "9302ba9e212c63ba24cdf1f47f26b47bcd3b042e",
+    "official_functions": [
+      "hermes_cli.agent_plugins.load_agent_plugin",
+      "hermes_cli.plugin_validate.validate_plugin_dir"
+    ],
+    "checks": [
+      {
+        "name": "portable manifest",
+        "ok": true,
+        "detail": "plugin.json parses (Agent Plugins v1)"
+      },
+      {
+        "name": "manifest fields",
+        "ok": true,
+        "detail": "name present"
+      },
+      {
+        "name": "config schema",
+        "ok": true,
+        "detail": "not declared"
+      },
+      {
+        "name": "server trust: veyrul_media",
+        "ok": true,
+        "detail": "untrusted (Hermes asks before every write-capable tool call)"
+      },
+      {
+        "name": "security scan",
+        "ok": true,
+        "detail": "safe"
+      }
+    ],
+    "warnings": [],
+    "loader_identical_at_release": "v0.22.7",
+    "scope": "Unmodified official functions, isolated home, network disabled during admission. Not the full Hermes CLI, Desktop, installation lifecycle or model agent loop."
+  },
+  "live_connection": {
+    "transport": "Streamable HTTP",
+    "endpoint": "https://veyrul.com/mcp/read",
+    "configured_by": "official Hermes portable loader",
+    "protocol_client": "MCP TypeScript SDK",
+    "anonymous": true,
+    "tool_names": [
+      "search",
+      "get_context",
+      "get_record",
+      "list_records",
+      "get_changes"
+    ],
+    "tasks": [
+      {
+        "id": "edit-word-timing",
+        "expected_record": "art_01M6FTHTXK218N2MSF2FERAST5",
+        "expected_in_context": true,
+        "revision": 1
+      },
+      {
+        "id": "beat-cut-planning",
+        "expected_record": "art_01M5NJ06MR6QTTRF6XCT0RDXSC",
+        "expected_in_context": true,
+        "revision": 1
+      },
+      {
+        "id": "local-object-removal",
+        "expected_record": "art_01M6EWNB7FHDJSEV1GN8PHCNH5",
+        "expected_in_context": true,
+        "revision": 1
+      },
+      {
+        "id": "speech-noise-profile",
+        "expected_record": "art_01M5NCJZS6GYVC8RRT5P7HTP53",
+        "expected_in_context": true,
+        "revision": 1
+      },
+      {
+        "id": "apple-mixed-audio",
+        "expected_record": "art_01M6HSJGEPM1XWM1TRYE3P5NFM",
+        "expected_in_context": true,
+        "revision": 2
+      }
+    ],
+    "returned_to_caption_record": 1,
+    "initial_harness_correction": "get_record defaults to Markdown; the successful structured-read check explicitly requested format=json. Failed harness evidence is retained privately.",
+    "http_requests_including_initial_attempt": 22,
+    "received_bytes_including_initial_attempt": 450229
+  },
+  "saved_resource_use": {
+    "resource_commit": "3cc67c39b5ad6769e2463b9bf915ae1f6eba6fd7",
+    "synthetic_edits": 2,
+    "matched_intervals": 9,
+    "both_durations_match": true,
+    "scope": "Actual pinned caption Python code run by Main; no rendered-media assessment or full Hermes agent run."
+  },
+  "spend": {
+    "direct_model_API_calls": 0,
+    "hosted_adviser_calls": 0,
+    "new_paid_services": 0,
+    "agent_provider_usage": "Existing agent provider costs apply when an operator uses the plugin."
+  },
+  "not_established": [
+    "Catalogue acceptance",
+    "Independent adoption",
+    "Automatic agent selection",
+    "An efficiency advantage",
+    "General media-production quality"
+  ]
+}

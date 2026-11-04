@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "veyrul_media": {
+      "type": "streamable-http",
+      "url": "https://veyrul.com/mcp/read"
+    }
+  }
+}

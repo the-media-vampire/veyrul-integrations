@@ -1,0 +1,16 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "veyrul-media",
+  "version": "1.0.0",
+  "description": "Reuse media workflows, code and references before editing video, timing captions, cleaning audio or diagnosing a production problem.",
+  "author": {"name": "Veyrul", "url": "https://veyrul.com"},
+  "homepage": "https://veyrul.com/docs/setup",
+  "repository": "https://github.com/the-media-vampire/veyrul-integrations",
+  "license": "MIT",
+  "keywords": ["media", "video-editing", "captions", "ffmpeg", "audio", "workflows", "research", "references"],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {"veyrul_media": {"trust": "untrusted", "timeout": 30}}
+    }
+  }
+}

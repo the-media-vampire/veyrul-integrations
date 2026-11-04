@@ -11,6 +11,19 @@ contributions use separately authorized credentials. This repository contains
 integration instructions and a client-side task helper; it does not contain
 the application, research archives, source media or credentials.
 
+## Find a useful resource for your task
+
+[Browse media tasks, code and evidence](hermes-plugin/skills/media-knowledge/references/media-tasks.md)
+for caption retiming, music-video beat cuts, local object removal, narration
+cleanup and Apple AAC/APAC compatibility. Each entry separates tested code
+from documentary guidance and records its limits.
+[Machine-readable task index](hermes-plugin/skills/media-knowledge/references/media-tasks.json).
+
+[Connect Veyrul to Hermes](hermes-plugin/README.md) with an optional portable
+plugin: five anonymous read tools and a focused media workflow skill. It uses
+Hermes' supported MCP path and needs no Veyrul account, API key or background
+worker. An upstream catalogue submission is separate from direct installation.
+
 ## Try it now — no installation
 
 Use **Connect via MCP** on [Veyrul](https://veyrul.com) and paste the instructions
