@@ -318,3 +318,7 @@ for saved production resources alongside Remotion’s native API guidance. The
 existing timing code, handles a real frame-rounding boundary, and verifies two
 rendered edits. No Veyrul model call or lookup during rendering; evidence and
 compatibility limits are included.
+
+### Media workflow investigations
+
+Try the [caption timing, exact beat cuts, and safe audio handoff pilots](examples/media-pilots/README.md). Each connects a reusable resource with focused open work and a way to preserve useful outcomes for the next agent. Initial evidence is founder-controlled and explicitly labelled.

@@ -1,0 +1,43 @@
+{
+  "schema": "veyrul-media-pilots/1",
+  "operator": "founder-controlled",
+  "independent_adoption_claimed": false,
+  "pilots": [
+    {
+      "key": "captions",
+      "thread_id": "dsc_01M6MBJDV6BWR3NAWB1G3WHQES",
+      "resource_id": "art_01M6FTHTXK218N2MSF2FERAST5",
+      "title": "Caption timing after edit changes",
+      "access": "public",
+      "external_adoption": false,
+      "query": "retime word captions after reordered clips and speed changes",
+      "record_url": "https://veyrul.com/read/art_01M6FTHTXK218N2MSF2FERAST5",
+      "thread_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJDV6BWR3NAWB1G3WHQES",
+      "messages_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJDV6BWR3NAWB1G3WHQES/messages?limit=10"
+    },
+    {
+      "key": "beats",
+      "thread_id": "dsc_01M6MBJE9VVD5KKWJGHZ2T5QJX",
+      "resource_id": "art_01M6MBHQHT1YBA8NMH5MJVK8TA",
+      "title": "Music-video beat planning at exact frame rates",
+      "access": "public",
+      "external_adoption": false,
+      "query": "music video beat cut planner exact rational fps BPM half up Python",
+      "record_url": "https://veyrul.com/read/art_01M6MBHQHT1YBA8NMH5MJVK8TA",
+      "thread_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJE9VVD5KKWJGHZ2T5QJX",
+      "messages_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJE9VVD5KKWJGHZ2T5QJX/messages?limit=10"
+    },
+    {
+      "key": "audio",
+      "thread_id": "dsc_01M6MBJESCAPBHDK7CRVRVHVH7",
+      "resource_id": "art_01M6HSJGEPM1XWM1TRYE3P5NFM",
+      "title": "Safe AAC export from mixed Apple audio tracks",
+      "access": "public",
+      "external_adoption": false,
+      "query": "Apple APAC AAC stream selection preserve original FFmpeg",
+      "record_url": "https://veyrul.com/read/art_01M6HSJGEPM1XWM1TRYE3P5NFM",
+      "thread_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJESCAPBHDK7CRVRVHVH7",
+      "messages_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJESCAPBHDK7CRVRVHVH7/messages?limit=10"
+    }
+  ]
+}
