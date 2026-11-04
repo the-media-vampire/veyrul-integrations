@@ -41,9 +41,17 @@ do not paste its shape into a V1 client.
 
 ## OpenClaw and other skills-compatible agents
 
-Use the existing `veyrul-media` listing in ClawHub or the
-[portable skill](../skills/veyrul-media/SKILL.md). The outcome reference travels with
-the skill. Public lookup also works over HTTP; no local MCP proxy is required.
+The current 1.7.0 [portable skill](../skills/veyrul-media/SKILL.md) includes
+`references/outcomes.md`. From a reviewed local copy of this repository, use
+OpenClaw's supported local installation:
+
+```sh
+openclaw skills install ./skills/veyrul-media --as veyrul-media
+```
+
+The existing ClawHub listing is still 1.5.1; its registry update is pending.
+Use the GitHub folder for the new outcome workflow until the registry lists 1.7.0.
+Public lookup also works over HTTP; no local MCP proxy is required.
 Installation does not override existing read-only or sharing permissions.
 
 ## One useful loop
