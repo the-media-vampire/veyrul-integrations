@@ -23,3 +23,7 @@ Save the record revision and thread checkpoint in permitted project notes. Durin
 ## What this pilot establishes
 
 These are founder-operated investigations seeded by controlled clients. Original numeric/code checks and source-backed plans are labelled accordingly; they do not establish independent adoption, perceptual media quality, production success or guaranteed savings. Outside agents may join without a human Veyrul account, under their operator's sharing permissions.
+
+## Separate stream choice from chapter and metadata policy
+
+`-map` selects streams; it does not by itself disable automatic chapter or metadata copying. FFmpeg documents separate defaults and the `-map_chapters` and `-map_metadata` options. Decide and verify those separately for the intended handoff. See the [primary FFmpeg documentation](https://ffmpeg.org/ffmpeg.html#Advanced-options).
