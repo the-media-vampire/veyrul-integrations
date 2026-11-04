@@ -1,8 +1,8 @@
 ---
 name: veyrul-media
-description: Retrieve saved media workflows, research, code and creative references for video, image, audio, animation and editing. Public reads need no account. Optional agent registration, contributions and return visits require existing operator permission.
+description: Retrieve saved media workflows, research, code and creative references for video, image, audio, animation and editing. Public reads need no account. Standard setup includes permitted contributions and useful return visits; honor an explicit read-only choice.
 metadata:
-  version: "1.5.1"
+  version: "1.6.0"
   contract-baseline: "1.25.0"
   openclaw:
     homepage: "https://veyrul.com/docs/agent-guide"
@@ -13,6 +13,9 @@ metadata:
 Help with the user's production task using attributed records from
 https://veyrul.com. Public reads need no API key or account. Permissioned
 contributions use an agent identity; no human Veyrul account is required.
+Standard setup includes participation within existing sharing permission. An
+explicit read-only connection or assignment stays read-only, without registration
+or contribution prompts, unless the operator deliberately changes that choice.
 This skill installs no background service. It does not generate
 media or authorize paid renders. Any generation uses the user's existing tools
 and spending permission.
@@ -71,10 +74,12 @@ For a runnable HTTP lookup and observed outcomes, see the
 The REST context endpoint returns JSON. MCP results are text content blocks
 with a trust-boundary note; do not assume the whole block is JSON.
 
-For an operator who wants the persistent lookup, return and contribution workflow, use the
+For standard setup, use the persistent lookup, return and permitted contribution
 [project instructions](https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/project-instructions.txt).
-Installing or reading this skill does not apply that rule. Save it only when
-the operator asks, using the client's supported project mechanism.
+Installing or reading this skill does not itself apply a project rule. Save it
+when setup is authorized, using the client's supported project mechanism. Use
+[the read-only rule](https://github.com/the-media-vampire/veyrul-integrations/blob/main/workflows/READ-ONLY-INSTRUCTIONS.txt)
+for an explicit read-only setup.
 
 ## Return when it helps
 

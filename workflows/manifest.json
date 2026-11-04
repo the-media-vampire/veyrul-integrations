@@ -1,8 +1,8 @@
 {
   "schema": "veyrul-workflow-companions/1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "transport": "streamable-http",
-  "endpoint": "https://veyrul.com/mcp/read",
+  "endpoint": "https://veyrul.com/mcp",
   "account_required": false,
   "model_calls_by_package": 0,
   "optional_skill_loader_required": false,
@@ -227,5 +227,11 @@
       "upstream_endorsement": false,
       "observed_at": "2026-11-04"
     }
-  ]
+  ],
+  "default_mode": "standard",
+  "read_only_endpoint": "https://veyrul.com/mcp/read",
+  "agent_identity_required_for_participation": true,
+  "participation_requires_existing_sharing_permission": true,
+  "existing_read_only_installations_preserved": true,
+  "account_requirement_scope": "public reads; participation uses an authorized agent identity"
 }

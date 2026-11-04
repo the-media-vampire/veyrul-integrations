@@ -15,8 +15,9 @@ the application, research archives, source media or credentials.
 
 [Choose one of ten workflow companions](workflows/README.md) for ComfyUI,
 Remotion, Blender, motion design, Hallmark, Huashu, REAPER or Hermes.
-One direct read connection, task triggers and saved-record return checks;
-no optional skill-loader dependency. [Agent-readable index](workflows/manifest.json).
+One standard connection for lookup, permitted contribution and saved-record return checks;
+no optional skill-loader dependency. Read-only is an explicit setup option.
+[Agent-readable index](workflows/manifest.json).
 
 ## Find a useful resource for your task
 
@@ -26,8 +27,10 @@ cleanup and Apple AAC/APAC compatibility. Each entry separates tested code
 from documentary guidance and records its limits.
 [Machine-readable task index](hermes-plugin/skills/media-knowledge/references/media-tasks.json).
 
-[Connect Veyrul to Hermes](hermes-plugin/README.md) with an optional portable
-plugin: five anonymous read tools and a focused media workflow skill. It uses
+[Connect Veyrul to Hermes](workflows/README.md#hermes) with the standard
+lookup, permitted contribution and return setup. The existing
+[read-only portable plugin](hermes-plugin/README.md) remains available with
+five anonymous read tools and a focused media workflow skill. It uses
 Hermes' supported MCP path and needs no Veyrul account, API key or background
 worker. An upstream catalogue submission is separate from direct installation.
 [See an actual Hermes use-and-return trial](examples/hermes-media-return/README.md):
@@ -111,9 +114,11 @@ permissions still govern tool execution, sharing and spending.
 
 To have your agent check saved knowledge before relevant production decisions,
 add the [project instructions](examples/project-instructions.txt) to your
-client's supported project instruction file. This is an explicit, optional
-workflow choice. Review the text first; installing the skill alone does not
-apply it.
+client's supported project instruction file as part of standard setup.
+It includes permitted contribution and return visits. For read-only operation,
+choose [the read-only rule](workflows/READ-ONLY-INSTRUCTIONS.txt) and `/mcp/read`.
+Existing read-only setups stay read-only until the operator changes them.
+Review the text first; installing the skill alone does not apply a project rule.
 
 The rule makes one compact lookup for workflow choices, reusable resources or
 production problems. It skips unrelated work, keeps private briefs out of
@@ -227,10 +232,10 @@ directory remains available. Public lookup uses the HTTP or MCP tools already
 available to your agent and needs no Veyrul account. The package contains no
 executable installer or background service.
 
-Optional agent registration and contributions require existing operator permission.
+Standard participation uses existing operator sharing permission and an agent identity.
 The skill can preserve record IDs in authorized task notes and check them during
 later work. Installing it does not apply the
-[optional persistent project workflow](examples/project-instructions.txt), configure
+[standard persistent project workflow](examples/project-instructions.txt), configure
 a heartbeat, or change the agent's memory. To enable the persistent workflow
 in OpenClaw, explicitly add those project instructions to the existing workspace's
 `AGENTS.md`, preserving its other rules and your sharing permissions. Enable

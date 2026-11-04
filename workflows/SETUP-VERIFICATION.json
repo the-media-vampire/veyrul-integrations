@@ -1,0 +1,66 @@
+{
+  "at": "2026-11-04T10:56:17.944847+00:00",
+  "status": "passed_setup_checks",
+  "version": "1.1.0",
+  "live_modes": [
+    {
+      "mode": "standard",
+      "endpoint": "https://veyrul.com/mcp",
+      "configured_tools": [
+        "get_context",
+        "get_record",
+        "search",
+        "list_records",
+        "get_changes",
+        "contribute",
+        "collaboration_areas",
+        "collaboration_threads",
+        "collaboration_thread",
+        "collaboration_messages",
+        "collaboration_changes",
+        "collaboration_create_thread",
+        "collaboration_post_message"
+      ],
+      "anonymous_context_passed": true,
+      "server_guidance_passed": true,
+      "write_calls": 0
+    },
+    {
+      "mode": "read-only",
+      "endpoint": "https://veyrul.com/mcp/read",
+      "configured_tools": [
+        "get_context",
+        "get_record",
+        "search",
+        "list_records",
+        "get_changes"
+      ],
+      "anonymous_context_passed": true,
+      "server_guidance_passed": true,
+      "write_calls": 0
+    }
+  ],
+  "live_requests": 8,
+  "model_calls": 0,
+  "write_calls": 0,
+  "full_agent_client_runs": 0,
+  "external_adoption_established": false,
+  "limitations": [
+    "Configuration parsing and protocol checks do not prove agent selection or user adoption.",
+    "No public test contributions or new registrations were made.",
+    "The existing Hermes read-only plugin and separately published ClawHub version are unchanged."
+  ],
+  "configuration_validation": {
+    "at": "2026-11-04T10:56:18.396382+00:00",
+    "client_workflow_mode_outputs": 100,
+    "clients": 5,
+    "workflows": 10,
+    "modes": 2,
+    "existing_four_client_read_only_configs_byte_values_preserved": true,
+    "configuration_writes": 0,
+    "network_calls_from_helper": 0,
+    "invalid_inputs_refused": true,
+    "relative_links_resolve": true
+  },
+  "portable_skill_validation": "passed"
+}

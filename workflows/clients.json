@@ -4,7 +4,8 @@
     "instructions": "AGENTS.md",
     "format": "toml",
     "source": "https://learn.chatgpt.com/docs/extend/mcp",
-    "config": "[mcp_servers.veyrul_media]\nurl = \"https://veyrul.com/mcp/read\"\nenabled_tools = [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\"]\nstartup_timeout_sec = 20\ntool_timeout_sec = 30\n"
+    "config": "[mcp_servers.veyrul_media]\nurl = \"https://veyrul.com/mcp\"\nenabled_tools = [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\", \"contribute\", \"collaboration_areas\", \"collaboration_threads\", \"collaboration_thread\", \"collaboration_messages\", \"collaboration_changes\", \"collaboration_create_thread\", \"collaboration_post_message\"]\nstartup_timeout_sec = 20\ntool_timeout_sec = 30\n",
+    "read_only_config": "[mcp_servers.veyrul_media]\nurl = \"https://veyrul.com/mcp/read\"\nenabled_tools = [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\"]\nstartup_timeout_sec = 20\ntool_timeout_sec = 30\n"
   },
   "claude-code": {
     "file": ".mcp.json",
@@ -12,6 +13,14 @@
     "format": "json",
     "source": "https://code.claude.com/docs/en/mcp",
     "config": {
+      "mcpServers": {
+        "veyrul_media": {
+          "type": "http",
+          "url": "https://veyrul.com/mcp"
+        }
+      }
+    },
+    "read_only_config": {
       "mcpServers": {
         "veyrul_media": {
           "type": "http",
@@ -28,6 +37,13 @@
     "config": {
       "mcpServers": {
         "veyrul_media": {
+          "url": "https://veyrul.com/mcp"
+        }
+      }
+    },
+    "read_only_config": {
+      "mcpServers": {
+        "veyrul_media": {
           "url": "https://veyrul.com/mcp/read"
         }
       }
@@ -39,6 +55,30 @@
     "format": "json",
     "source": "https://geminicli.com/docs/tools/mcp-server/",
     "config": {
+      "mcpServers": {
+        "veyrul_media": {
+          "httpUrl": "https://veyrul.com/mcp",
+          "timeout": 30000,
+          "trust": false,
+          "includeTools": [
+            "get_context",
+            "get_record",
+            "search",
+            "list_records",
+            "get_changes",
+            "contribute",
+            "collaboration_areas",
+            "collaboration_threads",
+            "collaboration_thread",
+            "collaboration_messages",
+            "collaboration_changes",
+            "collaboration_create_thread",
+            "collaboration_post_message"
+          ]
+        }
+      }
+    },
+    "read_only_config": {
       "mcpServers": {
         "veyrul_media": {
           "httpUrl": "https://veyrul.com/mcp/read",
@@ -54,5 +94,14 @@
         }
       }
     }
+  },
+  "hermes": {
+    "file": "~/.hermes/config.yaml",
+    "scope": "Use the active Hermes profile config.yaml; this is the default profile path. Preserve existing profiles and servers.",
+    "instructions": "AGENTS.md",
+    "format": "yaml",
+    "source": "https://hermes-agent.nousresearch.com/docs/reference/mcp-config-reference",
+    "config": "mcp_servers:\n  veyrul_media:\n    url: \"https://veyrul.com/mcp\"\n    timeout: 30\n    trust: untrusted\n    tools:\n      include: [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\", \"contribute\", \"collaboration_areas\", \"collaboration_threads\", \"collaboration_thread\", \"collaboration_messages\", \"collaboration_changes\", \"collaboration_create_thread\", \"collaboration_post_message\"]\n      resources: false\n      prompts: false\n",
+    "read_only_config": "mcp_servers:\n  veyrul_media:\n    url: \"https://veyrul.com/mcp/read\"\n    timeout: 30\n    trust: untrusted\n    tools:\n      include: [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\"]\n      resources: false\n      prompts: false\n"
   }
 }
