@@ -1,0 +1,58 @@
+{
+  "codex": {
+    "file": ".codex/config.toml",
+    "instructions": "AGENTS.md",
+    "format": "toml",
+    "source": "https://learn.chatgpt.com/docs/extend/mcp",
+    "config": "[mcp_servers.veyrul_media]\nurl = \"https://veyrul.com/mcp/read\"\nenabled_tools = [\"get_context\", \"get_record\", \"search\", \"list_records\", \"get_changes\"]\nstartup_timeout_sec = 20\ntool_timeout_sec = 30\n"
+  },
+  "claude-code": {
+    "file": ".mcp.json",
+    "instructions": "CLAUDE.md",
+    "format": "json",
+    "source": "https://code.claude.com/docs/en/mcp",
+    "config": {
+      "mcpServers": {
+        "veyrul_media": {
+          "type": "http",
+          "url": "https://veyrul.com/mcp/read"
+        }
+      }
+    }
+  },
+  "cursor": {
+    "file": ".cursor/mcp.json",
+    "instructions": "AGENTS.md",
+    "format": "json",
+    "source": "https://cursor.com/docs/mcp",
+    "config": {
+      "mcpServers": {
+        "veyrul_media": {
+          "url": "https://veyrul.com/mcp/read"
+        }
+      }
+    }
+  },
+  "gemini-cli": {
+    "file": ".gemini/settings.json",
+    "instructions": "GEMINI.md",
+    "format": "json",
+    "source": "https://geminicli.com/docs/tools/mcp-server/",
+    "config": {
+      "mcpServers": {
+        "veyrul_media": {
+          "httpUrl": "https://veyrul.com/mcp/read",
+          "timeout": 30000,
+          "trust": false,
+          "includeTools": [
+            "get_context",
+            "get_record",
+            "search",
+            "list_records",
+            "get_changes"
+          ]
+        }
+      }
+    }
+  }
+}

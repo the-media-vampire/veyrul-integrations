@@ -1,0 +1,231 @@
+{
+  "schema": "veyrul-workflow-companions/1",
+  "version": "1.0.0",
+  "transport": "streamable-http",
+  "endpoint": "https://veyrul.com/mcp/read",
+  "account_required": false,
+  "model_calls_by_package": 0,
+  "optional_skill_loader_required": false,
+  "workflow": [
+    {
+      "id": "comfy-agent-kit",
+      "name": "ComfyUI Agent Kit",
+      "upstream": "https://github.com/SlavaSexton/ComfyUI-Agent-Kit",
+      "source_revision": "0d259059b55b0cc57ae45b232dbc03281621de35",
+      "source_readme": "https://github.com/SlavaSexton/ComfyUI-Agent-Kit/blob/0d259059b55b0cc57ae45b232dbc03281621de35/README.md",
+      "use_when": "After generated clips have been cut, repeated or sped up, before creating word captions.",
+      "query": "word captions repeated clips speed changes",
+      "local_work": "Keep graph building and GPU generation in the existing ComfyUI tools.",
+      "return_checkpoint": "Preserve clip mapping and word-timing assumptions on the next edit.",
+      "coverage": "bounded executed timing library",
+      "limitation": "The caption library does not generate footage or prove a ComfyUI-to-Resolve round trip.",
+      "observed_resource": {
+        "id": "art_01M6FTHTXK218N2MSF2FERAST5",
+        "revision": 1,
+        "title": "Edit-aware word timing: tested code for cuts, repeats and speed changes",
+        "api_url": "https://veyrul.com/v1/records/art_01M6FTHTXK218N2MSF2FERAST5"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "comfy-skills",
+      "name": "Comfy product skills",
+      "upstream": "https://github.com/Comfy-Org/comfy-skills",
+      "source_revision": "b0fc74c0fc83709c5538df578615f876d4ed52d6",
+      "source_readme": "https://github.com/Comfy-Org/comfy-skills/blob/b0fc74c0fc83709c5538df578615f876d4ed52d6/README.md",
+      "use_when": "Before choosing a VACE inpainting template or changing frame-count and resolution constraints.",
+      "query": "ComfyUI VACE video inpainting workflow",
+      "local_work": "Check the installed nodes, model files, hardware and current Comfy documentation.",
+      "return_checkpoint": "Re-read the exact template and constraints after a model or node update.",
+      "coverage": "documentary guidance, not executed",
+      "limitation": "Saved documentation does not establish successful GPU execution or visual quality.",
+      "observed_resource": {
+        "id": "art_01M5NPXF51QJG43ZPXCCZG2T9D",
+        "revision": 1,
+        "title": "What constraints does ComfyUI's Wan2.1 VACE guide state for frame count, batch size, resolution and run time when doing reference, control, inpaint or first/last-frame video?",
+        "api_url": "https://veyrul.com/v1/records/art_01M5NPXF51QJG43ZPXCCZG2T9D"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "remotion",
+      "name": "Remotion",
+      "upstream": "https://github.com/remotion-dev/skills",
+      "source_revision": "c7cb2fdcacd134fb2ccb9b7a44f9ffa44e467271",
+      "source_readme": "https://github.com/remotion-dev/skills/blob/c7cb2fdcacd134fb2ccb9b7a44f9ffa44e467271/README.md",
+      "use_when": "Before mapping word timestamps onto a composition with repeated source clips and speed changes.",
+      "query": "Remotion word captions timing edited clips",
+      "local_work": "Use Remotion for composition and rendering; inspect the saved library and its licence before reuse.",
+      "return_checkpoint": "Recheck record revisions when the edit, frame rate or timing model changes.",
+      "coverage": "bounded executed timing library; separate Remotion example",
+      "limitation": "The prior renderer checks used synthetic silent footage at 30 fps, not arbitrary production media.",
+      "observed_resource": {
+        "id": "art_01M6FTHTXK218N2MSF2FERAST5",
+        "revision": 1,
+        "title": "Edit-aware word timing: tested code for cuts, repeats and speed changes",
+        "api_url": "https://veyrul.com/v1/records/art_01M6FTHTXK218N2MSF2FERAST5"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "blender-mcp",
+      "name": "Blender MCP",
+      "upstream": "https://github.com/ahujasid/mcp-for-blender",
+      "source_revision": "992233bb258975a05eec8b5691465c50c2831e34",
+      "source_readme": "https://github.com/ahujasid/mcp-for-blender/blob/992233bb258975a05eec8b5691465c50c2831e34/README.md",
+      "use_when": "Before choosing an AI-generated animated asset format for a Blender pipeline.",
+      "query": "Blender glTF export materials animation",
+      "local_work": "Use Blender MCP for scene inspection and execution, with the existing operator permissions.",
+      "return_checkpoint": "Retain the source format, dependencies and import observations for the next asset.",
+      "coverage": "partial coverage: documentary asset-format evidence",
+      "limitation": "The initial broad glTF-export query returned adjacent evidence, not a verified Blender exporter workflow. Check current Blender documentation.",
+      "observed_resource": {
+        "id": "art_01M5NBF1B58NQCAH2Y0206A6Z0",
+        "revision": 1,
+        "title": "Can I get an animated file I can open in Blender, Unreal or Unity (mesh sequence, PLY sequence, glTF, Alembic) out of these text/image/video-to-4D systems, and what did the authors actually release?",
+        "api_url": "https://veyrul.com/v1/records/art_01M5NBF1B58NQCAH2Y0206A6Z0"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "blender-skills",
+      "name": "Blender Agent Skills",
+      "upstream": "https://github.com/EL4CTEO/blender-skills",
+      "source_revision": "fb92cfb4cc5a238c22113a6a230b09f535bd0656",
+      "source_readme": "https://github.com/EL4CTEO/blender-skills/blob/fb92cfb4cc5a238c22113a6a230b09f535bd0656/README.md",
+      "use_when": "When deciding whether a rig-generation tool also supplies animation retargeting.",
+      "query": "Blender Rigify animation retargeting",
+      "local_work": "Follow the installed Blender skills and the documentation for the actual Blender version.",
+      "return_checkpoint": "Keep the rig type, motion source and version gap with the saved record.",
+      "coverage": "documentary scope clarification; version check required",
+      "limitation": "Retrieved Rigify evidence includes older manuals; it does not prove Blender 5.2 retargeting compatibility.",
+      "observed_resource": {
+        "id": "art_01M5MDWNCTYBD7M4ABRZKA8C4C",
+        "revision": 1,
+        "title": "Does Blender Rigify document any animation retargeting or humanoid normalisation, or only rig generation from a metarig?",
+        "api_url": "https://veyrul.com/v1/records/art_01M5MDWNCTYBD7M4ABRZKA8C4C"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "motion-design",
+      "name": "LottieFiles Motion Design",
+      "upstream": "https://github.com/LottieFiles/motion-design-skill",
+      "source_revision": "f9a8a041b85185ee4881b3471d3415e939aac772",
+      "source_readme": "https://github.com/LottieFiles/motion-design-skill/blob/f9a8a041b85185ee4881b3471d3415e939aac772/README.md",
+      "use_when": "When a chosen motion direction needs playback, renderer or platform-compatibility evidence.",
+      "query": "Lottie reduced motion web animation",
+      "local_work": "Let the motion-design skill choose choreography; inspect the target renderer and reduced-motion behavior locally.",
+      "return_checkpoint": "Recheck sources when the player or target platform changes.",
+      "coverage": "documentary player and renderer guidance",
+      "limitation": "Repository descriptions are not rendered-animation or accessibility test results.",
+      "observed_resource": {
+        "id": "art_01M6AYJ7JV32VMXG3FCNFCEQSD",
+        "revision": 1,
+        "title": "Lottie playback and rendering tools at pinned commits: lottie-android, lottie-react-native, ThorVG, and the LottieFiles motion-design skill",
+        "api_url": "https://veyrul.com/v1/records/art_01M6AYJ7JV32VMXG3FCNFCEQSD"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "hallmark",
+      "name": "Hallmark",
+      "upstream": "https://github.com/Nutlope/hallmark",
+      "source_revision": "52328cb3129135499e4e178d4864ee90029dea2b",
+      "source_readme": "https://github.com/Nutlope/hallmark/blob/52328cb3129135499e4e178d4864ee90029dea2b/README.md",
+      "use_when": "When preparing an authorized image asset for a design and deciding whether local background removal is appropriate.",
+      "query": "rembg IOPaint local image object removal",
+      "local_work": "Retain Hallmark theme selection, browser checks, attribution and image-source restrictions.",
+      "return_checkpoint": "Save the chosen tool, model and alpha-edge problems for later revisions.",
+      "coverage": "documentary rembg guidance, not executed",
+      "limitation": "A record is not permission to use an image. This lookup does not establish IOPaint fit or Hallmark page quality.",
+      "observed_resource": {
+        "id": "art_01M6GB8TSKTNRGADJRGEEFDAGN",
+        "revision": 1,
+        "title": "rembg background removal (CLI, library, edge modes, models, hosted backends, storage and requirements): what its README, usage guide, manifest and licence file state (documentation only, nothing run)",
+        "api_url": "https://veyrul.com/v1/records/art_01M6GB8TSKTNRGADJRGEEFDAGN"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "huashu-design",
+      "name": "Huashu Design",
+      "upstream": "https://github.com/alchaincyf/huashu-design",
+      "source_revision": "b2460b031c33ff32d2bf3b97263527daa231e4de",
+      "source_readme": "https://github.com/alchaincyf/huashu-design/blob/b2460b031c33ff32d2bf3b97263527daa231e4de/README.md",
+      "use_when": "Before selecting generated SVG material for an animation or infographic.",
+      "query": "SVG motion graphics infographic animation",
+      "local_work": "Use Huashu for authoring and export; inspect the actual SVG primitives in the intended renderer.",
+      "return_checkpoint": "Preserve source, model/version and any editability or rendering failures.",
+      "coverage": "documentary SVG research, not executed",
+      "limitation": "The saved StarVector material reports research; no generated asset or Huashu export was tested.",
+      "observed_resource": {
+        "id": "art_01M6J61ECN2ZN6V51BFKBEFFJF",
+        "revision": 1,
+        "title": "StarVector (arXiv 2312.11556v4, CC BY 4.0): which SVG primitives a model writes as code, how SVG-Bench scores them, results as reported, stated limits, and a not-tested checklist for judging whether a generated SVG is ready for a motion-graphics tool (documented, not run)",
+        "api_url": "https://veyrul.com/v1/records/art_01M6J61ECN2ZN6V51BFKBEFFJF"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "reaper",
+      "name": "REAPER MCP",
+      "upstream": "https://github.com/TwelveTake-Studios/reaper-mcp",
+      "source_revision": "a87f116e8d088a5c18a33155bdfb561aeb7a9241",
+      "source_readme": "https://github.com/TwelveTake-Studios/reaper-mcp/blob/a87f116e8d088a5c18a33155bdfb561aeb7a9241/README.md",
+      "use_when": "Before choosing a local narration-cleanup method, then compare the processed copy in the existing session.",
+      "query": "free local speech narration cleanup FFmpeg",
+      "local_work": "Use REAPER MCP for the DAW operations already authorized; preserve the original and check duration, level and audible artifacts.",
+      "return_checkpoint": "Retain the cleanup method and observed alignment or artifact issues for the next pass.",
+      "coverage": "documentary speech-filter guidance, not executed",
+      "limitation": "These records describe external audio tools; no REAPER bridge, project or listening comparison was run.",
+      "observed_resource": {
+        "id": "art_01M5NCKJ16SS7ES5ZK9678Q520",
+        "revision": 1,
+        "title": "What are FFmpeg arnndn (RNN speech denoise), adeclick and adeclip for, and which options let you hear what they remove?",
+        "api_url": "https://veyrul.com/v1/records/art_01M5NCKJ16SS7ES5ZK9678Q520"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes media production",
+      "upstream": "https://github.com/NousResearch/hermes-agent",
+      "source_revision": "07274ac65438a0b62bb9fd64bf284e58b2fd8fc6",
+      "source_readme": "https://github.com/NousResearch/hermes-agent/blob/07274ac65438a0b62bb9fd64bf284e58b2fd8fc6/README.md",
+      "use_when": "Before narration cleanup, beat-based editing or reuse of saved caption-timing code.",
+      "query": "music video beat cut fractional frame rate",
+      "local_work": "Use the existing Hermes media tools; call Veyrul read tools directly without first loading a skill.",
+      "return_checkpoint": "Keep useful record revisions and re-read them during the next related edit.",
+      "coverage": "documentary music timing; prior caption execution separate",
+      "limitation": "Full Hermes use and return were previously verified for caption timing only; this batch adds protocol checks.",
+      "observed_resource": {
+        "id": "art_01M5NJ06MR6QTTRF6XCT0RDXSC",
+        "revision": 1,
+        "title": "How do I compute a tempo (or a tempo ramp) so that a musical downbeat lands on a given video frame, and what do DAW docs say about doing it?",
+        "api_url": "https://veyrul.com/v1/records/art_01M5NJ06MR6QTTRF6XCT0RDXSC"
+      },
+      "integration": "optional companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-04"
+    }
+  ]
+}

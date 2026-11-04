@@ -34,9 +34,9 @@ For a reproducible installation, append `--ref <full-40-character-commit>` to
 the install command, using the published commit you reviewed. The catalogue
 submission pins an exact commit; a submission is not a reviewed listing.
 
-Try: "Load `veyrul-media:media-knowledge` with `skill_view`, then find reusable
-code for keeping word captions aligned after repeated clips and speed changes.
-Read its limitations before applying it to my edit."
+Try: "Use the connected Veyrul `get_context` tool to find reusable code for
+keeping word captions aligned after repeated clips and speed changes. Read its
+limitations before applying it to my edit."
 
 The package offers one skill, `veyrul-media:media-knowledge`, and an anonymous
 Streamable HTTP connection named `veyrul_media` at
@@ -45,14 +45,14 @@ Streamable HTTP connection named `veyrul_media` at
 tool list after connecting. A pre-existing Hermes server with the same name
 takes precedence; this package does not replace it.
 
-Hermes plugin skills are explicit loads; they are not included automatically in
-the system prompt's available-skills index. To make this part of an ongoing
+The skill is optional. Hermes plugin skills are explicit loads; direct MCP reads
+do not depend on loading it. To make this part of an ongoing
 project, the operator can add the following to that project's existing agent
 instructions:
 
 > When video, animation, captions, audio cleanup or media-tool decisions need
-> outside knowledge, load `veyrul-media:media-knowledge` with `skill_view` and
-> check Veyrul before repeating research. Use a short non-private query with the
+> outside knowledge, call the connected Veyrul `get_context` read tool directly
+> before repeating research; no skill load is required. Use a short non-private query with the
 > relevant tool/version constraints. Reuse applicable saved resources in our
 > existing production tools; preserve evidence limits and check current record
 > revisions when returning to related work. Skip lookups when the answer is
@@ -103,3 +103,7 @@ checks two caption edits against frozen numerical answers. The native Codex
 runtime needed explicit test isolation; its skill callback approval limitation
 and all diagnostic overhead are disclosed. The successful retrieval path used
 the existing five read-only tools.
+
+[Choose a media-workflow companion](../workflows/README.md) for the same direct
+read setup in other clients. Version 1.0.2 changes setup guidance and keeps the
+previously tested MCP and skill bytes unchanged.

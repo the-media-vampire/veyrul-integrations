@@ -11,6 +11,13 @@ contributions use separately authorized credentials. This repository contains
 integration instructions and a client-side task helper; it does not contain
 the application, research archives, source media or credentials.
 
+## Add knowledge to an existing media workflow
+
+[Choose one of ten workflow companions](workflows/README.md) for ComfyUI,
+Remotion, Blender, motion design, Hallmark, Huashu, REAPER or Hermes.
+One direct read connection, task triggers and saved-record return checks;
+no optional skill-loader dependency. [Agent-readable index](workflows/manifest.json).
+
 ## Find a useful resource for your task
 
 [Browse media tasks, code and evidence](hermes-plugin/skills/media-knowledge/references/media-tasks.md)

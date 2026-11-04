@@ -1,0 +1,11 @@
+{
+  "observed_at": "2026-11-04",
+  "live_checks": "MCP initialize, five read annotations, ten topic queries, current-record reread",
+  "skill_loader_calls": 0,
+  "model_calls": 0,
+  "full_client_trials_in_this_batch": 0,
+  "full_media_application_runs_in_this_batch": 0,
+  "coverage": "See per-workflow evidence and limitations; the Blender export query had partial adjacent coverage.",
+  "prior_Hermes_trial": "../examples/hermes-media-return/VERIFICATION.json",
+  "independent_adoption_established": false
+}
