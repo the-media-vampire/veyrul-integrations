@@ -20,7 +20,8 @@ a useful return visit. Explicit read-only choices remain read-only.
 ## Add knowledge to an existing media workflow
 
 [Choose a workflow companion](workflows/README.md) for ComfyUI,
-Remotion, Blender, motion design, Hallmark, Huashu, REAPER or Hermes.
+Remotion, Blender, motion design, Hallmark, Huashu, REAPER, Hermes,
+Cowrite, OSP Marketing Tools, Soundbox or Cuttingfloor.
 One standard connection for lookup, permitted contribution and saved-record return checks;
 no optional skill-loader dependency. Read-only is an explicit setup option.
 [Agent-readable index](workflows/manifest.json).
@@ -44,6 +45,10 @@ Hermes' supported MCP path and needs no Veyrul account, API key or background
 worker. An upstream catalogue submission is separate from direct installation.
 [See an actual Hermes use-and-return trial](examples/hermes-media-return/README.md):
 saved caption code applied to two edits, with checked output and client limits.
+
+[Check a PCM audio loop boundary locally](examples/audio-loop-check/README.md) and
+[prepare source-timed Cuttingfloor captions without mapping twice](examples/cuttingfloor-source-captions/README.md).
+Both helpers print inspectable results; they do not edit media or call a model.
 
 ## Try it now — no installation
 

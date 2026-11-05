@@ -1,0 +1,131 @@
+{
+  "schema": "veyrul-writing-audio-companions-verification/1",
+  "at": "2026-11-05T06:30:25.715145+00:00",
+  "status": "passed",
+  "new_companions": [
+    "osp-marketing",
+    "cowrite",
+    "soundbox",
+    "cuttingfloor"
+  ],
+  "original_helper_tests": [
+    {
+      "helper": "audio-loop-check",
+      "tests": 14,
+      "result": "passed"
+    },
+    {
+      "helper": "cuttingfloor-source-captions",
+      "tests": 12,
+      "result": "passed"
+    }
+  ],
+  "setup_plan_combinations": 48,
+  "clients": [
+    "codex",
+    "claude-code",
+    "cursor",
+    "gemini-cli",
+    "hermes",
+    "opencode"
+  ],
+  "existing_13_manifest_entries_unchanged": true,
+  "shared_configurator_and_permission_rules_unchanged": true,
+  "live_requests": "Founder-operated anonymous Veyrul context reads saved privately; one MCP initialization and source-claim lookup. No independent agent adoption.",
+  "native_applications_run": [],
+  "model_calls": 0,
+  "measurements_do_not_establish": [
+    "audible loop quality",
+    "native renderer acceptance",
+    "writing quality improvement",
+    "upstream adoption",
+    "external use"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "fb1675c7b19e360e0b026556e2460f3b1afedd41f8fc87db022a526a41208909",
+      "bytes": 19201
+    },
+    {
+      "path": "examples/audio-loop-check/README.md",
+      "sha256": "02690047caaf26e89c8f306bfc69b486677f1ddb7ca11bad38051b6e973a818f",
+      "bytes": 2494
+    },
+    {
+      "path": "examples/audio-loop-check/loop_check.py",
+      "sha256": "53607400ed4139109a3054e612fb1ce07c3cf72064596442aee73c25a4491c82",
+      "bytes": 4168
+    },
+    {
+      "path": "examples/audio-loop-check/test_loop_check.py",
+      "sha256": "401a941deaba55c54de830ae8d57a0fe71974e4292e54e8a7f008f90009c0b20",
+      "bytes": 4807
+    },
+    {
+      "path": "examples/cuttingfloor-source-captions/README.md",
+      "sha256": "84b05edc40f6fa149056c52c8acfb3e05c7dbc7662d36991872198c6c75b63bd",
+      "bytes": 3141
+    },
+    {
+      "path": "examples/cuttingfloor-source-captions/caption_input.py",
+      "sha256": "b545e366aa081592d3df71f84dfccf2bb73743447a389bdb4f448d23e232aba3",
+      "bytes": 3771
+    },
+    {
+      "path": "examples/cuttingfloor-source-captions/test_caption_input.py",
+      "sha256": "cd980aeabad97d89a45e050cd2db99e1ea94c1c6ec550e09449a2d23b57ad74b",
+      "bytes": 4458
+    },
+    {
+      "path": "workflows/PROJECT-INSTRUCTIONS.txt",
+      "sha256": "23ddcfdc3950f350860bd6fcdfaf52b09bd60700bd46698496786a38754af3d2",
+      "bytes": 6497
+    },
+    {
+      "path": "workflows/READ-ONLY-INSTRUCTIONS.txt",
+      "sha256": "903320eb9bf7321844f7306eede147f3d4d4c4d1e70aadd0c2896879d7947a40",
+      "bytes": 2198
+    },
+    {
+      "path": "workflows/README.md",
+      "sha256": "8e87083c2e5fc355e362587c4496303c72882398122fc4e385cc186a152eb868",
+      "bytes": 11529
+    },
+    {
+      "path": "workflows/clients.json",
+      "sha256": "41d075c4d28d8063c02cebdb463f16a55d048d4d7a4b91cb53fd0a1e8065a927",
+      "bytes": 5081
+    },
+    {
+      "path": "workflows/configure.py",
+      "sha256": "b7b5bfcb7256bf6b1ed97c73281e920810ef89ce9c494759badb0afa71ae38f8",
+      "bytes": 4264
+    },
+    {
+      "path": "workflows/cowrite.md",
+      "sha256": "7591019b619fc2d69aed4d69c0e9054b30bc4d8bf2203ca57e7e2f45bc648e6c",
+      "bytes": 2430
+    },
+    {
+      "path": "workflows/cuttingfloor.md",
+      "sha256": "fe43eea8b3515a4d4b36b54ef56c134443a31ee9b8d5c703f36422e4a66836a5",
+      "bytes": 2579
+    },
+    {
+      "path": "workflows/manifest.json",
+      "sha256": "5a8562959d4ad23261ca942fdfeee658fc78cd13d7f962a55d59d61e5885d3f7",
+      "bytes": 26004
+    },
+    {
+      "path": "workflows/osp-marketing.md",
+      "sha256": "fbedf31135510652b7efd4fbb312f96d0cf5a809881fae66e2c10c68fe0ad577",
+      "bytes": 2444
+    },
+    {
+      "path": "workflows/soundbox.md",
+      "sha256": "0fd91a9fed48034e09cac1fe5ecdd3aa12d7bc7917a46dc097dbbca2378cbfd5",
+      "bytes": 2820
+    }
+  ]
+}

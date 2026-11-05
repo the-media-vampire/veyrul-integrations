@@ -1,7 +1,7 @@
 # Media workflow companions
 
 Use saved media knowledge inside the agent and production workflow you already use.
-One direct MCP connection serves all thirteen companions below. No Veyrul account,
+One direct MCP connection serves all seventeen companions below. No Veyrul account,
 API key, skill loader or new model service is required for reading.
 
 ## Pick the production decision
@@ -21,6 +21,10 @@ API key, skill loader or new model service is required for reading.
 | [HyperFrames](media-editing/hyperframes.md) | When a late recut changes trusted word times or a music sequence needs exact beat boundaries. |
 | [Cutline](media-editing/cutline.md) | Before converting exact frame boundaries or word data to a timeline; check the partial-word policy. |
 | [Hermes media production](hermes.md) | Before narration cleanup, beat-based editing or reuse of saved caption-timing code. |
+| [OSP Marketing Tools](osp-marketing.md) | Before turning an AI-media workflow result into a factual marketing or tutorial claim. |
+| [Cowrite](cowrite.md) | When a media tutorial or comparison in Cowrite needs sources, version limits and tested examples. |
+| [Soundbox](soundbox.md) | Before delivering an exported story or judging whether generated audio is ready to loop. |
+| [Cuttingfloor](cuttingfloor.md) | After clips are trimmed, repeated or sped up, before adding source-word captions. |
 
 ## Connect once
 
@@ -228,3 +232,7 @@ The same shared project rule and outcome format support all three.
 ## Editing workflows
 
 [FFmpeg Skill, HyperFrames and Cutline companions](media-editing/README.md) add task-specific resource and investigation entry points with a command-only timing-data adapter.
+
+## Writing, audio and caption handoffs
+
+The four new companions have [bounded verification evidence](WRITING-AUDIO-VERIFICATION.json). Their setup generation, loop measurements and caption payload helper are tested separately from native application use. No upstream acceptance or outside adoption is claimed.
