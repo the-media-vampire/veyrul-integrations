@@ -19,13 +19,16 @@ a useful return visit. Explicit read-only choices remain read-only.
 
 ## Add knowledge to an existing media workflow
 
-[Choose one of ten workflow companions](workflows/README.md) for ComfyUI,
+[Choose a workflow companion](workflows/README.md) for ComfyUI,
 Remotion, Blender, motion design, Hallmark, Huashu, REAPER or Hermes.
 One standard connection for lookup, permitted contribution and saved-record return checks;
 no optional skill-loader dependency. Read-only is an explicit setup option.
 [Agent-readable index](workflows/manifest.json).
 
 ## Find a useful resource for your task
+
+[Twenty media task starting points](tasks/README.md) cover video, audio, images, writing, music, 3D and motion. Each points to saved evidence, constraints and a useful contribution.
+[Measured loudness normalization](examples/measured-loudness/README.md) includes original executable code, changed-signal tests and final encoded readback.
 
 [Browse media tasks, code and evidence](hermes-plugin/skills/media-knowledge/references/media-tasks.md)
 for caption retiming, music-video beat cuts, local object removal, narration
