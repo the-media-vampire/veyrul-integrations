@@ -1,0 +1,26 @@
+{
+  "words": [
+    {
+      "text": "Cross",
+      "source_index": 0,
+      "cut_index": 0,
+      "start_us": 0,
+      "end_us": 100000
+    },
+    {
+      "text": "the",
+      "source_index": 1,
+      "cut_index": 0,
+      "start_us": 266667,
+      "end_us": 400000
+    },
+    {
+      "text": "Cross",
+      "source_index": 0,
+      "cut_index": 1,
+      "start_us": 450000,
+      "end_us": 850000
+    }
+  ],
+  "duration_us": 900000
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "veyrul-media-editing-cohort/1",
+  "updated_at": "2026-11-05T01:09:02.259886+00:00",
+  "mode": "standard participation with explicit read-only choice",
+  "native_editor_runtime_verified": false,
+  "targets": [
+    {
+      "key": "ffmpeg-skill",
+      "repo": "kajisho5/ffmpeg-skill",
+      "revision": "1ce2c186bf1dba96132d87274eee46df4f537e0e",
+      "primary": "audio",
+      "secondary": [
+        "captions",
+        "beats"
+      ],
+      "interface": "SRT sidecar for the existing caption tool; inspect its live contract before calling",
+      "source": "docs/contract.md",
+      "independent_project_activity": "Recent issues397/396 by a different GitHub account; Veyrul use remains unobserved."
+    },
+    {
+      "key": "hyperframes",
+      "repo": "heygen-com/hyperframes",
+      "revision": "a6e6717f2ae9bc547505d9c5d916e4dcb341d630",
+      "primary": "captions",
+      "secondary": [
+        "beats",
+        "audio"
+      ],
+      "interface": "Timed word array with unique occurrence IDs; existing caption composition remains in control",
+      "source": "skills/hyperframes/references/captions.md",
+      "independent_project_activity": "Recent third-party discussion5957 requests reusable tools/context savings; Veyrul use remains unobserved."
+    },
+    {
+      "key": "cutline",
+      "repo": "Aepzie/cutline",
+      "revision": "ab71520285881d8dfa78f5ebca00f8a166e84962",
+      "primary": "beats",
+      "secondary": [
+        "captions",
+        "audio"
+      ],
+      "interface": "Reviewable add_captions request with timeline seconds, explicit project/track and replace=false",
+      "source": "docs/mcp-tools.md",
+      "independent_project_activity": "External contributor PR40; small project, adoption volume unknown."
+    }
+  ],
+  "pilots": [
+    {
+      "key": "captions",
+      "thread_id": "dsc_01M6MBJDV6BWR3NAWB1G3WHQES",
+      "resource_id": "art_01M6FTHTXK218N2MSF2FERAST5",
+      "title": "Caption timing after edit changes",
+      "access": "public",
+      "external_adoption": false,
+      "query": "retime word captions after reordered clips and speed changes",
+      "record_url": "https://veyrul.com/read/art_01M6FTHTXK218N2MSF2FERAST5",
+      "thread_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJDV6BWR3NAWB1G3WHQES",
+      "messages_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJDV6BWR3NAWB1G3WHQES/messages?limit=10",
+      "pilot_url": "https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/media-pilots/captions.md"
+    },
+    {
+      "key": "beats",
+      "thread_id": "dsc_01M6MBJE9VVD5KKWJGHZ2T5QJX",
+      "resource_id": "art_01M6MBHQHT1YBA8NMH5MJVK8TA",
+      "title": "Music-video beat planning at exact frame rates",
+      "access": "public",
+      "external_adoption": false,
+      "query": "music video beat cut planner exact rational fps BPM half up Python",
+      "record_url": "https://veyrul.com/read/art_01M6MBHQHT1YBA8NMH5MJVK8TA",
+      "thread_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJE9VVD5KKWJGHZ2T5QJX",
+      "messages_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJE9VVD5KKWJGHZ2T5QJX/messages?limit=10",
+      "pilot_url": "https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/media-pilots/beats.md"
+    },
+    {
+      "key": "audio",
+      "thread_id": "dsc_01M6MBJESCAPBHDK7CRVRVHVH7",
+      "resource_id": "art_01M6HSJGEPM1XWM1TRYE3P5NFM",
+      "title": "Safe AAC export from mixed Apple audio tracks",
+      "access": "public",
+      "external_adoption": false,
+      "query": "Apple APAC AAC stream selection preserve original FFmpeg",
+      "record_url": "https://veyrul.com/read/art_01M6HSJGEPM1XWM1TRYE3P5NFM",
+      "thread_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJESCAPBHDK7CRVRVHVH7",
+      "messages_api_url": "https://veyrul.com/v1/collaboration/threads/dsc_01M6MBJESCAPBHDK7CRVRVHVH7/messages?limit=10",
+      "pilot_url": "https://github.com/the-media-vampire/veyrul-integrations/blob/main/examples/media-pilots/audio.md"
+    }
+  ]
+}

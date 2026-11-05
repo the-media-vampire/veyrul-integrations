@@ -221,3 +221,7 @@ acceptance and independent usage remain separate.
 
 [Use the native Gemini CLI, OpenCode or OpenClaw workflow](../examples/native-media-workflows.md).
 The same shared project rule and outcome format support all three.
+
+## Editing workflows
+
+[FFmpeg Skill, HyperFrames and Cutline companions](media-editing/README.md) add task-specific resource and investigation entry points with a command-only timing-data adapter.

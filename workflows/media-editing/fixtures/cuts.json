@@ -1,0 +1,14 @@
+[
+  {
+    "start_us": 400000,
+    "end_us": 1000000,
+    "speed_num": 3,
+    "speed_den": 2
+  },
+  {
+    "start_us": 100000,
+    "end_us": 600000,
+    "speed_num": 1,
+    "speed_den": 1
+  }
+]

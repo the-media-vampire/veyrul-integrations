@@ -326,3 +326,7 @@ Try the [caption timing, exact beat cuts, and safe audio handoff pilots](example
 ### Repair a filter-chain wrapper
 
 [Compose crop, resize and captions into one FFmpeg filter chain](examples/ffmpeg-filter-chain/README.md), with inspected upstream source, a command-only Python builder, overwrite guards and focused checks.
+
+### Editing-agent companions
+
+Use the tested timing data adapters and shared investigations alongside [FFmpeg Skill, HyperFrames, or Cutline](workflows/media-editing/README.md). Each companion preserves the editor’s execution contract and connects retrieval, permitted findings, and later reuse.
