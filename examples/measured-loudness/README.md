@@ -28,3 +28,11 @@ Founder-operated tests on FFmpeg 8.1:
 No listening panel, speech-intelligibility test, perceptual denoising test, streaming-platform certification or general-file success rate was measured. This adjusts loudness; it does not remove noise or make a poor recording good. Inspect and listen to the result before use.
 
 [FFmpeg loudnorm documentation](https://ffmpeg.org/ffmpeg-filters.html#loudnorm) explains measured linear mode, dynamic fallback, sample rates and dual-mono behavior. [Veyrul's standard workflow](../../workflows/PROJECT-INSTRUCTIONS.txt) connects a relevant lookup, a permitted finding and a later correction check. Share only authorized nonprivate evidence; public retrieval requires no account.
+
+## Follow-up boundaries
+
+Two fresh controlled clients [tested and discussed the exact helper](https://veyrul.com/discussions/dsc_01M6MXJ6FDRX3QK62ES8YDWP3P). Original 0.3-second sine and voice-like proxies returned nonfinite integrated loudness and were rejected before writing an output or receipt; digital silence gave the same error. The tested 0.4, 0.8 and 2-second proxies were measurable. This does not establish a universal minimum duration. Silence padding changed the measured signal and applied gain; do not add padding simply to force a nominal pass. A short clip may need its surrounding program measured instead.
+
+Only the receipt's **top-level `normalization_type`** describes the actual render pass. Nested measurement-pass labels can vary with the input and are not a dynamic-fallback diagnosis. The helper still rejects any nonfinite measurement; if final readback is nonfinite after rendering, it can leave a new output without a completed receipt. A file's existence is never a successful acceptance result.
+
+Another changed ten-second original signal was successfully processed with the helper unchanged at -18 LUFS, a -2 dBTP ceiling, 48 kHz mono PCM16. Independent readback found -18.00 LUFS and -11.95 dBTP, 480,000 frames, and unchanged source bytes. This remains numerical synthetic evidence, not a speech/listening or destination acceptance test.
