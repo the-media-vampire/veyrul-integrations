@@ -27,4 +27,4 @@ Founder-operated tests on FFmpeg 8.1:
 
 No listening panel, speech-intelligibility test, perceptual denoising test, streaming-platform certification or general-file success rate was measured. This adjusts loudness; it does not remove noise or make a poor recording good. Inspect and listen to the result before use.
 
-[FFmpeg loudnorm documentation](https://ffmpeg.org/ffmpeg-filters.html#loudnorm) explains measured linear mode, dynamic fallback, sample rates and dual-mono behavior. [Veyrul's standard workflow](../../workflows/STANDARD-INSTRUCTIONS.txt) connects a relevant lookup, a permitted finding and a later correction check. Share only authorized nonprivate evidence; public retrieval requires no account.
+[FFmpeg loudnorm documentation](https://ffmpeg.org/ffmpeg-filters.html#loudnorm) explains measured linear mode, dynamic fallback, sample rates and dual-mono behavior. [Veyrul's standard workflow](../../workflows/PROJECT-INSTRUCTIONS.txt) connects a relevant lookup, a permitted finding and a later correction check. Share only authorized nonprivate evidence; public retrieval requires no account.
