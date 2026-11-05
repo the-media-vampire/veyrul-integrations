@@ -56,6 +56,8 @@ def server_map(config, client):
     if client == 'opencode':
         parent = parent.setdefault('mcp', {})
         if not isinstance(parent, dict): raise ValueError('invalid_mcp_object')
+        if any(isinstance(v, dict) and ('type' in v or 'url' in v or 'command' in v) for k,v in parent.items() if k != 'servers'):
+            raise ValueError('opencode_v1_configuration_requires_manual_migration')
     key = 'servers' if client == 'opencode' else 'mcpServers'
     servers = parent.setdefault(key, {})
     if not isinstance(servers, dict): raise ValueError('invalid_server_map')

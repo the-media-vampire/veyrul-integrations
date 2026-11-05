@@ -17,7 +17,7 @@ connection remains read-only; the helper refuses a conflicting requested mode.
 It never changes client tool permissions or registers an identity.
 
 Supported project JSON configurations: `claude-code`, `cursor`, `gemini-cli`,
-`opencode`. For Codex and Hermes, keep using `configure.py` and the client's
+`opencode` (V2 configuration). Existing V1 server layouts are refused for manual migration. For Codex and Hermes, keep using `configure.py` and the client's
 supported merge process. Those formats are not rewritten by this helper.
 
 After activation, start or reload the client. Use its normal project-server
@@ -50,3 +50,5 @@ between file replacements can require local recovery.
 Existing OpenCode `opencode.jsonc` is left for a manual merge with `configure.py`;
 the helper does not create a competing JSON config. It rejects nonfinite JSON
 values and duplicate keys rather than rewriting ambiguous configuration.
+
+OpenCode V2 format is documented in [its current MCP guide](https://opencode.ai/v2/docs/mcp-servers); V1 uses a different server layout. This helper does not upgrade the client.

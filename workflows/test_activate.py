@@ -59,6 +59,10 @@ class ActivationTests(unittest.TestCase):
         (self.root/'opencode.jsonc').write_text('// existing config\n{}')
         with self.assertRaisesRegex(ValueError,'jsonc'):activate.activate(self.root,'opencode','soundbox',apply=True)
         self.assertFalse((self.root/'opencode.json').exists())
+    def test_opencode_v1_refused(self):
+        (self.root/'opencode.json').write_text('{"mcp":{"existing":{"type":"remote","url":"https://example.invalid/mcp"}}}')
+        with self.assertRaisesRegex(ValueError,'v1_configuration'):activate.activate(self.root,'opencode','soundbox',apply=True)
+        self.assertFalse((self.root/'AGENTS.md').exists())
     def test_invalid_root(self):
         (self.root/'.mcp.json').write_text('[]')
         with self.assertRaisesRegex(ValueError,'must_be_object'):self.run_activation()
