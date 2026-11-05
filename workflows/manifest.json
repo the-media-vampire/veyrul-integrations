@@ -1,6 +1,6 @@
 {
   "schema": "veyrul-workflow-companions/1",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "transport": "streamable-http",
   "endpoint": "https://veyrul.com/mcp",
   "account_required": false,
@@ -412,6 +412,28 @@
       "upstream_endorsement": false,
       "observed_at": "2026-11-05",
       "activation": "workflows/ACTIVATE.md"
+    },
+    {
+      "id": "designer-skills",
+      "name": "Designer Skills Collection",
+      "upstream": "https://github.com/Owl-Listener/designer-skills",
+      "source_revision": "9a6930cf84a822eb458624bd11c61aac5bbdf224",
+      "source_readme": "https://github.com/Owl-Listener/designer-skills/blob/9a6930cf84a822eb458624bd11c61aac5bbdf224/README.md",
+      "use_when": "Before handing design or motion tokens to a different tool.",
+      "query": "DTCG design token handoff duration dimension cubicBezier",
+      "local_work": "Keep design decisions in the existing skills; validate the declared token format and test a small destination import.",
+      "return_checkpoint": "Record exporter, format and destination versions plus actual validation/import findings.",
+      "coverage": "source-inspected design skills and a bounded, executed token-value checker",
+      "limitation": "The checker covers only selected value shapes; it does not prove full DTCG conformance or a successful visual import. No upstream integration or endorsement.",
+      "observed_resource": {
+        "id": "art_01M6PJA0B37WB8AYSNS8KDQDZ1",
+        "revision": 2,
+        "title": "Website design tokens for an agent: designlang extraction and a reproduced DTCG handoff mismatch",
+        "api_url": "https://veyrul.com/v1/records/art_01M6PJA0B37WB8AYSNS8KDQDZ1"
+      },
+      "integration": "companion in the shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-05"
     }
   ],
   "default_mode": "standard",

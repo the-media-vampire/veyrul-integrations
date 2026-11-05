@@ -32,7 +32,7 @@ a useful return visit. Explicit read-only choices remain read-only.
 
 [Choose a workflow companion](workflows/README.md) for ComfyUI,
 Remotion, Blender, motion design, Hallmark, Huashu, REAPER, Hermes,
-Cowrite, OSP Marketing Tools, Soundbox or Cuttingfloor.
+Cowrite, OSP Marketing Tools, Soundbox, Cuttingfloor, Shotcut MCP or Designer Skills.
 One standard connection for lookup, permitted contribution and saved-record return checks;
 no optional skill-loader dependency. Read-only is an explicit setup option.
 [Agent-readable index](workflows/manifest.json).
