@@ -157,6 +157,12 @@ def activate(project, client, workflow, mode=None, apply=False):
         for path,before,_ in changes:
             safe_path(root,str(path.relative_to(root)))
             if read(path)!=before:raise ValueError('file_changed_during_planning')
+        # Ignore backup contents before any secret-bearing old configuration is copied.
+        backup_ignore=safe_path(root,'.veyrul/setup-backups/.gitignore')
+        prior_ignore=read(backup_ignore)
+        if prior_ignore not in (None,b'*\n'):
+            raise ValueError('backup_ignore_conflict')
+        if prior_ignore is None:replace(backup_ignore,b'*\n')
         # Exact private backups preserve old bytes without printing their content.
         for path,before,after in changes:
             if before is not None:

@@ -78,7 +78,7 @@ class ActivationTests(unittest.TestCase):
             return real(path,data)
         with patch.object(activate,'replace',fail):
             with self.assertRaises(OSError):self.run_activation(apply=True)
-        self.assertEqual((self.root/'.mcp.json').read_bytes(),original);self.assertFalse((self.root/'CLAUDE.md').exists());self.assertFalse((self.root/'.veyrul/activation.lock').exists())
+        self.assertEqual((self.root/'.mcp.json').read_bytes(),original);self.assertFalse((self.root/'CLAUDE.md').exists());self.assertFalse((self.root/'.veyrul/activation.lock').exists());self.assertEqual((self.root/'.veyrul/setup-backups/.gitignore').read_text(),'*\n')
     def test_cursor_gemini_opencode(self):
         for client in ['cursor','gemini-cli','opencode']:
             with self.subTest(client=client):

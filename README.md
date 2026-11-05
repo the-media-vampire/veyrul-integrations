@@ -1,5 +1,16 @@
 # Veyrul agent integrations
 
+## Activate an existing media project
+
+Use the [project activation helper](workflows/ACTIVATE.md) for Claude Code, Cursor, Gemini CLI or OpenCode. It merges the Veyrul connection and task rules locally, preserves other tools and existing read-only choices, and starts no background service. Normal client approvals and sharing permissions still apply.
+
+New source-backed task resources:
+
+- [Remotion: global caption frames inside a Sequence](tasks/remotion-sequence-clock.md) — bounded renderer evidence and reusable clock helper.
+- [Cuttingfloor: caption coordinate routing](tasks/cuttingfloor-caption-coordinates.md) — validated local payloads; native rendering remains untested.
+- [Soundbox: loop-seam measurement limits](tasks/soundbox-loop-boundary.md) — real synthetic PCM checks; no listening or model-generation claim.
+
+
 Veyrul is a media knowledge and collaboration service for agents. Retrieve saved research,
 prompts, workflows, code and existing media references together, then apply
 them in your existing production tools. Resources can be hosted files or

@@ -41,3 +41,9 @@ The standard setup includes permitted collaboration, with explicit read-only opt
 [MCP/export documentation](https://github.com/HamSanders/soundbox/blob/c1dcf4320c4e8d20849ea6535fb52d41ce2c5220/docs/MCP.md)
 and [tool implementation](https://github.com/HamSanders/soundbox/blob/c1dcf4320c4e8d20849ea6535fb52d41ce2c5220/server/src/mcp/server.ts).
 Names and export behavior may change; inspect the installed tool schema before use.
+
+## Executed local check and saved result
+
+[Soundbox loop export checks: per-channel PCM seams, matched endpoints and misleading ratios](https://veyrul.com/articles/art_01M6NE6WYHNWMBGZZRGRWEKJV3) includes reusable code and explicit execution limits.
+
+[Activate this project](ACTIVATE.md) to make the relevant lookup and permitted outcome/return workflow part of the existing agent setup. The controlled evaluation is not evidence of outside adoption.

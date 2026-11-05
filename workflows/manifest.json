@@ -1,6 +1,6 @@
 {
   "schema": "veyrul-workflow-companions/1",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "transport": "streamable-http",
   "endpoint": "https://veyrul.com/mcp",
   "account_required": false,
@@ -58,20 +58,21 @@
       "source_revision": "c7cb2fdcacd134fb2ccb9b7a44f9ffa44e467271",
       "source_readme": "https://github.com/remotion-dev/skills/blob/c7cb2fdcacd134fb2ccb9b7a44f9ffa44e467271/README.md",
       "use_when": "Before mapping word timestamps onto a composition with repeated source clips and speed changes.",
-      "query": "Remotion word captions timing edited clips",
+      "query": "Remotion Sequence global composition frames local useCurrentFrame captions",
       "local_work": "Use Remotion for composition and rendering; inspect the saved library and its licence before reuse.",
       "return_checkpoint": "Recheck record revisions when the edit, frame rate or timing model changes.",
-      "coverage": "bounded executed timing library; separate Remotion example",
-      "limitation": "The prior renderer checks used synthetic silent footage at 30 fps, not arbitrary production media.",
+      "coverage": "Original bounded utility checks; see exact execution limits in the record",
+      "limitation": "Thirteen one-Sequence boundary stills at Remotion4.0.537; no arbitrary footage, audio sync or artistic quality proof.",
       "observed_resource": {
-        "id": "art_01M6FTHTXK218N2MSF2FERAST5",
+        "id": "art_01M6NE6TAVHNW1KKGRY758N7P9",
         "revision": 1,
-        "title": "Edit-aware word timing: tested code for cuts, repeats and speed changes",
-        "api_url": "https://veyrul.com/v1/records/art_01M6FTHTXK218N2MSF2FERAST5"
+        "title": "Remotion Sequence caption clocks: global composition frames versus local useCurrentFrame",
+        "api_url": "https://veyrul.com/v1/records/art_01M6NE6TAVHNW1KKGRY758N7P9"
       },
       "integration": "optional companion in the shared agent client",
       "upstream_endorsement": false,
-      "observed_at": "2026-11-04"
+      "observed_at": "2026-11-05",
+      "activation": "workflows/ACTIVATE.md"
     },
     {
       "id": "blender-mcp",
@@ -350,20 +351,21 @@
       "source_revision": "c1dcf4320c4e8d20849ea6535fb52d41ce2c5220",
       "source_readme": "https://github.com/HamSanders/soundbox/blob/c1dcf4320c4e8d20849ea6535fb52d41ce2c5220/README.md",
       "use_when": "Before delivering an exported story or judging whether generated audio is ready to loop.",
-      "query": "measure generated audio loudness loop seam before delivery",
+      "query": "Soundbox PCM16 loop boundary per channel matched endpoints ratio",
       "local_work": "Inspect story device chains and export behavior; measure the local final file and listen before delivery.",
       "return_checkpoint": "Record export mode, measurements, playback observations and the saved evidence revision.",
-      "coverage": "pinned documentary integration contract plus separately identified local helper tests",
-      "limitation": "Soundbox native generation/export was not run. The PCM loop helper measures samples, not audibility, LUFS or rhythmic correctness.",
+      "coverage": "Original bounded utility checks; see exact execution limits in the record",
+      "limitation": "Actual PCM fixture measurements; no native Soundbox generation, listening or audibility verdict.",
       "observed_resource": {
-        "id": "art_01M6MXF9HWMF82RKSAANJEFZZS",
-        "revision": 2,
-        "title": "Measured loudness normalization and final encoded readback",
-        "api_url": "https://veyrul.com/v1/records/art_01M6MXF9HWMF82RKSAANJEFZZS"
+        "id": "art_01M6NE6WYHNWMBGZZRGRWEKJV3",
+        "revision": 1,
+        "title": "Soundbox loop export checks: per-channel PCM seams, matched endpoints and misleading ratios",
+        "api_url": "https://veyrul.com/v1/records/art_01M6NE6WYHNWMBGZZRGRWEKJV3"
       },
       "integration": "companion in the existing shared agent client",
       "upstream_endorsement": false,
-      "observed_at": "2026-11-05"
+      "observed_at": "2026-11-05",
+      "activation": "workflows/ACTIVATE.md"
     },
     {
       "id": "cuttingfloor",
@@ -372,20 +374,21 @@
       "source_revision": "d8c94f74f5846a44e29b877828b33ae44b8997af",
       "source_readme": "https://github.com/Mvp2o-ai/cuttingfloor/blob/d8c94f74f5846a44e29b877828b33ae44b8997af/README.md",
       "use_when": "After clips are trimmed, repeated or sped up, before adding source-word captions.",
-      "query": "retime word captions after reordered clips and speed changes",
+      "query": "Cuttingfloor caption.add in_clip source seconds timeline frames",
       "local_work": "Use Cuttingfloor in_clip with original media seconds, or its timeline-frame segments with already mapped times; never combine both mappings.",
       "return_checkpoint": "Save the source timebase, native clip IDs and export check so later recuts do not double-retime captions.",
-      "coverage": "pinned documentary integration contract plus separately identified local helper tests",
-      "limitation": "Payload helper tests do not establish a native Cuttingfloor render. Hosted trial access is separate; no new trial or service is required by this companion.",
+      "coverage": "Original bounded utility checks; see exact execution limits in the record",
+      "limitation": "Local coordinate router verified; native Cuttingfloor server and renderer not executed.",
       "observed_resource": {
-        "id": "art_01M6FTHTXK218N2MSF2FERAST5",
+        "id": "art_01M6NE6VKW15V90ZB83TDD5EEN",
         "revision": 1,
-        "title": "Edit-aware word timing across cuts, repeats and speed changes",
-        "api_url": "https://veyrul.com/v1/records/art_01M6FTHTXK218N2MSF2FERAST5"
+        "title": "Cuttingfloor caption.add: route source seconds and timeline frames without double mapping",
+        "api_url": "https://veyrul.com/v1/records/art_01M6NE6VKW15V90ZB83TDD5EEN"
       },
       "integration": "companion in the existing shared agent client",
       "upstream_endorsement": false,
-      "observed_at": "2026-11-05"
+      "observed_at": "2026-11-05",
+      "activation": "workflows/ACTIVATE.md"
     }
   ],
   "default_mode": "standard",

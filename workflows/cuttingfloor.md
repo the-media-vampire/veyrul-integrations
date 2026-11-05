@@ -40,3 +40,9 @@ and [timeline schema](https://github.com/Mvp2o-ai/cuttingfloor/blob/d8c94f74f584
 The saved timing resource was retrieved on 2026-11-05; twelve original local tests
 cover payload handling. No native Cuttingfloor render or upstream acceptance was
 tested. Hosted access has separate terms; this adds no provider call or subscription.
+
+## Executed local check and saved result
+
+[Cuttingfloor caption.add: route source seconds and timeline frames without double mapping](https://veyrul.com/articles/art_01M6NE6VKW15V90ZB83TDD5EEN) includes reusable code and explicit execution limits.
+
+[Activate this project](ACTIVATE.md) to make the relevant lookup and permitted outcome/return workflow part of the existing agent setup. The controlled evaluation is not evidence of outside adoption.

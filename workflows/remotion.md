@@ -24,3 +24,9 @@ Read the current record before relying on it. Discovery results can change.
 
 [Upstream instructions at the reviewed revision](https://github.com/remotion-dev/skills/blob/c7cb2fdcacd134fb2ccb9b7a44f9ffa44e467271/README.md).
 [Connection and evidence limits](README.md#verification).
+
+## Executed local check and saved result
+
+[Remotion Sequence caption clocks: global composition frames versus local useCurrentFrame](https://veyrul.com/articles/art_01M6NE6TAVHNW1KKGRY758N7P9) includes reusable code and explicit execution limits.
+
+[Activate this project](ACTIVATE.md) to make the relevant lookup and permitted outcome/return workflow part of the existing agent setup. The controlled evaluation is not evidence of outside adoption.
