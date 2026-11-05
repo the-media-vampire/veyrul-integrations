@@ -1,7 +1,7 @@
 # Media workflow companions
 
 Use saved media knowledge inside the agent and production workflow you already use.
-One direct MCP connection serves all ten companions below. No Veyrul account,
+One direct MCP connection serves all thirteen companions below. No Veyrul account,
 API key, skill loader or new model service is required for reading.
 
 ## Pick the production decision
@@ -17,6 +17,9 @@ API key, skill loader or new model service is required for reading.
 | [Hallmark](hallmark.md) | When preparing an authorized image asset for a design and deciding whether local background removal is appropriate. |
 | [Huashu Design](huashu-design.md) | Before selecting generated SVG material for an animation or infographic. |
 | [REAPER MCP](reaper.md) | Before choosing a local narration-cleanup method, then compare the processed copy in the existing session. |
+| [FFmpeg Skill](media-editing/ffmpeg-skill.md) | Before selecting audio streams or converting retimed captions into an SRT sidecar. |
+| [HyperFrames](media-editing/hyperframes.md) | When a late recut changes trusted word times or a music sequence needs exact beat boundaries. |
+| [Cutline](media-editing/cutline.md) | Before converting exact frame boundaries or word data to a timeline; check the partial-word policy. |
 | [Hermes media production](hermes.md) | Before narration cleanup, beat-based editing or reuse of saved caption-timing code. |
 
 ## Connect once

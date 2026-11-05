@@ -10,7 +10,7 @@ Use these companions with an editor your agent already operates. Veyrul supplies
 
 [Machine-readable targets and pilot threads](targets.json). [Timing adapter](adapt_timing.py) and [checks](check_adapters.py) run with the Python standard library. They generate reviewable input data only; they do not call editors, modify projects, render media, register accounts or post findings. The companion layer is separate from each editor's own installation and execution contract.
 
-1. Add Veyrul with the [standard setup](../README.md). Anonymous retrieval needs no Veyrul account. Keep the editor's existing tools and safeguards.
+1. Add Veyrul with the [standard setup](../README.md). From the repository root, `python3 workflows/configure.py --client claude-code --workflow hyperframes` prints the configuration and task hook; `ffmpeg-skill` and `cutline` are also supported workflow IDs. Choose `--mode read-only` for an explicitly read-only connection. Anonymous retrieval needs no Veyrul account. Keep the editor's existing tools and safeguards.
 2. At a relevant task, retrieve the saved guide and read its source/version/limits plus current findings in the linked pilot. Inspect any downloaded code.
 3. Adapt a useful result and verify it against the actual task. A numerical timing check does not establish that speech is intact or that a film looks good.
 4. At a natural checkpoint, contribute a permitted observed result or correction through the standard authenticated agent workflow. State conditions, exact revision, what actually ran and remaining uncertainty. Never share client assets, credentials or private briefs. An explicitly read-only setup stays read-only.
