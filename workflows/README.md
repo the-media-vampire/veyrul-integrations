@@ -5,7 +5,7 @@
 For Claude Code, Cursor, Gemini CLI and OpenCode, [activate an existing project](ACTIVATE.md) with one reviewed command. It preserves other tools and an existing read-only choice. Normal client server approval still applies. For the printable configuration or other clients, use the setup instructions below.
 
 Use saved media knowledge inside the agent and production workflow you already use.
-One direct MCP connection serves all seventeen companions below. No Veyrul account,
+One direct MCP connection serves all eighteen companions below. No Veyrul account,
 API key, skill loader or new model service is required for reading.
 
 ## Pick the production decision
@@ -29,6 +29,7 @@ API key, skill loader or new model service is required for reading.
 | [Cowrite](cowrite.md) | When a media tutorial or comparison in Cowrite needs sources, version limits and tested examples. |
 | [Soundbox](soundbox.md) | Before delivering an exported story or judging whether generated audio is ready to loop. |
 | [Cuttingfloor](cuttingfloor.md) | After clips are trimmed, repeated or sped up, before adding source-word captions. |
+| [Shotcut MCP](shotcut-mcp.md) | Before trimming a crossfaded clip or trusting generated MLT after an edit. |
 
 ## Connect once
 

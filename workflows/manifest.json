@@ -1,6 +1,6 @@
 {
   "schema": "veyrul-workflow-companions/1",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "transport": "streamable-http",
   "endpoint": "https://veyrul.com/mcp",
   "account_required": false,
@@ -386,6 +386,29 @@
         "api_url": "https://veyrul.com/v1/records/art_01M6NE6VKW15V90ZB83TDD5EEN"
       },
       "integration": "companion in the existing shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-05",
+      "activation": "workflows/ACTIVATE.md"
+    },
+    {
+      "id": "shotcut-mcp",
+      "name": "Shotcut MCP",
+      "upstream": "https://github.com/NoBanks/shotcut-mcp",
+      "source_revision": "4f012fa8818475e1a4ee044a7eef2b6ccbd2f1df",
+      "source_readme": "https://github.com/NoBanks/shotcut-mcp/blob/4f012fa8818475e1a4ee044a7eef2b6ccbd2f1df/README.md",
+      "use_when": "Before shortening a clip with an existing crossfade or accepting generated MLT after an edit.",
+      "query": "Shotcut crossfade breaks after trimming clip",
+      "local_work": "Keep editing, rendering and playback in the existing Shotcut tools; inspect both neighboring transitions and installed source revision.",
+      "return_checkpoint": "Keep trim/transition values, exact revision, XML checks and rendered outcome; return after changing the edit or installing an upstream fix.",
+      "coverage": "Reproduced state/XML defect and five candidate regression tests",
+      "limitation": "Proposed fix is unmerged; no melt/render, full MCP suite or perceptual crossfade evaluation.",
+      "observed_resource": {
+        "id": "art_01M6NMWMSB89FZ0YMCQX026MKN",
+        "revision": 1,
+        "title": "Shotcut MCP: preserve crossfade length constraints when trimming clips",
+        "api_url": "https://veyrul.com/v1/records/art_01M6NMWMSB89FZ0YMCQX026MKN"
+      },
+      "integration": "Project companion in the shared agent client; not upstream adoption",
       "upstream_endorsement": false,
       "observed_at": "2026-11-05",
       "activation": "workflows/ACTIVATE.md"
