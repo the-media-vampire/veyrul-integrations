@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-05",
+  "affiliation": "founder-operated controlled test; not independent adoption",
+  "task": "cuttingfloor",
+  "tests": {
+    "suite": "examples/cuttingfloor-source-captions",
+    "result": "........................\n----------------------------------------------------------------------\nRan 24 tests in 0.034s\n\nOK",
+    "exit_code": 0
+  },
+  "limits": "Local utility and contract handling. No arbitrary media quality claim. Cuttingfloor native server not run; Remotion renderer observed only on the documented original one-Sequence fixture."
+}

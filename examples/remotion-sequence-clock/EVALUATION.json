@@ -1,0 +1,175 @@
+{
+  "date": "2026-11-05",
+  "affiliation": "founder-operated controlled test; not independent adoption",
+  "task": "remotion",
+  "tests": {
+    "suite": "examples/remotion-sequence-clock",
+    "result": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK",
+    "exit_code": 0
+  },
+  "limits": "Local utility and contract handling. No arbitrary media quality claim. Cuttingfloor native server not run; Remotion renderer observed only on the documented original one-Sequence fixture.",
+  "renderer": {
+    "at": "2026-11-05T08:30:32.076Z",
+    "remotion_version": "4.0.537",
+    "component_sha256": "7c12f63534bd758d5790373e7f7467e0163da63652b78ebf974df00c04655c0c",
+    "composition": {
+      "fps": 24,
+      "durationInFrames": 96,
+      "width": 640,
+      "height": 360
+    },
+    "frames": [
+      {
+        "frame": 23,
+        "bytes": 4762,
+        "sha256": "6c3c819b5ac4a1b1848e3b72338e1e213e9159b6325eb1068f334dcfffc79ed5"
+      },
+      {
+        "frame": 24,
+        "bytes": 9642,
+        "sha256": "83dbbef1d22036372bc451e91cff11dd3741c8c0b75edf79c04ee996ce033b22"
+      },
+      {
+        "frame": 30,
+        "bytes": 9642,
+        "sha256": "83dbbef1d22036372bc451e91cff11dd3741c8c0b75edf79c04ee996ce033b22"
+      },
+      {
+        "frame": 31,
+        "bytes": 7229,
+        "sha256": "f07acd8155091c1fda7075f17a572513cce8c5ec8c5519e0df5d9866616c068f"
+      },
+      {
+        "frame": 36,
+        "bytes": 7229,
+        "sha256": "f07acd8155091c1fda7075f17a572513cce8c5ec8c5519e0df5d9866616c068f"
+      },
+      {
+        "frame": 37,
+        "bytes": 4762,
+        "sha256": "6c3c819b5ac4a1b1848e3b72338e1e213e9159b6325eb1068f334dcfffc79ed5"
+      },
+      {
+        "frame": 55,
+        "bytes": 9975,
+        "sha256": "a353831e512fa90951380747af8a3d5c2561220ca3d8301f1df85055524742d6"
+      },
+      {
+        "frame": 63,
+        "bytes": 9975,
+        "sha256": "a353831e512fa90951380747af8a3d5c2561220ca3d8301f1df85055524742d6"
+      },
+      {
+        "frame": 64,
+        "bytes": 4762,
+        "sha256": "6c3c819b5ac4a1b1848e3b72338e1e213e9159b6325eb1068f334dcfffc79ed5"
+      },
+      {
+        "frame": 67,
+        "bytes": 11776,
+        "sha256": "1e92a92d516c47e8f86609f985ec49ea0476b60942ad418652042d6de42e1ac5"
+      },
+      {
+        "frame": 71,
+        "bytes": 11776,
+        "sha256": "1e92a92d516c47e8f86609f985ec49ea0476b60942ad418652042d6de42e1ac5"
+      },
+      {
+        "frame": 72,
+        "bytes": 4762,
+        "sha256": "6c3c819b5ac4a1b1848e3b72338e1e213e9159b6325eb1068f334dcfffc79ed5"
+      },
+      {
+        "frame": 75,
+        "bytes": 4762,
+        "sha256": "6c3c819b5ac4a1b1848e3b72338e1e213e9159b6325eb1068f334dcfffc79ed5"
+      }
+    ],
+    "paid_model_calls": 0,
+    "artistic_quality_assessed": false
+  },
+  "pixel_checks": {
+    "checks": [
+      {
+        "frame": 23,
+        "expected_word_id": null,
+        "nonblack_pixels": 0,
+        "passed": true
+      },
+      {
+        "frame": 24,
+        "expected_word_id": "w1",
+        "nonblack_pixels": 2430,
+        "passed": true
+      },
+      {
+        "frame": 30,
+        "expected_word_id": "w1",
+        "nonblack_pixels": 2430,
+        "passed": true
+      },
+      {
+        "frame": 31,
+        "expected_word_id": "w2",
+        "nonblack_pixels": 1259,
+        "passed": true
+      },
+      {
+        "frame": 36,
+        "expected_word_id": "w2",
+        "nonblack_pixels": 1259,
+        "passed": true
+      },
+      {
+        "frame": 37,
+        "expected_word_id": null,
+        "nonblack_pixels": 0,
+        "passed": true
+      },
+      {
+        "frame": 55,
+        "expected_word_id": "w3",
+        "nonblack_pixels": 3510,
+        "passed": true
+      },
+      {
+        "frame": 63,
+        "expected_word_id": "w3",
+        "nonblack_pixels": 3510,
+        "passed": true
+      },
+      {
+        "frame": 64,
+        "expected_word_id": null,
+        "nonblack_pixels": 0,
+        "passed": true
+      },
+      {
+        "frame": 67,
+        "expected_word_id": "w4",
+        "nonblack_pixels": 4174,
+        "passed": true
+      },
+      {
+        "frame": 71,
+        "expected_word_id": "w4",
+        "nonblack_pixels": 4174,
+        "passed": true
+      },
+      {
+        "frame": 72,
+        "expected_word_id": null,
+        "nonblack_pixels": 0,
+        "passed": true
+      },
+      {
+        "frame": 75,
+        "expected_word_id": null,
+        "nonblack_pixels": 0,
+        "passed": true
+      }
+    ],
+    "visual_identity_not_OCR": true,
+    "correct_dark_or_caption_boundaries": true
+  }
+}

@@ -62,3 +62,22 @@ was inspected. Twelve local tests verify payload behavior and rejection cases.
 The Cuttingfloor application, hosted service and renderer were not run for this
 release. The [companion](../../workflows/cuttingfloor.md) links saved timing
 research and the standard permitted contribution/return workflow.
+
+## Inputs already mapped onto the timeline
+
+`route_input.py` accepts the same bounded input object with an explicit
+`timebase`: `source-seconds` selects `in_clip`, while `timeline-frames` selects
+top-level `segments`. Timeline numbers must be integers. Values are preserved;
+only native field names change. A supplied clip ID is not sent in the timeline
+form, because timeline captions are not bound to that clip.
+
+```bash
+python3 route_input.py proposed-captions.json
+```
+
+It refuses unknown units, overlapping intervals, words outside their segment,
+nonfinite values and fractional timeline frames. These are conservative local
+checks; the inspected native schema does not enforce every one. It does not
+inspect the installed timeline, edit clips, execute `caption.add`, render, or
+prove caption placement. Confirm the input's declared coordinate system and
+current installed tool schema before sending its printed payload.
