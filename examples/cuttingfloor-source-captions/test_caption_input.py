@@ -37,7 +37,7 @@ class CaptionInput(unittest.TestCase):
         with self.assertRaises(ValueError): prepare(d)
 
     def test_nonfinite_bool_negative_or_reversed_time(self):
-        for n in (True, float('nan'), float('inf'), -1, 12, '10'):
+        for n in (True, float('nan'), float('inf'), 10**400, -1, 12, '10'):
             d = sample(); d['segments'][0]['start'] = n
             with self.subTest(n=n), self.assertRaises(ValueError): prepare(d)
 

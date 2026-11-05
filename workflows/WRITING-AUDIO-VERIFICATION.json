@@ -1,6 +1,6 @@
 {
   "schema": "veyrul-writing-audio-companions-verification/1",
-  "at": "2026-11-05T06:30:25.715145+00:00",
+  "at": "2026-11-05T06:42:37.724103+00:00",
   "status": "passed",
   "new_companions": [
     "osp-marketing",
@@ -69,13 +69,13 @@
     },
     {
       "path": "examples/cuttingfloor-source-captions/caption_input.py",
-      "sha256": "b545e366aa081592d3df71f84dfccf2bb73743447a389bdb4f448d23e232aba3",
-      "bytes": 3771
+      "sha256": "c6120f6ad42b6637d9883e4e3ca2e46344c8549c3a2a04fbfa3bc411e5431519",
+      "bytes": 3958
     },
     {
       "path": "examples/cuttingfloor-source-captions/test_caption_input.py",
-      "sha256": "cd980aeabad97d89a45e050cd2db99e1ea94c1c6ec550e09449a2d23b57ad74b",
-      "bytes": 4458
+      "sha256": "0b343d47546fafe43ed0d0d47ec32293bb65742db38a85ca3d2490ddce4c2452",
+      "bytes": 4467
     },
     {
       "path": "workflows/PROJECT-INSTRUCTIONS.txt",
@@ -127,5 +127,6 @@
       "sha256": "0fd91a9fed48034e09cac1fe5ecdd3aa12d7bc7917a46dc097dbbca2378cbfd5",
       "bytes": 2820
     }
-  ]
+  ],
+  "followup": "Reject out-of-range Python integers as invalid source timestamps instead of raising an uncaught overflow. Twelve caption tests pass under Python3.9 with the added regression; original audio/setup results retained."
 }

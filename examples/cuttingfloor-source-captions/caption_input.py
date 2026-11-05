@@ -23,7 +23,13 @@ def text(value, maximum):
 def interval(value):
     for field in ('start', 'end'):
         n = value[field]
-        if isinstance(n, bool) or not isinstance(n, (int, float)) or not math.isfinite(n) or n < 0:
+        if isinstance(n, bool) or not isinstance(n, (int, float)):
+            raise ValueError('times must be finite nonnegative source seconds')
+        try:
+            finite = math.isfinite(n)
+        except OverflowError:
+            finite = False
+        if not finite or n < 0:
             raise ValueError('times must be finite nonnegative source seconds')
     if value['end'] <= value['start']:
         raise ValueError('end must follow start')
