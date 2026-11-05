@@ -46,3 +46,7 @@ configuration, instruction block, state and backups before recovery. The helper
 never guesses whether another writer is still active. Ordinary write errors
 roll back only files still matching the helper's exact new bytes; a process kill
 between file replacements can require local recovery.
+
+Existing OpenCode `opencode.jsonc` is left for a manual merge with `configure.py`;
+the helper does not create a competing JSON config. It rejects nonfinite JSON
+values and duplicate keys rather than rewriting ambiguous configuration.

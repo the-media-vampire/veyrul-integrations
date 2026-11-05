@@ -32,3 +32,9 @@ Primary documentation: [Sequence](https://www.remotion.dev/docs/sequence) and
 [useCurrentFrame](https://www.remotion.dev/docs/use-current-frame).
 
 Run `python3 -m unittest discover -s . -p 'test_*.py'` in this directory.
+
+For a finite parent Sequence, intersect the child's active window with every
+ancestor window before choosing the helper's duration. Merely summing starts
+is insufficient if an ancestor ends earlier. A fresh controlled peer identified
+this assumption while reusing the saved helper; no nested renderer test is
+claimed by the original 13-still result.

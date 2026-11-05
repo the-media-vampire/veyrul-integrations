@@ -24,7 +24,7 @@ def unique(pairs):
 
 
 def decode(raw):
-    value = json.loads(raw, object_pairs_hook=unique)
+    value = json.loads(raw, object_pairs_hook=unique, parse_constant=lambda _: (_ for _ in ()).throw(ValueError('nonfinite_json_refused')))
     if not isinstance(value, dict): raise ValueError('configuration_must_be_object')
     return value
 
@@ -71,6 +71,8 @@ def plan(project, client, workflow, mode=None):
     workflows = {x['id']: x for x in decode((HERE / 'manifest.json').read_bytes())['workflow']}
     if workflow not in workflows or mode not in (None, 'standard', 'read-only'): raise ValueError('unknown_workflow_or_mode')
     definition = definitions[client]
+    if client == 'opencode' and safe_path(root,'opencode.jsonc').exists():
+        raise ValueError('existing_jsonc_configuration_use_manual_merge')
     config_path = safe_path(root, definition['file'])
     notes_path = safe_path(root, definition['instructions'])
     state_path = safe_path(root, '.veyrul/activation.json')

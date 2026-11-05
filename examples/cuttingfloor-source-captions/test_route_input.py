@@ -1,5 +1,7 @@
 import copy
 import unittest
+import json, subprocess, sys, tempfile
+from pathlib import Path
 from route_input import route
 
 
@@ -41,6 +43,11 @@ class RoutingTests(unittest.TestCase):
     def test_zero_duration(self):
         v=sample('timeline-frames');v['segments'][0]['words'][1]['end']=20
         with self.assertRaises(ValueError):route(v)
+    def test_isolated_cli(self):
+        with tempfile.TemporaryDirectory() as folder:
+            f=Path(folder)/'input.json';f.write_text(json.dumps(sample('timeline-frames')))
+            run=subprocess.run([sys.executable,'-I',str(Path(__file__).with_name('route_input.py')),str(f)],capture_output=True,text=True)
+            self.assertEqual(run.returncode,0,run.stderr);self.assertEqual(json.loads(run.stdout)['arguments']['segments'][0]['start_frame'],10)
     def test_empty(self):
         v=sample();v['segments']=[]
         with self.assertRaises(ValueError):route(v)

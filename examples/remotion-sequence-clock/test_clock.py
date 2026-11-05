@@ -17,6 +17,11 @@ class ClockTests(unittest.TestCase):
     def test_whole_window(self):self.assertEqual(local_interval(0,100,24,48),(0,48))
     def test_end_exclusive(self):self.assertFalse(visible((0,7),7));self.assertTrue(visible((0,7),6))
     def test_nested_absolute_offset(self):self.assertEqual(local_interval(65,70,40+24,12),(1,6))
+    def test_finite_parent_window(self):
+        # Parent [24,54), child nominal [40,64): effective child [40,54).
+        effective_end=min(24+30,40+24)
+        self.assertEqual(local_interval(50,60,40,effective_end-40),(10,14))
+        self.assertFalse(visible(local_interval(50,60,40,effective_end-40),14))
     def test_invalid_shape(self):
         for args in [(1,1,0,4),(2,1,0,4),(-1,3,0,4),(1,3,-1,4),(1,3,0,0),(1,3,0,-1),(1.5,3,0,4),(True,3,0,4)]:
             with self.subTest(args=args):

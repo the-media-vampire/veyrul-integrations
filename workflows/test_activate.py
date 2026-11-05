@@ -52,6 +52,13 @@ class ActivationTests(unittest.TestCase):
     def test_duplicate_keys(self):
         (self.root/'.mcp.json').write_text('{"mcpServers":{},"mcpServers":{}}')
         with self.assertRaisesRegex(ValueError,'duplicate_json'):self.run_activation()
+    def test_nonfinite_json(self):
+        (self.root/'.mcp.json').write_text('{"value":NaN}')
+        with self.assertRaisesRegex(ValueError,'nonfinite'):self.run_activation()
+    def test_opencode_jsonc_preserved(self):
+        (self.root/'opencode.jsonc').write_text('// existing config\n{}')
+        with self.assertRaisesRegex(ValueError,'jsonc'):activate.activate(self.root,'opencode','soundbox',apply=True)
+        self.assertFalse((self.root/'opencode.json').exists())
     def test_invalid_root(self):
         (self.root/'.mcp.json').write_text('[]')
         with self.assertRaisesRegex(ValueError,'must_be_object'):self.run_activation()

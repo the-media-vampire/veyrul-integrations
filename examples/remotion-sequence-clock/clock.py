@@ -5,6 +5,7 @@ def local_interval(start, end, sequence_global_start, duration):
     """Return a clipped half-open local interval or None when it is not visible.
 
     sequence_global_start is ABSOLUTE, including every parent Sequence offset.
+    duration must describe the effective window after any ancestor truncation.
     This is not source-media retiming and does not handle playbackRate changes.
     """
     values=(start,end,sequence_global_start,duration)

@@ -4,7 +4,15 @@ import argparse
 from copy import deepcopy
 import json
 import sys
-from caption_input import load, prepare
+# Resolve only the reviewed sibling, including under Python's isolated (-I) mode.
+import importlib.util
+from pathlib import Path
+_spec = importlib.util.spec_from_file_location('veyrul_caption_input', Path(__file__).resolve().with_name('caption_input.py'))
+if _spec is None or _spec.loader is None:
+    raise ImportError('caption_input.py must be beside route_input.py')
+_source = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_source)
+load, prepare = _source.load, _source.prepare
 
 
 def route(value):

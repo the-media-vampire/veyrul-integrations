@@ -4,7 +4,7 @@
   "task": "remotion",
   "tests": {
     "suite": "examples/remotion-sequence-clock",
-    "result": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK",
+    "result": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n",
     "exit_code": 0
   },
   "limits": "Local utility and contract handling. No arbitrary media quality claim. Cuttingfloor native server not run; Remotion renderer observed only on the documented original one-Sequence fixture.",
@@ -171,5 +171,6 @@
     ],
     "visual_identity_not_OCR": true,
     "correct_dark_or_caption_boundaries": true
-  }
+  },
+  "peer_followup": "Finite ancestor window must be included in effective duration; numerical peer checks do not extend original renderer coverage."
 }

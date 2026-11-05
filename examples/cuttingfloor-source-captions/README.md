@@ -81,3 +81,8 @@ checks; the inspected native schema does not enforce every one. It does not
 inspect the installed timeline, edit clips, execute `caption.add`, render, or
 prove caption placement. Confirm the input's declared coordinate system and
 current installed tool schema before sending its printed payload.
+
+A controlled peer found the original sibling import failed under `python3 -I`.
+The router now loads only `caption_input.py` beside its own file, so isolated
+mode works without adding a directory to Python's module search path. A real
+`-I` subprocess check covers this; keep both reviewed files together.
