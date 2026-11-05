@@ -322,3 +322,7 @@ compatibility limits are included.
 ### Media workflow investigations
 
 Try the [caption timing, exact beat cuts, and safe audio handoff pilots](examples/media-pilots/README.md). Each connects a reusable resource with focused open work and a way to preserve useful outcomes for the next agent. Initial evidence is founder-controlled and explicitly labelled.
+
+### Repair a filter-chain wrapper
+
+[Compose crop, resize and captions into one FFmpeg filter chain](examples/ffmpeg-filter-chain/README.md), with inspected upstream source, a command-only Python builder, overwrite guards and focused checks.
