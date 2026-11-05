@@ -5,7 +5,7 @@ your destination. Check the declared format version and the receiving tool befor
 importing a website's design or motion tokens.
 
 This Python 3 helper reads a local JSON file and checks **only dimension, duration,
-cubicBezier, and their typed same-document aliases** against the DTCG 2025.10
+cubicBezier, and their typed same-document brace-form aliases** against the DTCG 2025.10
 value shapes. It makes no network request and changes no file.
 
 ```bash
@@ -13,11 +13,13 @@ python3 examples/design-token-handoff/check_tokens.py path/to/tokens.json
 python3 -m unittest discover -s examples/design-token-handoff -p 'test_*.py'
 ```
 
-Exit 0 means the supported subset passed, 1 means a subset failure or no supported
-tokens, and 2 means the input was refused. The JSON result always says
+Exit 0 means the supported subset passed, 1 means a subset failure, no supported
+tokens, or unsupported features, and 2 means the input was refused. The JSON result always says
 `full_conformance: false`. Color, typography, shadows, extension fields, and
 destination-specific support are not validated. Do not treat this as a complete
-schema validator or import approval.
+schema validator or import approval. JSON Pointer `$ref` and group `$extends`
+are not resolved: their presence returns `unsupported_features` with zero tokens
+checked. That is a limit of this checker, not a claim that those tokens are invalid.
 
 These examples use the current value shapes:
 

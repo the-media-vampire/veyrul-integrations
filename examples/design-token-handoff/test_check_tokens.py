@@ -40,6 +40,17 @@ class HandoffTests(unittest.TestCase):
         self.assertEqual(out["status"], "no_supported_tokens")
         self.assertEqual(out["unchecked_types"], ["color"])
 
+    def test_unimplemented_references_are_not_labeled_invalid_values(self):
+        for document, feature in [
+            ({"space": {"$type": "dimension", "$value": {"$ref": "#/other/$value"}}}, "$ref"),
+            ({"theme": {"$extends": "{base}"}}, "$extends"),
+        ]:
+            out = check(document)
+            self.assertEqual(out["status"], "unsupported_features")
+            self.assertEqual(out["unsupported_features"], [feature])
+            self.assertEqual(out["issues"], [])
+            self.assertEqual(out["checked"], 0)
+
     def test_input_and_depth_bound(self):
         with self.assertRaises(ValueError):
             check([])

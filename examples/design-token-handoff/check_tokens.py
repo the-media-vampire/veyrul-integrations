@@ -28,6 +28,24 @@ def number(value):
 def check(document):
     if not isinstance(document, dict):
         raise ValueError("root_must_be_object")
+    # Do not misclassify legal reference/extension mechanisms as malformed
+    # scalar values. This small checker deliberately does not resolve them.
+    pending, inspected, unsupported = [(document, 0)], 0, set()
+    while pending:
+        node, depth = pending.pop()
+        inspected += 1
+        if inspected > MAX_NODES or depth > MAX_DEPTH:
+            raise ValueError("document_bound")
+        if isinstance(node, dict):
+            unsupported.update(key for key in ("$ref", "$extends") if key in node)
+            pending.extend((value, depth + 1) for value in node.values() if isinstance(value, (dict, list)))
+        elif isinstance(node, list):
+            pending.extend((value, depth + 1) for value in node if isinstance(value, (dict, list)))
+    if unsupported:
+        return {"status": "unsupported_features", "full_conformance": False,
+                "checked": 0, "unchecked_types": [], "issues": [],
+                "unsupported_features": sorted(unsupported),
+                "scope": "Only direct values and brace-form typed aliases; no $ref or $extends resolution"}
     tokens, issues, unchecked = {}, [], set()
     visited = 0
 
@@ -90,7 +108,7 @@ def check(document):
                 issues.append({"path": path, "code": "cubicBezier_x_out_of_range"})
     return {
         "status": "subset_failed" if issues else "subset_passed" if checked else "no_supported_tokens",
-        "scope": "DTCG 2025.10 dimension, duration, cubicBezier and their same-document typed aliases",
+        "scope": "DTCG 2025.10 dimension, duration, cubicBezier and their same-document brace-form typed aliases",
         "full_conformance": False,
         "checked": checked,
         "unchecked_types": sorted(unchecked),
