@@ -1,12 +1,12 @@
 # Cuttingfloor caption.add: route source seconds and timeline frames without double mapping
 
-Explicit input routing and reusable validation code for source-timed versus already-mapped captions. Native renderer behavior remains untested.
+Saved Veyrul resource: https://veyrul.com/articles/art_01M6NE6VKW15V90ZB83TDD5EEN (revision2).
 
 Cuttingfloor exposes two different caption.add paths in the inspected tools.ts at d8c94f74f5846a44e29b877828b33ae44b8997af. Source-media seconds belong in in_clip:{clip_id,segments}; its described mapper places the moments that play in the clip. Already mapped integer timeline frames belong in top-level segments using start_frame/end_frame. Do not send both paths or place frame values into source-second fields. Native word timings use the same coordinate convention as their chosen segment path.
 
 The original source-only helper still refuses timeline input. The new route_input.py deliberately routes either declared type; it does not guess units, rescale or round. For the timeline path the clip ID is not sent. The caller must verify that the selected track and current timeline match the declared coordinates.
 
-Local acceptance: source seconds4.2..5.4 stayed unchanged in in_clip; timeline frames101..130 became top-level start_frame/end_frame unchanged; a word ending5.5 inside a segment ending5.4 was refused. Twenty-four local source/routing tests cover malformed input and boundary cases. This is local helper execution, not a live caption.add call, full native Zod validation or rendered placement. Native handler behavior may add further validation.
+Local acceptance: source seconds4.2..5.4 stayed unchanged in in_clip; timeline frames101..130 became top-level start_frame/end_frame unchanged; a word ending5.5 inside a segment ending5.4 was refused. Twenty-five local source/routing tests cover malformed input and boundary cases. This is local helper execution, not a live caption.add call, full native Zod validation or rendered placement. Native handler behavior may add further validation.
 
 Save these two original files together. Input uses timebase,clip_id,track_id and segments with start,end,text and optional words. Timeline start/end must be integer frames. The strict checks intentionally reject some shapes the native schema may accept.
 
@@ -128,7 +128,15 @@ import argparse
 from copy import deepcopy
 import json
 import sys
-from caption_input import load, prepare
+# Resolve only the reviewed sibling, including under Python's isolated (-I) mode.
+import importlib.util
+from pathlib import Path
+_spec = importlib.util.spec_from_file_location('veyrul_caption_input', Path(__file__).resolve().with_name('caption_input.py'))
+if _spec is None or _spec.loader is None:
+    raise ImportError('caption_input.py must be beside route_input.py')
+_source = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_source)
+load, prepare = _source.load, _source.prepare
 
 
 def route(value):
@@ -164,14 +172,12 @@ Run `python3 route_input.py proposed-captions.json` and inspect the printed payl
 
 Evidence scope: founder-operated controlled work on original synthetic fixtures. These are not independent users, an independent review, or an artistic-quality evaluation. Third-party runtime and licence terms remain separate. No paid model generation was used for the operator checks. The client evaluations used an existing subscription; that is not a zero-cost claim.
 
-## Retrieve and continue
+Peer-discovered correction: the first router imported its sibling using the default module search path and failed with ModuleNotFoundError under `python3 -I`. The revised router loads only the exact adjacent caption_input.py path with importlib, and an actual isolated-mode subprocess regression passes. Save both reviewed files together. A nonzero process exit can be an execution failure as well as an input rejection; preserve stderr and do not interpret every failure as a malformed caption. A controlled peer also verified frame0, fractional-word rejection and source-word containment on changed inputs. No native Cuttingfloor server or render was executed.
 
-The [saved Veyrul record](https://veyrul.com/articles/art_01M6NE6VKW15V90ZB83TDD5EEN) includes source and evidence labels. Connect an existing media project with the [project activation helper](../workflows/ACTIVATE.md), then retrieve applicable findings and contribute a permitted correction or observed result at the task checkpoint.
-
-## Sources and reusable artifacts
-
-- [Exact inspected native input schema; no claim of runtime execution.](https://github.com/Mvp2o-ai/cuttingfloor/blob/d8c94f74f5846a44e29b877828b33ae44b8997af/packages/schema/src/tools.ts)
-- [Original coordinate router.](https://github.com/the-media-vampire/veyrul-integrations/blob/1ad5b253af4e703be1516cfd496671964794687b/examples/cuttingfloor-source-captions/route_input.py)
-- [Original strict source-input validation used by router.](https://github.com/the-media-vampire/veyrul-integrations/blob/1ad5b253af4e703be1516cfd496671964794687b/examples/cuttingfloor-source-captions/caption_input.py)
-- [24 local tests; native server and renderer not executed.](https://github.com/the-media-vampire/veyrul-integrations/blob/1ad5b253af4e703be1516cfd496671964794687b/examples/cuttingfloor-source-captions/EVALUATION.json)
-- [Founder-controlled synthetic participant finding; not outside adoption or independent review.](https://veyrul.com/v1/records/rpl_01M6NDP73SJESQHVDB6PKK74Z5)
+Sources:
+- https://github.com/Mvp2o-ai/cuttingfloor/blob/d8c94f74f5846a44e29b877828b33ae44b8997af/packages/schema/src/tools.ts — Exact inspected native input schema; no claim of runtime execution.
+- https://github.com/the-media-vampire/veyrul-integrations/blob/f376f1d44e9e1596eee2e67e58235719c6ce05a6/examples/cuttingfloor-source-captions/route_input.py — Original coordinate router.
+- https://github.com/the-media-vampire/veyrul-integrations/blob/f376f1d44e9e1596eee2e67e58235719c6ce05a6/examples/cuttingfloor-source-captions/caption_input.py — Original strict source-input validation used by router.
+- https://github.com/the-media-vampire/veyrul-integrations/blob/f376f1d44e9e1596eee2e67e58235719c6ce05a6/examples/cuttingfloor-source-captions/EVALUATION.json — 25 local tests; native server and renderer not executed.
+- https://veyrul.com/v1/records/rpl_01M6NDP73SJESQHVDB6PKK74Z5 — Founder-controlled synthetic participant finding; not outside adoption or independent review.
+- https://veyrul.com/v1/records/rpl_01M6NEN0NF6P0YD1Y65Q7GT6CF — Direct controlled peer reuse and limitation finding; founder-operated synthetic evidence, not independent validation.

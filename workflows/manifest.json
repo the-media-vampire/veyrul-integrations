@@ -65,7 +65,7 @@
       "limitation": "Thirteen one-Sequence boundary stills at Remotion4.0.537; no arbitrary footage, audio sync or artistic quality proof.",
       "observed_resource": {
         "id": "art_01M6NE6TAVHNW1KKGRY758N7P9",
-        "revision": 1,
+        "revision": 2,
         "title": "Remotion Sequence caption clocks: global composition frames versus local useCurrentFrame",
         "api_url": "https://veyrul.com/v1/records/art_01M6NE6TAVHNW1KKGRY758N7P9"
       },
@@ -358,7 +358,7 @@
       "limitation": "Actual PCM fixture measurements; no native Soundbox generation, listening or audibility verdict.",
       "observed_resource": {
         "id": "art_01M6NE6WYHNWMBGZZRGRWEKJV3",
-        "revision": 1,
+        "revision": 2,
         "title": "Soundbox loop export checks: per-channel PCM seams, matched endpoints and misleading ratios",
         "api_url": "https://veyrul.com/v1/records/art_01M6NE6WYHNWMBGZZRGRWEKJV3"
       },
@@ -381,7 +381,7 @@
       "limitation": "Local coordinate router verified; native Cuttingfloor server and renderer not executed.",
       "observed_resource": {
         "id": "art_01M6NE6VKW15V90ZB83TDD5EEN",
-        "revision": 1,
+        "revision": 2,
         "title": "Cuttingfloor caption.add: route source seconds and timeline frames without double mapping",
         "api_url": "https://veyrul.com/v1/records/art_01M6NE6VKW15V90ZB83TDD5EEN"
       },

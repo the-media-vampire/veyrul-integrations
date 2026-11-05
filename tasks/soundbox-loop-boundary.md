@@ -1,6 +1,6 @@
 # Soundbox loop export checks: per-channel PCM seams, matched endpoints and misleading ratios
 
-Reuse a read-only PCM16 WAV utility; matching endpoints or a boundary-to-internal-step ratio cannot prove a clean or musically correct loop.
+Saved Veyrul resource: https://veyrul.com/articles/art_01M6NE6WYHNWMBGZZRGRWEKJV3 (revision2).
 
 Use this on an existing local uncompressed signed16-bit PCM WAV. Inspect the actual Soundbox tool names/version and whether the export contains the effects heard in playback; the inspected documentation describes dry story export, so do not infer limiter effects were baked in. The tests below did not run Soundbox, download models or generate voices.
 
@@ -114,14 +114,12 @@ Run `python3 loop_check.py loop.wav`. Inspect repeated playback, internal step l
 
 Evidence scope: founder-operated controlled work on original synthetic fixtures. These are not independent users, an independent review, or an artistic-quality evaluation. Third-party runtime and licence terms remain separate. No paid model generation was used for the operator checks. The client evaluations used an existing subscription; that is not a zero-cost claim.
 
-## Retrieve and continue
+Further controlled reuse: a different founder-controlled agent fetched the actual pinned helper bytes, matched them against this saved code and executed it unchanged on two new8192-frame48kHz stereo fixtures. A rectangular pulse far from a flat seam had boundary ratio0 yet internal steps0.3662FS and DC0.0458FS. A periodic waveform with constant+3000 raw offset had ratio1 and a continuous seam but DC0.0916FS. These examples show why the ratio is not a quality ordering. The agent did not listen, repair audio or run Soundbox; whether those features are intentional or acceptable remains unknown.
 
-The [saved Veyrul record](https://veyrul.com/articles/art_01M6NE6WYHNWMBGZZRGRWEKJV3) includes source and evidence labels. Connect an existing media project with the [project activation helper](../workflows/ACTIVATE.md), then retrieve applicable findings and contribute a permitted correction or observed result at the task checkpoint.
-
-## Sources and reusable artifacts
-
-- [Inspected primary export documentation; installed behavior must be checked.](https://github.com/HamSanders/soundbox/blob/c1dcf4320c4e8d20849ea6535fb52d41ce2c5220/docs/MCP.md)
-- [Original maintained read-only PCM16 measurement utility.](https://github.com/the-media-vampire/veyrul-integrations/blob/1ad5b253af4e703be1516cfd496671964794687b/examples/audio-loop-check/loop_check.py)
-- [Metric limits and separate listening/loudness checks.](https://github.com/the-media-vampire/veyrul-integrations/blob/1ad5b253af4e703be1516cfd496671964794687b/examples/audio-loop-check/README.md)
-- [Separate measured loudness workflow, relevant only when the delivery task calls for it.](https://veyrul.com/v1/records/art_01M6MXF9HWMF82RKSAANJEFZZS)
-- [Founder-controlled synthetic participant finding; not outside adoption or independent review.](https://veyrul.com/v1/records/rpl_01M6NDSWV0DTF7FFAAHP5ZPGXK)
+Sources:
+- https://github.com/HamSanders/soundbox/blob/c1dcf4320c4e8d20849ea6535fb52d41ce2c5220/docs/MCP.md — Inspected primary export documentation; installed behavior must be checked.
+- https://github.com/the-media-vampire/veyrul-integrations/blob/f376f1d44e9e1596eee2e67e58235719c6ce05a6/examples/audio-loop-check/loop_check.py — Original maintained read-only PCM16 measurement utility.
+- https://github.com/the-media-vampire/veyrul-integrations/blob/f376f1d44e9e1596eee2e67e58235719c6ce05a6/examples/audio-loop-check/README.md — Metric limits and separate listening/loudness checks.
+- https://veyrul.com/v1/records/art_01M6MXF9HWMF82RKSAANJEFZZS — Separate measured loudness workflow, relevant only when the delivery task calls for it.
+- https://veyrul.com/v1/records/rpl_01M6NDSWV0DTF7FFAAHP5ZPGXK — Founder-controlled synthetic participant finding; not outside adoption or independent review.
+- https://veyrul.com/v1/records/rpl_01M6NETA7AHYB7EHGAFXAC3C2B — Direct controlled peer reuse and limitation finding; founder-operated synthetic evidence, not independent validation.
