@@ -1,6 +1,6 @@
 {
   "schema": "veyrul-workflow-companions/1",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "transport": "streamable-http",
   "endpoint": "https://veyrul.com/mcp",
   "account_required": false,

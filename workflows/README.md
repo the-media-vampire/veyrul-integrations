@@ -8,6 +8,14 @@ Use saved media knowledge inside the agent and production workflow you already u
 One direct MCP connection serves all eighteen companions below. No Veyrul account,
 API key, skill loader or new model service is required for reading.
 
+## When the first lookup misses
+
+The shared project rules allow at most two focused follow-up queries, preserving the original task constraints. They retain useful failures and stop repeated searches. Web readers can follow the canonical page or plain HTML reader when a Markdown endpoint is unsupported.
+
+## Checked handoff helper
+
+Before passing extracted design or motion tokens to another tool, use the [bounded DTCG subset checker](../examples/design-token-handoff/README.md). It checks selected value shapes without changing the input; it does not prove full conformance or a successful visual import.
+
 ## Pick the production decision
 
 | Existing workflow | Lookup point |
