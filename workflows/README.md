@@ -250,3 +250,7 @@ The same shared project rule and outcome format support all three.
 ## Writing, audio and caption handoffs
 
 The four new companions have [bounded verification evidence](WRITING-AUDIO-VERIFICATION.json). Their setup generation, loop measurements and caption payload helper are tested separately from native application use. No upstream acceptance or outside adoption is claimed.
+
+## Resonant loop export
+
+[Use the Resonant companion](resonant.md) to reuse a per-channel PCM boundary check on a local export. A bounded native-renderer exercise passed; full application operation and listening quality remain untested.

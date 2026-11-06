@@ -434,6 +434,29 @@
       "integration": "companion in the shared agent client",
       "upstream_endorsement": false,
       "observed_at": "2026-11-05"
+    },
+    {
+      "id": "resonant",
+      "name": "Resonant",
+      "upstream": "https://github.com/calesthio/Resonant",
+      "source_revision": "6ffe24328dce838b261c8ab5e0586bfa08e31b4f",
+      "source_readme": "https://github.com/calesthio/Resonant/blob/6ffe24328dce838b261c8ab5e0586bfa08e31b4f/docs/agentic-mode.md",
+      "use_when": "Check a rendered music loop before repeating or delivering it.",
+      "query": "PCM loop boundary per channel",
+      "local_work": "Use Resonant revision checks, validate_project, analyze_mix and render_wav. Measure the exported PCM16 WAV; listen separately.",
+      "return_checkpoint": "Preserve record revision, export settings and per-channel observations for the next edit.",
+      "coverage": "Pinned native render functions with three synthetic stereo fixtures; saved PCM helper reused.",
+      "limitation": "No full MCP/desktop execution, generation or listening-quality verdict.",
+      "observed_resource": {
+        "id": "art_01M6NE6WYHNWMBGZZRGRWEKJV3",
+        "revision": 2,
+        "title": "Soundbox loop export checks: per-channel PCM seams, matched endpoints and misleading ratios",
+        "api_url": "https://veyrul.com/v1/records/art_01M6NE6WYHNWMBGZZRGRWEKJV3"
+      },
+      "integration": "companion in the existing shared agent client",
+      "upstream_endorsement": false,
+      "observed_at": "2026-11-06",
+      "activation": "workflows/ACTIVATE.md"
     }
   ],
   "default_mode": "standard",
