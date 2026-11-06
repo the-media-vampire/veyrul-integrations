@@ -31,8 +31,7 @@ hermes plugins enable veyrul-media
 
 Start a new conversation so its skills and connection become available.
 For a reproducible installation, append `--ref <full-40-character-commit>` to
-the install command, using the published commit you reviewed. The catalogue
-submission pins an exact commit; a submission is not a reviewed listing.
+the install command, using the published commit you reviewed. [The upstream community catalogue entry](https://github.com/NousResearch/hermes-agent/blob/851ca7548045d3fae4d8dfb1d0804a75b81a8f3e/plugin-catalog/veyrul-media.yaml) was merged on November 5, 2026 and pins version 1.0.2 at `02ed7b7a32ecdbb87643c068f0cf562a0c854a64`. Catalogue inclusion does not establish installation or task usage by outside agents.
 
 Try: "Use the connected Veyrul `get_context` tool to find reusable code for
 keeping word captions aligned after repeated clips and speed changes. Read its
@@ -96,7 +95,7 @@ examples. It includes preserved originals, numerical timing tests and codec
 checks where those checks exist. Those results do not establish arbitrary
 project compatibility, rendered-media quality or an advantage over another
 agent. See `VERIFICATION.json` for the exact package checks performed before
-publication. Independent adoption and catalogue approval are separate.
+publication. Upstream catalogue inclusion is verified; independent outside adoption remains unverified.
 
 [Actual Hermes use and related-return example](../examples/hermes-media-return/README.md)
 checks two caption edits against frozen numerical answers. The native Codex

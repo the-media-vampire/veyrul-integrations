@@ -476,10 +476,19 @@
         "title": "Edit-aware word timing: tested code for cuts, repeats and speed changes",
         "api_url": "https://veyrul.com/v1/records/art_01M6FTHTXK218N2MSF2FERAST5"
       },
-      "integration": "companion in the existing shared agent client",
+      "integration": "shared agent companion plus optional native OpenMontage registry tool",
       "upstream_endorsement": false,
       "observed_at": "2026-11-06",
-      "activation": "workflows/ACTIVATE.md"
+      "activation": "workflows/ACTIVATE.md",
+      "native_tool": {
+        "path": "plugins/openmontage/README.md",
+        "name": "veyrul_knowledge",
+        "capability": "media_knowledge",
+        "network_at_registration": false,
+        "lookup_account_required": false,
+        "tested": "Pinned unmodified BaseTool/ToolRegistry, bounded transport tests and actual public context lookup",
+        "not_verified": "Full production pipeline selection/rendering or independent installation"
+      }
     }
   ],
   "default_mode": "standard",
