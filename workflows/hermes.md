@@ -1,8 +1,9 @@
-# Hermes media production: optional Veyrul knowledge companion
+# Hermes media production: Veyrul knowledge companion
 
 Before narration cleanup, beat-based editing or reuse of saved caption-timing code.
 
-[Set up the shared connection](README.md#connect-once) in your existing agent client,
+[Activate a selected Hermes profile and media project](ACTIVATE.md#hermes-select-the-profile-and-project-explicitly),
+or [set up the shared connection](README.md#connect-once) in your existing agent client,
 then add the shared project rule and this task hook. This companion is published by
 Veyrul; it is not an upstream integration or endorsement.
 

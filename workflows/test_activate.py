@@ -73,7 +73,7 @@ class ActivationTests(unittest.TestCase):
         (self.root/'actual').mkdir();(self.root/'.veyrul').symlink_to('actual',target_is_directory=True)
         with self.assertRaisesRegex(ValueError,'symlink'):self.run_activation(apply=True)
     def test_user_modified_block_refused(self):
-        self.run_activation(apply=True);p=self.root/'CLAUDE.md';p.write_text(p.read_text().replace('Veyrul standard workflow','My changed workflow'))
+        self.run_activation(apply=True);p=self.root/'CLAUDE.md';p.write_text(p.read_text().replace(activate.BEGIN,activate.BEGIN+'\nManual edit.'))
         with self.assertRaisesRegex(ValueError,'manual_edits'):self.run_activation(apply=True)
     def test_unowned_markers_refused(self):
         (self.root/'CLAUDE.md').write_text(activate.BEGIN+'\nDo not replace\n'+activate.END)

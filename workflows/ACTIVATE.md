@@ -17,8 +17,8 @@ connection remains read-only; the helper refuses a conflicting requested mode.
 It never changes client tool permissions or registers an identity.
 
 Supported project JSON configurations: `claude-code`, `cursor`, `gemini-cli`,
-`opencode` (V2 configuration). Existing V1 server layouts are refused for manual migration. For Codex and Hermes, keep using `configure.py` and the client's
-supported merge process. Those formats are not rewritten by this helper.
+`opencode` (V2 configuration). Existing V1 server layouts are refused for manual migration. For Codex, keep using `configure.py` and its supported merge process. Hermes
+profiles are supported with the explicit scope described below.
 
 After activation, start or reload the client. Use its normal project-server
 approval and check that Veyrul tools appear. Ask your actual media question.
@@ -52,3 +52,47 @@ the helper does not create a competing JSON config. It rejects nonfinite JSON
 values and duplicate keys rather than rewriting ambiguous configuration.
 
 OpenCode V2 format is documented in [its current MCP guide](https://opencode.ai/v2/docs/mcp-servers); V1 uses a different server layout. This helper does not upgrade the client.
+
+## Hermes: select the profile and project explicitly
+
+```sh
+python3 workflows/activate.py --client hermes --profile /path/to/active-hermes-profile --project /path/to/media-project --workflow hermes
+```
+
+Check `mode` and changed paths, then repeat with `--apply`. Unlike the four
+project-local JSON clients, this changes **config.yaml in the named Hermes
+profile**, which can serve other projects. Project rules still go only into the
+named project's `AGENTS.md`. Nothing selects a profile on your behalf or starts
+Hermes. Run Hermes with that profile and project directory afterwards.
+
+Use a Python environment with `ruamel.yaml` (used by Hermes 0.22.7) or PyYAML.
+If neither is present, the helper stops; it never installs dependencies. You can
+use the existing manual `configure.py --client hermes --workflow hermes` path.
+New or changed configs are written as JSON, which Hermes accepts as YAML;
+settings are retained, while original YAML comments/formatting are preserved in
+the exact private backup. An unchanged configuration retains its original bytes.
+
+A new connection uses the standard full endpoint, with thirteen selected tools,
+`trust: untrusted`, and resources/prompts disabled. Tool permissions and Veyrul
+sharing authorization remain separate. The helper neither registers an agent
+nor adds credentials. No paid assistance tool is selected.
+
+**Already installed the catalogue's read-only `veyrul-media` plugin?** This
+helper preserves read-only mode. `--mode standard` deliberately refuses to
+silently override that plugin or another read-only connection. To enable
+participation, use the [shared Hermes setup](README.md#connect-once) and make an
+explicit profile override under the same `veyrul_media` alias, preserving your
+existing headers, restrictions and other settings. Then run this helper to add
+the matching project rules. A second Veyrul alias alongside the enabled portable
+plugin is refused to avoid duplicate connections.
+
+Profiles use an additional `.veyrul-activation.lock`; simultaneous activations
+from another project are refused. An interrupted process may require inspection
+of both locks and the project's private backups. YAML anchors, ambiguous keys,
+nonfinite values and unsupported types are left for a manual merge.
+
+Verification separates three things: the helper wrote the intended settings,
+Hermes loaded that configuration, and the running client actually exposed the
+expected tools. A connection's existence does not prove autonomous selection,
+a permitted contribution, or outside adoption. In a fresh conversation call
+`get_context` directly for the task; loading a skill first is unnecessary.

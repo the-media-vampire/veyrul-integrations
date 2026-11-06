@@ -89,3 +89,18 @@ No Veyrul subscription is required for these public reads. Your agent provider,
 local rendering software and infrastructure retain their own costs and terms.
 The companion's new files use this repository's MIT-0 license. The referenced
 timing and subtitle implementations retain their accompanying MIT licenses.
+
+## If a broad lookup returns generation recipes
+
+Keep the source tool and the requested operation distinct. For **existing clips**,
+try a focused query such as `FFmpeg edit renderer existing clips portrait subtitles
+audio offsets`, preserving the real timing, aspect-ratio and export constraints.
+In a founder-controlled check on 2026-11-06 this recovered the saved VFR/edit
+reference after a broad ComfyUI query returned generation templates. It did not
+supply a complete portrait/subtitle production recipe; continue researching only
+the missing details. Use the shared rule's two-refinement limit, not an open-ended
+query loop. For generation constraints, retain the exact model/node names.
+
+For transparency delivery, the new [ProRes alpha probe](../prores-alpha-check/README.md)
+provides a small executable export check. It does not create a missing alpha mask
+or establish that a ComfyUI graph or destination editor will preserve it.

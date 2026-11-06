@@ -2,7 +2,7 @@
 
 ## Project activation
 
-For Claude Code, Cursor, Gemini CLI and OpenCode, [activate an existing project](ACTIVATE.md) with one reviewed command. It preserves other tools and an existing read-only choice. Normal client server approval still applies. For the printable configuration or other clients, use the setup instructions below.
+For Claude Code, Cursor, Gemini CLI, OpenCode and an explicitly selected Hermes profile, [activate an existing project](ACTIVATE.md) with one reviewed command. It preserves other tools and an existing read-only choice. Normal client server approval still applies. For the printable configuration or other clients, use the setup instructions below.
 
 Use saved media knowledge inside the agent and production workflow you already use.
 One direct MCP connection serves all twenty-one companions below. No Veyrul account,
