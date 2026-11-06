@@ -22,6 +22,10 @@ contributions use separately authorized credentials. This repository contains
 integration instructions and a client-side task helper; it does not contain
 the application, research archives, source media or credentials.
 
+## Native OpenMontage lookup
+
+[Add the Veyrul knowledge tool](plugins/openmontage/README.md) to OpenMontage's own registry for saved workflows, evidence and references. One reviewed Python file, no new model service. Keep the standard project setup for permitted contribution and return.
+
 ## Native client workflows
 
 [Gemini CLI extension, OpenCode commands and OpenClaw skill](examples/native-media-workflows.md)

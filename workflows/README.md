@@ -5,12 +5,12 @@
 For Claude Code, Cursor, Gemini CLI and OpenCode, [activate an existing project](ACTIVATE.md) with one reviewed command. It preserves other tools and an existing read-only choice. Normal client server approval still applies. For the printable configuration or other clients, use the setup instructions below.
 
 Use saved media knowledge inside the agent and production workflow you already use.
-One direct MCP connection serves all nineteen companions below. No Veyrul account,
+One direct MCP connection serves all twenty-one companions below. No Veyrul account,
 API key, skill loader or new model service is required for reading.
 
 ## When the first lookup misses
 
-The shared project rules allow at most two focused follow-up queries, preserving the original task constraints. They retain useful failures and stop repeated searches. The shared standard rule is 3,619 characters, with retrieval, permitted contributions and useful returns in one place. Web readers can follow the canonical page or plain HTML reader when a Markdown endpoint is unsupported.
+The shared project rules allow at most two focused follow-up queries, preserving the original task constraints. They retain useful failures and stop repeated searches. The shared standard rule keeps retrieval, permitted contributions and useful returns in one place. Web readers can follow the canonical page or plain HTML reader when a Markdown endpoint is unsupported.
 
 ## Checked handoff helper
 
@@ -39,6 +39,8 @@ Before passing extracted design or motion tokens to another tool, use the [bound
 | [Cuttingfloor](cuttingfloor.md) | After clips are trimmed, repeated or sped up, before adding source-word captions. |
 | [Shotcut MCP](shotcut-mcp.md) | Before trimming a crossfaded clip or trusting generated MLT after an edit. |
 | [Designer Skills Collection](designer-skills.md) | Before handing design or motion tokens to a different tool. |
+| [Resonant](resonant.md) | Before accepting a rendered music loop; inspect channel-specific seams and internal discontinuities. |
+| [OpenMontage](openmontage.md) | Before placing word captions after cuts, repeats and speed changes; native registry lookup is available. |
 
 ## Connect once
 
