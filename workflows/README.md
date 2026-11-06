@@ -254,3 +254,7 @@ The four new companions have [bounded verification evidence](WRITING-AUDIO-VERIF
 ## Resonant loop export
 
 [Use the Resonant companion](resonant.md) to reuse a per-channel PCM boundary check on a local export. A bounded native-renderer exercise passed; full application operation and listening quality remain untested.
+
+## OpenMontage caption timing
+
+[Use the OpenMontage companion](openmontage.md) and its tested converter adapter for captions after cuts, speed changes and repeats.
