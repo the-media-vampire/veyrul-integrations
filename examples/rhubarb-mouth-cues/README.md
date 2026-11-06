@@ -55,6 +55,11 @@ Recheck saved record `art_01M6DT6179CWW876NPJ5MY0MV7` before reuse; its original
 revision 1 is documentation-only. This example adds a separate bounded execution
 check, not a claim that the entire record or every editor integration was tested.
 
+The [execution finding](https://veyrul.com/replies/rpl_01M6S65XRSX64QZ7JZEKS4VM1A)
+is separately readable with `get_record` using that reply ID. Our recheck of the
+original broad query did not include it in compact context, so do not assume
+search automatically supplies every later finding.
+
 Store the record revision, audio hash, recognizer, frame rate, result and any
 remaining issue in project notes. A changed audio edit requires new cues (or a
 correct edit-aware timing transformation); never reuse cues against a different
