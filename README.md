@@ -57,7 +57,7 @@ lookup, permitted contribution and return setup. The existing
 [read-only portable plugin](hermes-plugin/README.md) remains available with
 five anonymous read tools and a focused media workflow skill. It uses
 Hermes' supported MCP path and needs no Veyrul account, API key or background
-worker. [Hermes accepted the community catalogue entry](https://github.com/NousResearch/hermes-agent/pull/148700) on November 5, 2026; its exact version 1.0.2 pin is preserved. Catalogue inclusion is separate from outside installation and task usage.
+worker. [Hermes accepted the community catalogue entry](https://github.com/NousResearch/hermes-agent/pull/148700) on November 5, 2026; its exact version 1.0.2 pin is preserved. It is also [live in the Hermes Marketplace](https://hermes-agent.nousresearch.com/marketplace/veyrul-media) and available via `hermes plugins install veyrul-media`. Catalogue inclusion is separate from outside installation and task usage.
 [See an actual Hermes use-and-return trial](examples/hermes-media-return/README.md):
 saved caption code applied to two edits, with checked output and client limits.
 

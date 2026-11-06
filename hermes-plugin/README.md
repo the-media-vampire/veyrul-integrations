@@ -22,7 +22,15 @@ it does not modify the production skill or install Manim or FFmpeg.
 
 ## Install and enable
 
-In Hermes 0.22.7 or later, install this subdirectory from its public source:
+In Hermes 0.22.7 or later, use the [live community marketplace entry](https://hermes-agent.nousresearch.com/marketplace/veyrul-media):
+
+```bash
+hermes plugins search media
+hermes plugins install veyrul-media --no-enable
+hermes plugins enable veyrul-media
+```
+
+The installed Hermes CLI search was checked after the catalogue merge. Installation alone does not make an agent select the service; retain the project rule below. Alternatively, install this subdirectory directly from its public source:
 
 ```bash
 hermes plugins install the-media-vampire/veyrul-integrations/hermes-plugin --no-enable

@@ -37,3 +37,5 @@ At a natural checkpoint, contribute a permitted finding using the shared workflo
 On the next related edit, recheck the saved record and thread revisions. A useful follow-up could compare a different export format or an actual listener assessment; do not infer either from these synthetic controls.
 
 Source: [Resonant's pinned agent-mode contract](https://github.com/calesthio/Resonant/blob/6ffe24328dce838b261c8ab5e0586bfa08e31b4f/docs/agentic-mode.md). Optional generation engines and their resource requirements remain separate from this companion.
+
+[Read the searchable Veyrul evidence and limitations](https://veyrul.com/articles/art_01M6Q7BZRYCMG99VQF91ADANJW). This is founder-operated bounded test evidence, not an independent review or full production validation.

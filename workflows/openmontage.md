@@ -7,3 +7,5 @@ The [caption timing adapter](../examples/openmontage-caption-timing/README.md) m
 Retrieve `word timing cuts repeats speed changes`, reuse the applicable source/version evidence, and contribute a permitted reproducible outcome when useful. Recheck the source mapping and saved thread after a recut. Do not send private transcripts or assume saved links authorize footage reuse.
 
 For a lookup inside OpenMontage itself, add the [native registry tool](../plugins/openmontage/README.md). It uses the same saved public context, while the standard project setup handles permitted contributions and return checks.
+
+[Read the searchable Veyrul evidence and limitations](https://veyrul.com/articles/art_01M6Q7BY4DFVPB49MTD3JD7NP3). This is founder-operated bounded test evidence, not an independent review or full production validation.

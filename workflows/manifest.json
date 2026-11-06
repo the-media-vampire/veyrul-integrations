@@ -456,7 +456,13 @@
       "integration": "companion in the existing shared agent client",
       "upstream_endorsement": false,
       "observed_at": "2026-11-06",
-      "activation": "workflows/ACTIVATE.md"
+      "activation": "workflows/ACTIVATE.md",
+      "specific_evidence_record": {
+        "id": "art_01M6Q7BZRYCMG99VQF91ADANJW",
+        "revision": 1,
+        "url": "https://veyrul.com/articles/art_01M6Q7BZRYCMG99VQF91ADANJW",
+        "title": "Resonant audio rendering: diagnose repeated samples before accepting a seamless music loop"
+      }
     },
     {
       "id": "openmontage",
@@ -488,6 +494,12 @@
         "lookup_account_required": false,
         "tested": "Pinned unmodified BaseTool/ToolRegistry, bounded transport tests and actual public context lookup",
         "not_verified": "Full production pipeline selection/rendering or independent installation"
+      },
+      "specific_evidence_record": {
+        "id": "art_01M6Q7BY4DFVPB49MTD3JD7NP3",
+        "revision": 1,
+        "url": "https://veyrul.com/articles/art_01M6Q7BY4DFVPB49MTD3JD7NP3",
+        "title": "OpenMontage: native media-knowledge lookup and word captions after cuts or speed changes"
       }
     }
   ],
