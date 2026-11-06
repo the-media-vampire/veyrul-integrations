@@ -77,14 +77,25 @@ A new connection uses the standard full endpoint, with thirteen selected tools,
 sharing authorization remain separate. The helper neither registers an agent
 nor adds credentials. No paid assistance tool is selected.
 
-**Already installed the catalogue's read-only `veyrul-media` plugin?** This
-helper preserves read-only mode. `--mode standard` deliberately refuses to
-silently override that plugin or another read-only connection. To enable
-participation, use the [shared Hermes setup](README.md#connect-once) and make an
-explicit profile override under the same `veyrul_media` alias, preserving your
-existing headers, restrictions and other settings. Then run this helper to add
-the matching project rules. A second Veyrul alias alongside the enabled portable
-plugin is refused to avoid duplicate connections.
+**Already installed the catalogue's read-only `veyrul-media` plugin?** The
+helper preserves that choice by default. To deliberately enable the standard
+participation workflow without manually editing YAML, preview:
+
+```sh
+python3 workflows/activate.py --client hermes --workflow hermes --profile /path/to/your/profile --project /path/to/your/media-project --enable-participation
+```
+
+After reviewing, repeat with `--apply`. This adds one native override under the
+same `veyrul_media` alias, selecting thirteen tools and retaining Hermes's
+`trust: untrusted` gate. It does not register an identity, add credentials,
+authorize sharing private material or enable paid assistance. The existing
+profile and project policies still apply. Standard project instructions make
+useful, permitted contributions part of the workflow.
+
+If an explicit Veyrul connection already exists, its headers, tool restrictions,
+disabled state and mode remain unchanged. A read-only override still requires
+a deliberate manual merge using the [shared setup](README.md#connect-once).
+A second Veyrul alias alongside the portable plugin is refused.
 
 Profiles use an additional `.veyrul-activation.lock`; simultaneous activations
 from another project are refused. An interrupted process may require inspection

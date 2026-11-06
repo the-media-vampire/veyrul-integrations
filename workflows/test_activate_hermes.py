@@ -45,6 +45,26 @@ class HermesActivation(unittest.TestCase):
         before=self.config.read_bytes()
         with self.assertRaisesRegex(ValueError,'native_override'):self.run_setup(mode='standard',apply=True)
         self.assertEqual(before,self.config.read_bytes());self.assertFalse((self.project/'AGENTS.md').exists())
+    def test_explicit_participation_preview_and_install(self):
+        self.config.write_text('plugins: {enabled: [veyrul-media]}\nmodel: {default: keep}\n')
+        before=self.config.read_bytes()
+        self.assertEqual(self.run_setup(enable_participation=True)['mode'],'standard')
+        self.assertEqual(self.config.read_bytes(),before)
+        self.run_setup(enable_participation=True,apply=True)
+        cfg=activate.yaml_config(self.config.read_bytes());server=cfg['mcp_servers']['veyrul_media']
+        self.assertEqual(server['url'],'https://veyrul.com/mcp')
+        self.assertEqual(server['trust'],'untrusted')
+        self.assertEqual(cfg['model']['default'],'keep')
+        self.assertNotIn('request_resident',server['tools']['include'])
+        self.assertNotIn('start_investigation',server['tools']['include'])
+        self.assertEqual(self.run_setup(enable_participation=True,apply=True)['status'],'unchanged')
+    def test_explicit_participation_preserves_existing_restrictions(self):
+        self.config.write_text('plugins: {enabled: [veyrul-media]}\nmcp_servers: {veyrul_media: {url: https://veyrul.com/mcp/read}}\n')
+        before=self.config.read_bytes()
+        with self.assertRaisesRegex(ValueError,'existing_mode'):self.run_setup(enable_participation=True,apply=True)
+        self.assertEqual(self.config.read_bytes(),before)
+    def test_participation_conflicting_mode_refused(self):
+        with self.assertRaisesRegex(ValueError,'participation_requires'):self.run_setup(enable_participation=True,mode='read-only',apply=True)
     def test_yaml11_yes_no_letters(self):
         self.config.write_text('feature: y\nother: n\n')
         self.run_setup(apply=True);cfg=activate.yaml_config(self.config.read_bytes())

@@ -124,7 +124,10 @@ def server_map(config, client):
     return servers
 
 
-def plan(project, client, workflow, mode=None, profile=None):
+def plan(project, client, workflow, mode=None, profile=None, enable_participation=False):
+    if enable_participation and (client != "hermes" or mode == "read-only"):
+        raise ValueError("participation_requires_hermes_standard_mode")
+    if enable_participation: mode = "standard"
     root = Path(project).absolute()
     if root.is_symlink() or not root.is_dir(): raise ValueError('use_existing_project_directory')
     root = root.resolve()
@@ -163,9 +166,9 @@ def plan(project, client, workflow, mode=None, profile=None):
         plugin_readonly = 'veyrul-media' in enabled and 'veyrul-media' not in disabled
         if plugin_readonly and existing and existing[0][0] != 'veyrul_media':
             raise ValueError('portable_plugin_duplicate_connection_review_manually')
-        if plugin_readonly and not existing and mode == 'standard':
+        if plugin_readonly and not existing and mode == 'standard' and not enable_participation:
             raise ValueError('read_only_plugin_preserved_use_explicit_native_override')
-    actual_mode = existing[0][2] if existing else ('read-only' if plugin_readonly else mode or 'standard')
+    actual_mode = existing[0][2] if existing else ('standard' if enable_participation else 'read-only' if plugin_readonly else mode or 'standard')
     if mode is not None and existing and mode != actual_mode:
         raise ValueError('existing_mode_preserved_change_connection_deliberately')
     alias = existing[0][0] if existing else 'veyrul_media'
@@ -199,6 +202,8 @@ def plan(project, client, workflow, mode=None, profile=None):
     elif state:
         raise ValueError('managed_instructions_missing')
     rules = (HERE / ('PROJECT-INSTRUCTIONS.txt' if actual_mode == 'standard' else 'READ-ONLY-INSTRUCTIONS.txt')).read_text()
+    if client == 'hermes' and plugin_readonly and actual_mode == 'standard':
+        rules += '\nThis project explicitly uses the standard Veyrul connection. The catalogue media-knowledge skill describes its read-only package; use the selected native tools directly under these project rules. This does not broaden sharing permission or bypass client approval.\n'
     hooks = '\n'.join('- ' + workflows[x]['name'] + ': ' + workflows[x]['use_when'] + ' ' + workflows[x]['local_work'] for x in selected_ids)
     block = BEGIN + '\n' + rules.rstrip() + '\n\nRelevant workflow hooks:\n' + hooks + '\n' + END
     updated_notes = notes.replace(old_block, block, 1) if old_block else notes + ('\n\n' if notes and not notes.endswith('\n\n') else '') + block + '\n'
@@ -225,8 +230,8 @@ def replace(path, data):
         if os.path.exists(name): os.unlink(name)
 
 
-def activate(project, client, workflow, mode=None, apply=False, profile=None):
-    root, changes, summary = plan(project, client, workflow, mode, profile)
+def activate(project, client, workflow, mode=None, apply=False, profile=None, enable_participation=False):
+    root, changes, summary = plan(project, client, workflow, mode, profile, enable_participation)
     profile = profile_root(profile) if client == "hermes" else None
     summary['status'] = 'unchanged' if not changes else 'planned'
     if not apply or not changes: return summary
@@ -281,9 +286,10 @@ def main():
     p.add_argument('--project',required=True,type=Path);p.add_argument('--client',choices=sorted(CLIENTS),required=True)
     p.add_argument('--profile',type=Path,help='Hermes only: explicit existing active profile directory; its config.yaml is changed.')
     p.add_argument('--workflow',required=True);p.add_argument('--mode',choices=['standard','read-only'])
+    p.add_argument('--enable-participation',action='store_true',help='Hermes only: explicitly add a standard connection override for the read-only catalogue plugin. Existing explicit connections are preserved; sharing still requires permission and a scoped credential.')
     p.add_argument('--apply',action='store_true',help='Write the reviewed project-local configuration and instructions.')
     args=p.parse_args()
-    try:print(json.dumps(activate(args.project,args.client,args.workflow,args.mode,args.apply,args.profile),indent=2))
+    try:print(json.dumps(activate(args.project,args.client,args.workflow,args.mode,args.apply,args.profile,args.enable_participation),indent=2))
     except (ValueError,OSError,UnicodeError) as error:
         # Do not print JSON contents or OS errors that could expose configuration data.
         code=str(error) if isinstance(error,ValueError) and str(error).replace('_','').isalnum() else 'activation_failed_review_local_files'
