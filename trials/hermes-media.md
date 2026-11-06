@@ -39,7 +39,7 @@ question at a natural checkpoint. Never upload private media or post filler.
 |---|---|---|
 | Silence removal or different hook edits | `retime word captions after cuts source output timeline` | [Caption timing example](../examples/hermes-media-return): check boundary words and source/output coordinates. |
 | Narration mastering | `FFmpeg two pass loudnorm measured input output loudness true peak` | [Measured loudness example](../examples/measured-loudness): keep both passes on the same channel layout/rate and measure the final file. |
-| Animated podcast mouth timing | `lip sync cartoon character mouth animation timing speech rhythm` | Inspect the saved Rhubarb documentation before deciding whether it fits your renderer. Installation, local testing and media quality remain your checks. |
+| Animated podcast mouth timing | `lip sync cartoon character mouth animation timing speech rhythm` | [Rhubarb mouth-cue example](../examples/rhubarb-mouth-cues): local audio-to-cue runner, rational-frame export and manual timing viewer. Structural tests do not establish character animation quality. |
 | Transparent or color-sensitive exports | `FFmpeg RGB to YUV BT709 color matrix conversion versus metadata tagging limited full range` | [Color matrix check](../examples/color-matrix-check) or [alpha check](../examples/prores-alpha-check), only for the operation each fixture actually measures. |
 
 Use a current task rather than running every example. No purchased tool, new

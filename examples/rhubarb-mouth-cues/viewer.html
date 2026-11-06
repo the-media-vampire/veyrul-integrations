@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Rhubarb timing check — local files only</title>
+<style>body{font:18px system-ui;background:#15151a;color:#eee;max-width:760px;margin:3rem auto;padding:1rem}label{display:block;margin:1rem 0}canvas{background:#24242b;border-radius:1rem;width:100%}audio{width:100%;margin:1rem 0}p{line-height:1.5}output{display:block;white-space:pre-wrap}</style>
+<h1>Check mouth timing against your audio</h1>
+<p>Open <code>cues.json</code> and the same audio used by Rhubarb. Files stay in this browser; there are no network requests. The mouth drawings are schematic timing markers, not production character artwork.</p>
+<label>Rhubarb JSON <input id="cues" type="file" accept=".json"></label>
+<label>Matching audio <input id="sound" type="file" accept="audio/*"></label>
+<audio id="audio" controls></audio><canvas id="view" width="720" height="260"></canvas>
+<output id="status">Choose both files.</output>
+<p>Watch plosive closures, long vowels, silence and the end of the clip. Listening and visual review are still required. This viewer uses the audio playback clock, so it does not accumulate timer drift. Changing the audio or edit invalidates the saved cues.</p>
+<script>
+'use strict';
+const el = id => document.getElementById(id), audio=el('audio'), ctx=el('view').getContext('2d');
+let data=null,url=null;
+el('sound').onchange=()=>{ const f=el('sound').files[0];if(!f)return;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);audio.src=url; };
+el('cues').onchange=async()=>{ data=null;try{
+ const file=el('cues').files[0];if(!file||file.size>2*1024*1024)throw Error('Select JSON under 2 MiB');
+ const d=JSON.parse(await file.text()), duration=d.metadata?.duration;
+ if(!Number.isFinite(duration)||duration<=0||duration>120||!Array.isArray(d.mouthCues)||!d.mouthCues.length||d.mouthCues.length>24000)throw Error('Invalid duration or cues');
+ let end=0;for(const c of d.mouthCues){if(!Number.isFinite(c.start)||!Number.isFinite(c.end)||c.start!==end||c.end<=c.start||c.end>duration||!['A','B','C','D','E','F','G','H','X'].includes(c.value))throw Error('Invalid or discontinuous cues');end=c.end;}
+ if(end!==duration)throw Error('Duration mismatch');data=d;
+ }catch(e){el('status').textContent=e.message;}
+};
+function draw(){
+ const t=audio.currentTime, cue=data?.mouthCues.find(c=>c.start<=t&&t<c.end), shape=cue?.value??'X';
+ ctx.clearRect(0,0,720,260);ctx.fillStyle='#eee';ctx.font='22px system-ui';ctx.fillText(`Mouth ${shape}   ${t.toFixed(3)} s`,30,38);
+ const sizes={A:[65,3],B:[65,12],C:[55,27],D:[55,52],E:[35,35],F:[20,25],G:[62,8],H:[58,27],X:[60,3]},[rx,ry]=sizes[shape];
+ ctx.fillStyle='#f399b0';ctx.beginPath();ctx.ellipse(360,140,rx,ry,0,0,2*Math.PI);ctx.fill();
+ ctx.fillStyle='#15151a';ctx.beginPath();ctx.ellipse(360,140,Math.max(1,rx-5),Math.max(1,ry-5),0,0,2*Math.PI);ctx.fill();
+ if(['B','G'].includes(shape)){ctx.fillStyle='#eee';ctx.fillRect(310,131,100,6);}
+ if(shape==='H'){ctx.fillStyle='#e76c90';ctx.fillRect(340,147,40,12);}
+ if(data){let msg=`${data.mouthCues.length} cues · ${data.metadata.duration} s · schematic preview only`;
+ if(Number.isFinite(audio.duration)&&Math.abs(audio.duration-data.metadata.duration)>0.011)msg+='\nWARNING: audio duration does not match cues. Choose the original audio or regenerate.';
+ el('status').textContent=msg;}
+ requestAnimationFrame(draw);
+}draw();
+</script></html>
