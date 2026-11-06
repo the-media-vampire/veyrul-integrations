@@ -47,15 +47,24 @@ exec(compile(ast.fix_missing_locations(module), str(source), 'exec'), env)
 rows = []
 for count in [1, 2, 3, 5, 25, 273]:
     for depth in [0, 1, 2, 3]:
-        a = list(env['interpolate_recursively_from_memory']([Frame(i) for i in range(count)], depth, midpoint))
+        memory_originals = [Frame(i) for i in range(count)]
+        file_originals = [Frame(i) for i in range(count)]
+        env['read_image'] = lambda name: file_originals[int(name)]
+        a = list(env['interpolate_recursively_from_memory'](memory_originals, depth, midpoint))
         b = list(env['interpolate_recursively_from_files']([str(i) for i in range(count)], depth, midpoint))
         expected = (count - 1) * 2 ** depth + 1
         assert len(a) == len(b) == expected
         assert [f.value for f in a] == [f.value for f in b]
         assert a[0].value == 0 and a[-1].value == count - 1
         assert all(y.value > x.value for x, y in zip(a, a[1:]))
+        for output, originals in [(a, memory_originals), (b, file_originals)]:
+            original_ids = {id(frame) for frame in originals}
+            observed_originals = [id(frame) for frame in output if id(frame) in original_ids]
+            assert observed_originals == [id(frame) for frame in originals], 'original identity, multiplicity or order changed'
+            assert [frame.value for frame in output if frame.value.denominator == 1] == list(range(count))
         rows.append({'input_frames': count, 'depth': depth, 'actual': len(a),
-                     'readme_formula': (2 ** depth + 1) * (count - 1), 'expected': expected})
+                     'readme_formula': (2 ** depth + 1) * (count - 1), 'expected': expected,
+                     'each_original_once_in_order_both_paths': True})
 result = {'upstream_commit': '69f8708f08e62c2edf46a27616a4bfcf083e2076',
           'source_sha256': hashlib.sha256(raw).hexdigest(),
           'scope': 'Unmodified generator statements extracted from reviewed source; scalar midpoint/image-reader test doubles only.',

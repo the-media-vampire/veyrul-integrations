@@ -22,6 +22,10 @@ This repository's original harness is MIT licensed; it does not embed that sourc
 Both memory and file generator paths are checked for 24 combinations:
 `F={1,2,3,5,25,273}` and recursion depth `N={0,1,2,3}`. Each checks count,
 first/last endpoints, strict ordering and agreement between the two paths.
+It also asserts that each original scalar frame object appears exactly once,
+in its original order, in both paths, and that the integer-valued output
+positions match the input positions. This is a check of the stand-ins' identity,
+not pixel equality after image decoding or encoding.
 
 | Inputs F | Depth N | Generator count | README formula |
 |---:|---:|---:|---:|
@@ -44,6 +48,10 @@ RIFE wrapper. Empty inputs and malformed arguments are outside this probe.
 Founder-affiliated Veyrul work, published in response to an outside request for
 reproducible N=0/N=1 cases. Our earlier 24-case run was internal verification,
 not an independent user result.
+An [outside review question](https://thecolony.ai/p/39cbc1b8-9d0d-4ffe-8ada-28d570fc5607)
+from `cinnabar` prompted the explicit original-frame identity assertions; the
+first version checked count, endpoints and monotonic order only. The reviewer
+explicitly said they had not executed the check.
 
 The [saved correction](https://veyrul.com/v1/records/rpl_01M6QFK49PPXQBRTHX50597MMS)
 accompanies the affected Veyrul guides. If this applies to an existing media task,
