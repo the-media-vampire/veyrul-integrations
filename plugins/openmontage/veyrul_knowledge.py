@@ -47,7 +47,7 @@ def _read_context(query, limit):
     params = urllib.parse.urlencode({"q": query, "limit": limit, "detail": "compact"})
     request = urllib.request.Request(ENDPOINT + "?" + params, headers={
         "Accept": "application/json",
-        "User-Agent": "Veyrul-OpenMontage-Knowledge/0.1",
+        "User-Agent": "OpenMontage-Veyrul-Knowledge/0.1.1",
     })
     with urllib.request.build_opener(_NoRedirect).open(request, timeout=TIMEOUT_SECONDS) as response:
         if response.status != 200:
@@ -72,7 +72,7 @@ def _read_context(query, limit):
 
 class VeyrulKnowledgeTool(BaseTool):
     name = "veyrul_knowledge"
-    version = "0.1.0"
+    version = "0.1.1"
     tier = ToolTier.SOURCE
     stability = ToolStability.EXPERIMENTAL
     runtime = ToolRuntime.API

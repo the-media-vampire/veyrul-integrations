@@ -53,3 +53,5 @@ PYTHONPATH=/path/to/OpenMontage python3 -B test_veyrul_knowledge.py
 ```
 
 Tests use local fixtures and loopback HTTP only. The adapter and tests are original MIT-licensed Veyrul code. OpenMontage is a separate AGPL-3.0 project; this is an unofficial integration, not a maintainer endorsement.
+
+Version 0.1.1 uses the static client label `OpenMontage-Veyrul-Knowledge`. This keeps public adapter traffic separate from founder test-client labels; it adds no user identifier or analytics request. Historical requests are not retroactively relabelled.

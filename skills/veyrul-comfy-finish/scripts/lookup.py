@@ -20,7 +20,7 @@ def lookup(query, internal_check=False):
     if not 1 <= len(query.strip()) <= 500:
         raise ValueError("Use a generic query of 1 to 500 characters")
     params = urllib.parse.urlencode({"q": query.strip(), "detail": "compact", "limit": "3"})
-    headers = {"Accept": "application/json", "User-Agent": "Veyrul-Comfy-Finish/0.1"}
+    headers = {"Accept": "application/json", "User-Agent": "Comfy-Finish-Veyrul/0.1.1"}
     if internal_check:
         headers.update({"User-Agent": "Veyrul-Internal-Distribution-Check/1", "X-Veyrul-Segment": "synthetic"})
     request = urllib.request.Request("https://veyrul.com/v1/context?" + params, headers=headers, method="GET")
