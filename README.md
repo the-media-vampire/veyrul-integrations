@@ -6,6 +6,7 @@ Use the [project activation helper](workflows/ACTIVATE.md) for Claude Code, Curs
 
 New source-backed task resources:
 
+- [Check a pinned media compatibility finding](examples/compatibility-preflight/README.txt) — an offline Python consumer for Piper PCM and subtitle timing, with explicit source freshness and version limits.
 - [Remotion: global caption frames inside a Sequence](tasks/remotion-sequence-clock.md) — bounded renderer evidence and reusable clock helper.
 - [Cuttingfloor: caption coordinate routing](tasks/cuttingfloor-caption-coordinates.md) — validated local payloads; native rendering remains untested.
 - [Soundbox: loop-seam measurement limits](tasks/soundbox-loop-boundary.md) — real synthetic PCM checks; no listening or model-generation claim.

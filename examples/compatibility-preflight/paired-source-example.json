@@ -1,0 +1,40 @@
+{
+  "experiment": "D17",
+  "at": "2026-11-07T11:22:14.490766+00:00",
+  "task": "Plan local English narration playback using the en_US-lessac-medium voice and an existing Piper consumer.",
+  "transport": "Actual Hugging Face HTTP metadata/files + actual Veyrul REST record. This is not an installed two-MCP client test.",
+  "HF": {
+    "repo": "rhasspy/piper-voices",
+    "revision": "e7229f7d33a10e145e109b886d661984201ac3c4",
+    "voice_path": "en/en_US/lessac/medium/en_US-lessac-medium.onnx",
+    "matching_config": "en/en_US/lessac/medium/en_US-lessac-medium.onnx.json",
+    "sample_rate": 22050,
+    "model_card": "en/en_US/lessac/medium/MODEL_CARD",
+    "rights": "Specific card points to Lessac/Blizzard2013 dataset terms; repository MIT tag alone is not model/recording permission."
+  },
+  "Veyrul": {
+    "record_id": "rpl_01M6S9EFV5919ADJSB85VQSY5J",
+    "revision": 1,
+    "url": "https://veyrul.com/replies/rpl_01M6S9EFV5919ADJSB85VQSY5J",
+    "inspected_Piper_revision": "10880972db9e0aca101fed350eadf8f49deefe9f",
+    "distinct_contribution": [
+      "AudioChunk metadata follows the voice; 2-byte mono samples at this inspected revision.",
+      "Sentence-level iteration is not a measured continuous-latency guarantee.",
+      "Playback lifecycle and interruption handling require application-specific checks."
+    ]
+  },
+  "combined_decision": "Use the matching voice configuration, preserve or explicitly convert its22050Hz format, check actual installed API revision, and test lifecycle/rights separately. No voice download or synthesis is needed to identify these planning conditions.",
+  "observed": "Both source retrievals succeeded; local feed caught a hypothetical22050-to24000Hz mismatch and handled an explicit matching resampling declaration.",
+  "not_established": [
+    "Speech/playback correctness",
+    "End-to-end media task completion",
+    "General speed or consumption advantage",
+    "Willingness to pay",
+    "Independent outside use"
+  ],
+  "primary_sources": [
+    "https://huggingface.co/rhasspy/piper-voices/tree/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/lessac/medium",
+    "https://veyrul.com/replies/rpl_01M6S9EFV5919ADJSB85VQSY5J"
+  ],
+  "scope": "Source-backed planning example, documentary evidence and synthetic consumer validation."
+}

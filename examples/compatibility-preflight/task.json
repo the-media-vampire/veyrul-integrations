@@ -1,0 +1,18 @@
+{
+  "component": "piper-python",
+  "implementation_revision": "10880972db9e0aca101fed350eadf8f49deefe9f",
+  "facts": {
+    "voice_sample_rate": 22050,
+    "playback_sample_rate": 24000,
+    "sample_width_bytes": 2,
+    "channels": 1,
+    "resample_to_hz": null,
+    "requires_continuous_low_latency": false
+  },
+  "source_checks": {
+    "rpl_01M6S9EFV5919ADJSB85VQSY5J": {
+      "public_visible": true,
+      "revision": 1
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "format": "veyrul-experimental-compatibility-feed/1",
+  "status": "prototype; not a Hub contract or production guarantee",
+  "created_at": "2026-11-07",
+  "publisher": "Veyrul, founder-operated",
+  "summary_license": "CC-BY-4.0",
+  "entries": [
+    {
+      "id": "piper-pcm-clock",
+      "component": "piper-python",
+      "implementation_revision": "10880972db9e0aca101fed350eadf8f49deefe9f",
+      "source": {"id": "rpl_01M6S9EFV5919ADJSB85VQSY5J", "revision": 1, "url": "https://veyrul.com/replies/rpl_01M6S9EFV5919ADJSB85VQSY5J"},
+      "evidence": "Source inspection, not speech generation or playback testing",
+      "check": "piper_format",
+      "required_facts": ["voice_sample_rate", "playback_sample_rate", "sample_width_bytes", "channels", "resample_to_hz"],
+      "finding": "The inspected AudioChunk API carries the loaded voice's sample rate, 2-byte samples and one channel. A consumer must preserve that format or explicitly convert it.",
+      "action": "Read the matching voice JSON and actual AudioChunk metadata; configure playback accordingly or verify resampling. Do not assume all voices use one rate.",
+      "limits": "No old-package compatibility, playback latency, hardware fit, voice rights or finished narration quality is established."
+    },
+    {
+      "id": "piper-sentence-stream",
+      "component": "piper-python",
+      "implementation_revision": "10880972db9e0aca101fed350eadf8f49deefe9f",
+      "source": {"id": "rpl_01M6S9EFV5919ADJSB85VQSY5J", "revision": 1, "url": "https://veyrul.com/replies/rpl_01M6S9EFV5919ADJSB85VQSY5J"},
+      "evidence": "Source inspection, no latency benchmark",
+      "check": "piper_latency",
+      "required_facts": ["requires_continuous_low_latency"],
+      "finding": "The inspected iterator yields after synthesizing a sentence. The presence of an iterator does not establish continuous low-latency playback.",
+      "action": "Measure synthesis and playback lifecycle independently before relying on a latency bound.",
+      "limits": "Does not diagnose a particular application's buffering or interruption behavior."
+    },
+    {
+      "id": "ass-quantization-collapse",
+      "component": "current-word-ass",
+      "implementation_revision": "5496e6c05ff2135f6c60a8f7cb22637d34d092d2",
+      "source": {"id": "rpl_01M6TVE4ZYHWK5D4FVKFS9ES21", "revision": 1, "url": "https://veyrul.com/replies/rpl_01M6TVE4ZYHWK5D4FVKFS9ES21"},
+      "evidence": "Founder-controlled deterministic check of unchanged saved Python code; no media render",
+      "check": "ass_intervals",
+      "required_facts": ["quantized_intervals_ms"],
+      "finding": "Rounding 101..104 ms to nearest 10 ms gives 100..100 ms, which the saved tool rejects.",
+      "action": "Choose a documented quantization policy, then validate positive duration, ordering, bounds and overlap. Never invent timing silently.",
+      "limits": "This prototype checks supplied interval shape and positive duration only. Use the full saved tool's input validator for its complete contract."
+    },
+    {
+      "id": "ass-edited-timebase",
+      "component": "current-word-ass",
+      "implementation_revision": "5496e6c05ff2135f6c60a8f7cb22637d34d092d2",
+      "source": {"id": "rpl_01M6TVE4ZYHWK5D4FVKFS9ES21", "revision": 1, "url": "https://veyrul.com/replies/rpl_01M6TVE4ZYHWK5D4FVKFS9ES21"},
+      "evidence": "Founder-controlled deterministic source check; output unchanged when external trim metadata was added",
+      "check": "ass_timebase",
+      "required_facts": ["audio_edited_after_alignment", "edit_map_applied_and_checked"],
+      "finding": "The saved tool consumes supplied word times and cannot discover that the audio was trimmed or retimed.",
+      "action": "Establish the final audio timebase. Apply and check the actual edit map, or obtain a new alignment when mapping is unavailable.",
+      "limits": "An unchanged format-valid ASS file can still be out of sync. This checker does not inspect audio."
+    }
+  ]
+}
