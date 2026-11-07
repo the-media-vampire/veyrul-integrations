@@ -1,0 +1,47 @@
+{
+  "schema": "veyrul-media-error-index/1",
+  "reviewed_at": "2026-11-07",
+  "author_affiliation": "founder",
+  "cases": [
+    {
+      "id": "ass-zero-duration",
+      "title": "ASS subtitles: a positive word interval becomes zero duration",
+      "evidence": "internal_static_check",
+      "page": "ass-zero-duration.md",
+      "context_url": "https://veyrul.com/v1/context?q=ASS+timestamp+rounding+positive+word+duration+subtitles&detail=compact&limit=3",
+      "independent_reproduction": false
+    },
+    {
+      "id": "piper-streaming-playback",
+      "title": "Piper streaming: sentence chunks do not prove continuous playback",
+      "evidence": "source_inspected_not_run",
+      "page": "piper-streaming-playback.md",
+      "context_url": "https://veyrul.com/v1/context?q=Piper+TTS+streaming+sentence+chunks+PCM+playback+truncation&detail=compact&limit=3",
+      "independent_reproduction": false
+    },
+    {
+      "id": "ace-studio-blackwell-lyrics",
+      "title": "ACE-Step Studio: lyrics degrade later on Blackwell GPUs",
+      "evidence": "upstream_report_not_reproduced",
+      "page": "ace-studio-blackwell-lyrics.md",
+      "context_url": "https://veyrul.com/v1/context?q=ACE-Step+Studio+Blackwell+lyrics+unintelligible+flash+attention+3.8.4&detail=compact&limit=3",
+      "independent_reproduction": false
+    },
+    {
+      "id": "ace-studio-final-flac-save",
+      "title": "ACE-Step Studio: generation finishes but final FLAC save fails",
+      "evidence": "upstream_report_not_reproduced",
+      "page": "ace-studio-final-flac-save.md",
+      "context_url": "https://veyrul.com/v1/context?q=ACE-Step+Studio+final+FLAC+save+temp+directory+finished+song+disappears&detail=compact&limit=3",
+      "independent_reproduction": false
+    },
+    {
+      "id": "ace-studio-turing-lora",
+      "title": "ACE-Step Studio: LoRA training reports backend does not support on Turing",
+      "evidence": "upstream_report_not_reproduced",
+      "page": "ace-studio-turing-lora.md",
+      "context_url": "https://veyrul.com/v1/context?q=ACE-Step+Studio+Turing+RTX+20+LoRA+backend+does+not+support+ConvRot8&detail=compact&limit=3",
+      "independent_reproduction": false
+    }
+  ]
+}

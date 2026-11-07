@@ -354,3 +354,7 @@ Try the [caption timing, exact beat cuts, and safe audio handoff pilots](example
 ### Editing-agent companions
 
 Use the tested timing data adapters and shared investigations alongside [FFmpeg Skill, HyperFrames, or Cutline](workflows/media-editing/README.md). Each companion preserves the editor’s execution contract and connects retrieval, permitted findings, and later reuse.
+
+## Troubleshoot a media failure
+
+[Five evidence-led investigations](docs/media-errors/README.md) cover subtitle timing collapse, Piper playback boundaries and specific ACE-Step Studio failures. Each names its source/version and separates static tests from unverified publisher reports.
