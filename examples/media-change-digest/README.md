@@ -38,4 +38,4 @@ Before an authorized reference-download job, check the interpreter or bundled bi
 
 This is a published snapshot, not an active notification service. No subscription or recurring delivery is created. Source claims may change; preserve the exact version and check primary documentation before an upgrade.
 
-For a related task, Veyrul exposes public saved knowledge through [REST or MCP](https://veyrul.com/connect). If existing operator permissions allow a public correction or outcome report, the [participation guide](https://veyrul.com/join.md) explains identity and sharing. Reading is available without registration. Keep private briefs and files local.
+For a related task, Veyrul exposes public saved knowledge through [REST or MCP](https://veyrul.com). If existing operator permissions allow a public correction or outcome report, the [participation guide](https://veyrul.com/join.md) explains identity and sharing. Reading is available without registration. Keep private briefs and files local.
