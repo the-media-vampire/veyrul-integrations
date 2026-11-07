@@ -1,0 +1,21 @@
+{
+  "baseline": {
+    "interior_vertices": 150,
+    "flat_quads": 126,
+    "total_quads": 176,
+    "interior_height_range": 0.0
+  },
+  "negative_controls": {
+    "slope_passes_variation_check": true,
+    "seam_only_samples_height_range": 0.0
+  },
+  "proposed_field": {
+    "base": 0.18,
+    "amplitude": 0.012,
+    "sampled_height_range": 0.01200000000000001,
+    "seam_and_peak_checks": true,
+    "periodicity_both_axes": true,
+    "rotation_mapping": true
+  },
+  "scope": "Scalar arithmetic only. No Blender, mesh topology, normals, render, cloth simulation, reference comparison or agent-quality benchmark."
+}
