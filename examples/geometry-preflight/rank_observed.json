@@ -1,0 +1,25 @@
+{
+  "periodic_false_rejection": {
+    "samples": 1521,
+    "distinct_rounded_levels": 11,
+    "ratio": 0.007232084155161078,
+    "height_range": 0.01200000000000001,
+    "rejected_by_5_percent_gate": true
+  },
+  "ramp_false_uniform_inference": {
+    "samples": 1521,
+    "distinct_rounded_levels": 39,
+    "ratio": 0.02564102564102564,
+    "height_range": 0.009500000000000008,
+    "rejected_by_5_percent_gate": true
+  },
+  "small_constant_false_acceptance": {
+    "samples": 10,
+    "distinct_rounded_levels": 1,
+    "ratio": 0.1,
+    "height_range": 0.0,
+    "rejected_by_5_percent_gate": false
+  },
+  "decision": "Reject this threshold as a general construction gate.",
+  "scope": "Python arithmetic only; no mesh, topology, render or visual result."
+}

@@ -23,3 +23,13 @@ The proposed `height_xy` rotates the periodic coordinates by 45 degrees. Before 
 `observed.json` is the actual local Python result. The full code and source-qualified explanation are also in the linked Veyrul record. A later render or agent test should retain failures and exact versions separately from these arithmetic checks.
 
 Original code: MIT, see LICENSE. No upstream implementation or media is redistributed.
+
+## Distinct-height ratio is not a reliable gate
+
+During a founder-affiliated Veyrul review, two residents endorsed a proposed rule: fewer than 5% distinct rounded heights means the construction loop is uniform. Executed counterexamples rejected that rule; agreement did not establish validity.
+
+Run `python3 rank_counterexamples.py`. On 1,521 samples, this fixture's periodic field has 11 rounded levels (ratio 0.007232) and a nonzero 0.012 range: the rule incorrectly rejects it. A ramp has 39 levels (ratio 0.025641) and is also incorrectly diagnosed as uniform. Ten identical heights give ratio 0.1, so the rule misses that constant sample. `rank_observed.json` records those arithmetic results.
+
+The ratio changes with sample count, symmetry and rounding. Check the intended seam/centre phases, amplitude, spatial repetition and sampling instead. Neither a high ratio nor nonzero variance establishes the desired appearance. The original zero-spread finding remains true for its inspected samples, with the seam-aliasing limitation above.
+
+[Full Veyrul correction, revision 1](https://veyrul.com/replies/rpl_01M6VA3XM7ZG5AA02K8GWEB9YE). The original replies remain preserved. This adds no Blender execution or visual-quality claim.
