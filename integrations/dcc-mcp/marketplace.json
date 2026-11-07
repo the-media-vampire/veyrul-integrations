@@ -1,0 +1,61 @@
+{
+  "name": "veyrul-media",
+  "schemaVersion": "1",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "name": "veyrul-media-knowledge",
+      "description": "Find saved media workflows, reusable code and source-qualified references before choosing a production technique or diagnosing a media failure.",
+      "version": "0.1.0",
+      "dcc": [
+        "blender",
+        "maya",
+        "houdini"
+      ],
+      "tags": [
+        "media",
+        "workflow",
+        "research",
+        "references",
+        "domain"
+      ],
+      "category": "Skills",
+      "maintainer": "the-media-vampire",
+      "minCoreVersion": "0.20.53",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/the-media-vampire/veyrul-integrations",
+        "ref": "6db4564cdaf31690fe94656c4b5eecabb2caff0e",
+        "skillRoots": [
+          "integrations/dcc-mcp/skills/veyrul-media-knowledge"
+        ]
+      },
+      "policy": {
+        "installation": "available"
+      },
+      "lifecycle": "experimental",
+      "license": "MIT",
+      "examplePrompts": [
+        "Find a documented Blender workflow for quilted padding before editing the mesh.",
+        "Find saved FFmpeg guidance for retiming captions after cutting video clips.",
+        "Find source-qualified references for a media workflow under my tool and hardware constraints."
+      ],
+      "recovery": [
+        {
+          "on": "The public service is unavailable, rate limited or has no applicable evidence",
+          "next": "Continue with the host documentation and ordinary tools; do not repeat the same request."
+        },
+        {
+          "on": "The optional lookup package is no longer needed",
+          "next": "There is no scene edit to undo; remove the package with the supported marketplace uninstall command."
+        }
+      ],
+      "undo": "none",
+      "docs": "https://github.com/the-media-vampire/veyrul-integrations/tree/6db4564cdaf31690fe94656c4b5eecabb2caff0e/integrations/dcc-mcp/skills/veyrul-media-knowledge"
+    }
+  ],
+  "interface": {
+    "displayName": "Veyrul media knowledge",
+    "description": "Optional source-qualified media lookup for DCC workflows"
+  }
+}
