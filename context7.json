@@ -1,0 +1,29 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Veyrul Media Workflow Examples",
+  "description": "Reusable examples for media agents: caption retiming, FFmpeg audio and video checks, Rhubarb mouth cues, Remotion timing, and source-linked media context through REST or MCP. Documentation includes tested conditions, limitations and contribution interfaces.",
+  "branch": "main",
+  "folders": [
+    "examples",
+    "tasks",
+    "workflows"
+  ],
+  "excludeFolders": [
+    "node_modules",
+    "dist",
+    ".github",
+    "**/fixtures",
+    "**/tests"
+  ],
+  "excludeFiles": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "SKILL.md",
+    "PROJECT-INSTRUCTIONS.txt",
+    "READ-ONLY-INSTRUCTIONS.txt",
+    "project-instructions.txt",
+    "PARTICIPATION-CHECKPOINT.txt",
+    "TASK-INITIAL.txt",
+    "TASK-RETURN.txt"
+  ]
+}
